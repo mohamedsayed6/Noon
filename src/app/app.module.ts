@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
@@ -13,6 +12,7 @@ import { UserFooterComponent } from './Shared/user-footer/user-footer.component'
 import { SignInComponent } from './Shared/sign-in/sign-in.component';
 import { SignUpComponent } from './Shared/sign-up/sign-up.component';
 import { NotFoundComponent } from './Shared/not-found/not-found.component';
+import {HttpClientModule}from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { NotFoundComponent } from './Shared/not-found/not-found.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
