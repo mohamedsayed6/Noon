@@ -17,6 +17,7 @@ import { AllProductsComponent } from './Components/home/all-products/all-product
 import { AfterDiscountPricePipe } from './Pipes/after-discount-price.pipe'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CategoryProductsComponent } from './Components/home/category-products/category-products.component';
+import { PayPalComponent } from './Shared/pay-pal/pay-pal.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CategoryProductsComponent } from './Components/home/category-products/c
     NotFoundComponent,
     AllProductsComponent,
     AfterDiscountPricePipe,
-    CategoryProductsComponent
+    CategoryProductsComponent,
+    PayPalComponent
   ],
   imports: [
     BrowserModule,
