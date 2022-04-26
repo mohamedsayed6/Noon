@@ -1,0 +1,74 @@
+<app-home-header></app-home-header>
+
+<div class="container-fluid  ">
+
+
+
+  <div class="row">
+
+
+
+    <a class="product-card ms-4 " *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,
+                                                                         currentPage:page,
+                                                                       totalItems:count}; let i=index" href="" >
+      <div class="product-tumb">
+        <img src="{{prd.ImgURL}}">
+      </div>
+
+
+
+      <div class="product-details">
+
+        <h5>{{prd.Name}}</h5>
+
+        <p>{{prd.Description}}</p>
+
+        <div class="">
+          <div class="product-bottom-details">
+
+            <ng-container *ngIf="prd.Discount==0;  else NoDicount">
+              <span class="mb-5 fw-bold">
+              {{prd.Price | currency: "EGP ":"symbol"}}
+              </span>
+            </ng-container>
+
+            <ng-template #NoDicount>
+              <span class="fw-bold">
+                {{prd.Price | afterDiscountPrice:prd.Discount |currency: "EGP ":"symbol"}}
+              </span>
+
+              <span class=" text-success"> {{prd.Discount*100}}% Off </span>
+              <br>
+              <span class="text-decoration-line-through fw-light"> {{prd.Price|currency: "EGP ":"symbol"}} </span>
+
+            </ng-template>
+
+          </div>
+
+          <div class="product-bottom-details">
+            <ng-container [ngSwitch]="prd.Quantity">
+              <ng-container *ngSwitchCase="0"><span class="text-danger">Out Of stock</span> </ng-container>
+              <ng-container *ngSwitchCase="1"> <span class="text-warning">Last item</span> </ng-container>
+              <ng-container *ngSwitchCase="2"><span class="text-warning">Last two item</span></ng-container>
+              <ng-container *ngSwitchDefault> <span class="mt-1">{{prd.Quantity}} pieces</span></ng-container>
+            </ng-container>
+          </div>
+
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <div class="page">
+  <pagination-controls
+previousLabel="Prev"
+nextLabel="Next"
+(pageChange)="onDataChange($event)"
+>
+
+</pagination-controls>
+</div>
+</div>
+
+
+<app-home-footer></app-home-footer>

@@ -12,7 +12,12 @@ import { UserFooterComponent } from './Shared/user-footer/user-footer.component'
 import { SignInComponent } from './Shared/sign-in/sign-in.component';
 import { SignUpComponent } from './Shared/sign-up/sign-up.component';
 import { NotFoundComponent } from './Shared/not-found/not-found.component';
-import {HttpClientModule}from '@angular/common/http'
+import {HttpClientModule}from '@angular/common/http';
+import { AllProductsComponent } from './Components/home/all-products/all-products.component';
+import { AfterDiscountPricePipe } from './Pipes/after-discount-price.pipe'
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CategoryProductsComponent } from './Components/home/category-products/category-products.component';
+
 
 @NgModule({
   declarations: [
@@ -26,12 +31,16 @@ import {HttpClientModule}from '@angular/common/http'
     UserFooterComponent,
     SignInComponent,
     SignUpComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AllProductsComponent,
+    AfterDiscountPricePipe,
+    CategoryProductsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

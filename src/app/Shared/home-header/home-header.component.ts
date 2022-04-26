@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ICategory } from 'src/app/Models/icategory';
+import { ISubCategory } from 'src/app/Models/ISubCategory';
 import { CategoriesServiceService } from 'src/app/Services/categories-service.service';
+import { SubCategoriesService } from 'src/app/Services/SubCategories.service';
 
 @Component({
   selector: 'app-home-header',
@@ -10,7 +13,11 @@ import { CategoriesServiceService } from 'src/app/Services/categories-service.se
 export class HomeHeaderComponent implements OnInit {
 
   Categories:ICategory[]=[]
-  constructor(private CategoriesService:CategoriesServiceService) { }
+  SubCategories:ISubCategory[]=[]
+  constructor(private CategoriesService:CategoriesServiceService,
+               private SubCategoriesService:SubCategoriesService,
+               private router:Router)
+                { }
 
   ngOnInit(): void {
 
@@ -19,7 +26,18 @@ export class HomeHeaderComponent implements OnInit {
     )
 
 
+    this.SubCategoriesService.GetAllSubCategories().subscribe(
+      subcategories=>this.SubCategories=subcategories
+    )
+
+
   }
+
+  // map(id:number)
+  // {
+
+  //   this.router.navigate([`Category`,id])
+  // }
 
 
 }

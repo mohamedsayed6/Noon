@@ -52,35 +52,46 @@
 
 
 
-
-  <nav class="navbar navbar-expand-lg navbar-light secondNav ">
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
 
+      <a class="navbar-brand" href="/All Products">All Products</a>
 
-          <a class="allCategories secondNavItem mt-4">
-            <p style="width: 184px;">ALL CATEGORIES </p>
-          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ps-2">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-            <li *ngFor="let cat of Categories" class="nav-item secondNavItem">
-              <a href=""> {{cat.Name}} </a>
-            </li>
-          </ul>
-        </div>
 
+          <li class="nav-item dropdown" *ngFor="let cat of Categories">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              {{cat.Name}}
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li *ngFor="let scat of SubCategories">
+
+                <ng-container *ngIf="scat.MainCatId==cat.id">
+
+                  <a class="dropdown-item" routerLink="/Category/{{scat.id}}">{{scat.Name}}</a>
+                </ng-container>
+              </li>
+            </ul>
+          </li>
+
+        </ul>
 
       </div>
+    </div>
   </nav>
+
+
+
 
 </div>
