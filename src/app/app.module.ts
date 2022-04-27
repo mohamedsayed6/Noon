@@ -18,6 +18,7 @@ import { AfterDiscountPricePipe } from './Pipes/after-discount-price.pipe'
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CategoryProductsComponent } from './Components/home/category-products/category-products.component';
 import { PayPalComponent } from './Shared/pay-pal/pay-pal.component';
+import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { PayPalComponent } from './Shared/pay-pal/pay-pal.component';
     AllProductsComponent,
     AfterDiscountPricePipe,
     CategoryProductsComponent,
-    PayPalComponent
+    PayPalComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -24,5 +24,9 @@ export class ProductsService {
 
   }
 
+  GetProductById(pid:number):Observable<IProduct>{
+
+    return this.httpclient.get<IProduct>(`http://localhost:3000/Products?id=${pid}`);
+  }
 
 }
