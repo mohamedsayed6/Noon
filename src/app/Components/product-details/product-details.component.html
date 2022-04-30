@@ -192,19 +192,17 @@
         <!-- Content -->
         <div class="my-4">
           <!-- overview -->
-          <div id="overview">
+          <div *ngIf="selectedProduct.highlights" id="overview">
             <div class="fw-bold">Highlights</div>
             <div>
               <ul>
-                <li>LED monitor features an incredibly slim and stylish profile</li>
-                <li>HD display aims to give you the best experience of on screen entertainment</li>
-                <li>Horizontal patterning on the rear panel provides a contemporary and stylish finish</li>
-                <li>
-                  Flicker free technology eliminates flickering and reduces eye fatigue at all brightness levels
-                </li>
+                <ng-container *ngFor="let h of selectedProduct.highlights">
+                  <li>{{h}}</li>
+                </ng-container>
               </ul>
             </div>
           </div>
+
           <!-- Specifications -->
           <div id="specifications" class="container-fluid">
             <div class="row">

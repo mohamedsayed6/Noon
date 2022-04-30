@@ -65,7 +65,13 @@
         "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_8.jpg",
         "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_9.jpg"
       ],
-      "highlights": ["it's Awesome Product", "it's very Awesome Product", "it's very Funcken Awesome Product"],
+      "highlights": [
+        "Ceramic shield with four times better drop performance",
+        "A14 bionic is super efficient for great battery life",
+        "OLED delivers brighter brights, darker blacks and higher resolution for everything you look at",
+        "Wide camera brings in 27% more light",
+        "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
+      ],
       "specifications": [
         { "key": "Model Number", "value": "NERF02" },
         { "key": "Model Name", "value": "candle_lanterns-2" },
