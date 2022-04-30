@@ -47,13 +47,15 @@
   "Products": [
     {
       "id": 1,
-      "name": "Samsung M31",
-      "price": 4500,
+      "name": "Galaxy A52s 5G Dual SIM Awesome Black 8GB RAM 128GB - Middle East Version",
+      "modelNumber": "A52s",
+      "price": 8300.0,
       "discount": 0.2,
       "description": "Samsung M32, Dual SIM, 64 Back Camera",
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_400/v1637257602/N50099853A_1.jpg",
       "categoryId": 5,
       "quantity": 100,
+      "maxQuantityPerOrder": 10,
       "imagesGallary": [
         "https://z.nooncdn.com/products/tr:n-t_80/v1637257602/N50099853A_1.jpg",
         "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_2.jpg",
@@ -71,7 +73,12 @@
         { "key": "Colour Name", "value": "Orange" },
         { "key": "Base Material", "value": "Metal" }
       ],
-      "available": true
+      "available": true,
+      "rating": 4.5,
+      "reviewsCount": 245,
+      "brand": "Samsung",
+      "brandId": 1,
+      "seller": "Noon"
     },
 
     {

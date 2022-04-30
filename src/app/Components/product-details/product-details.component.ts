@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   selectedProductID!: number;
   //selected Prodeuct
   selectedProduct!: IProduct;
+  maxCountArr: number[] = [];
   //child to parent
   @Output()
   cOutEvent!: EventEmitter<any>;
@@ -45,6 +46,11 @@ export class ProductDetailsComponent implements OnInit {
         this.selectedProduct = data;
         console.log(this.selectedProduct);
         console.log(this.selectedProductID);
+        // maxCountArr == maxQuantityPerOrder
+        for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
+          this.maxCountArr.push(i);
+        }
+        console.log(this.maxCountArr);
       });
     });
   }

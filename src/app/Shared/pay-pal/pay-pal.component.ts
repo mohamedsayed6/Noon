@@ -8,7 +8,7 @@ import { render } from "creditcardpayments/creditCardPayments";
 })
 export class PayPalComponent implements OnInit {
   constructor() {
-    debugger;
+    // debugger;
     render({
       id: "#myPayPAlButton",
       currency: "EGP",

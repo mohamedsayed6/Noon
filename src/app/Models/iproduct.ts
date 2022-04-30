@@ -1,5 +1,6 @@
 export interface IProduct {
   id: number;
+  modelNumber: string;
   name: string;
   price: number;
   quantity: number;
@@ -11,6 +12,12 @@ export interface IProduct {
   highlights: string[];
   specifications: object[];
   available: boolean;
+  brand: string;
+  brandId: number;
+  rating: number;
+  reviewsCount: number;
+  seller: string;
+  maxQuantityPerOrder: number;
   //   availableCount: number;
   //   availableColor: string;
   //   availableSize: string;
@@ -18,8 +25,6 @@ export interface IProduct {
   //   availableSizeColor: string;
   //   availableSizeColorCount: number;
   //   reviews: object[];
-  //   rating: number;
-  //   reviewsCount: number;
   //   createdAt: Date;
   //   updatedAt: Date;
 }
