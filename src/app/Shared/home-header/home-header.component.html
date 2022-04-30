@@ -24,9 +24,20 @@
 
 
       <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="./Noon/profile.html">
+        <li class="list-inline-item" *ngIf="localstorge!=='ar'">
+          <button class="btn btn-defualt" (click)="loclaztion('ar')">
             العربية
+          </button>
+        </li>
+        <li class="list-inline-item" *ngIf="localstorge!=='en'">
+          <button class="btn btn-defualt" (click)="loclaztion('en')">
+            English
+          </button>
+        </li>
+        <li class="list-inline-item" *ngIf="true">
+          <a routerLink="/user">
+            User
+            
           </a>
         </li>
         <li class="list-inline-item">

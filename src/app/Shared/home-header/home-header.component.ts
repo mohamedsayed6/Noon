@@ -11,13 +11,15 @@ import { SubCategoriesService } from 'src/app/Services/SubCategories.service';
   styleUrls: ['./home-header.component.scss']
 })
 export class HomeHeaderComponent implements OnInit {
-
+   localstorge:string
   Categories:ICategory[]=[]
   SubCategories:ISubCategory[]=[]
   constructor(private CategoriesService:CategoriesServiceService,
                private SubCategoriesService:SubCategoriesService,
                private router:Router)
-                { }
+                { 
+                  this.localstorge=localStorage.getItem("lang")!;
+                }
 
   ngOnInit(): void {
 
@@ -38,6 +40,9 @@ export class HomeHeaderComponent implements OnInit {
 
   //   this.router.navigate([`Category`,id])
   // }
-
+  loclaztion(st:string){
+    localStorage.setItem("lang",st)
+    location.reload()
+  }
 
 }

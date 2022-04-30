@@ -1,0 +1,83 @@
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 headprofile mt-4">
+            <h4>General Information</h4>
+         </div> 
+        <div class="cart p-4">
+            <form>
+            <div class="row">
+                <div class="col-lg-4">
+                    <label>First Name</label>
+                    <input type="text" name="FirstName" class="form-control" #first [value]="user.FirstName">
+                </div>
+                <div class="col-lg-4">
+                  <label>Last Name</label>
+                  <input type="text" name="LastName" class="form-control" #last value="{{user.LastName}}">
+              </div>
+              <div class="col-lg-4 ">
+                  <label>Preferred language</label>
+                  <select class="form-control">
+                      <option>Arabic</option>
+                      <option>English</option>
+                  </select>
+        
+                  <button class="btn btn-outline-secondary w-75 mt-4 mb-4 float-end" (click)="UpdateGenral(first.value,last.value)">Save</button>
+              </div>
+        
+            </div>
+          </form>
+        </div>
+
+        <div class="col-lg-12 col-md-12 headprofile mt-4">
+            <h4>Security</h4>
+        </div>
+        <div class="cart p-4">
+             
+             <form>
+                    <div class="row">
+                    <div class="col-lg-6">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control"value="{{user.email}}" readonly> 
+                    </div>
+                    <div class="col-lg-6">
+                      <label>Password</label>
+                      <input type="password" name="password" class="form-control" #password value="{{user.password}}">
+                      <button class="btn btn-outline-secondary w-50 mt-4 mb-4 float-end"
+                       (click)="UpdatePassword(password.value)" >Change password</button>
+                  </div>
+                </div>
+           </form>
+                  
+               
+
+              
+        </div>
+        
+       <div class="col-lg-12 col-md-12 ">
+           <h3>Profile</h3>
+           <p>manage your profile details</p>
+       </div>
+       
+       <div id="profile">
+
+       </div>
+
+       <div class="col-lg-12 col-md-12 headprofile mt-4">
+           <h4>Link Your Account</h4>
+       </div>
+       <div class="cart p-4">
+             <div class="row">
+                 <div class="col-lg-8">
+                    <h5>Homat Al Watan account</h5>
+                    <p>Now you can link your Homat Al Watan account with your noon account</p>
+                 </div>
+                 <div class="col-lg-4">
+                   
+                   <button class="btn btn-outline-secondary w-50 mt-4 mb-4 float-end">Link Account</button>
+               </div>
+              
+
+             </div>
+       </div>
+    </div>
+
