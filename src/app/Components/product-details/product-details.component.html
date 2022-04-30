@@ -1,0 +1,359 @@
+<!-- Header -->
+<app-home-header></app-home-header>
+<!-- Body -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="container-fluid ms-4 mybody">
+        <div class="row" id="contain">
+          <!-- Category Path -->
+          <div class="col-12 mt-2 mb-4 text-muted fs-6">Beauty & Health > Beauty & Fragrance > Hair Care</div>
+          <!-- Images+Product Data -->
+          <div class="col-lg-8">
+            <div class="container-fluid ps-0">
+              <div class="row">
+                <!-- Images -->
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                  <div class="ps-0 container-fluid">
+                    <div class="row">
+                      <!-- sub imgs -->
+                      <!-- TODO: vl Silder + zoomable image -->
+                      <div class="ms-0 imgs-gallary col-4" id="imgs-gallary">
+                        <ng-container *ngFor="let img of selectedProduct?.imagesGallary">
+                          <img class="img-fluid btn mb-2" src="{{img}}" alt="img" id="sub-img" />
+                        </ng-container>
+                      </div>
+                      <!-- main img -->
+                      <div class="col-8">
+                        <img class="img-thumbnail mb-2 img-thumb" src="{{selectedProduct?.imageThumb}}" id="main-img" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="" class="imgs-gallary"></div>
+                </div>
+                <!-- product Data -->
+                <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+                  <!-- Title -->
+                  <div class="text-muted">{{selectedProduct?.brand}}</div>
+                  <!-- Product Name -->
+                  <div class="fs-4 fw-bold">{{selectedProduct?.name}}</div>
+                  <!-- Model Number -->
+                  <div class="text-muted mt-3">
+                    <ng-container *ngIf="selectedProduct?.modelNumber">
+                      <span>Model Number : {{selectedProduct?.modelNumber}}</span></ng-container
+                    >
+                    <span class="badge bg-success mx-1"
+                      >{{selectedProduct?.rating}} <i class="fa fa-star text-light"></i>
+                    </span>
+                    <a href="#">{{selectedProduct?.reviewsCount}} Rating</a>
+                  </div>
+                  <!-- Was Price -->
+                  <ng-container *ngIf=" selectedProduct.discount<1 && selectedProduct.discount>0">
+                    <div class="mt-3">
+                      <span class="me-2">Was:</span>
+                      <span class="text-muted text-decoration-line-through">EGP {{selectedProduct?.price}}</span>
+                    </div>
+                  </ng-container>
+                  <!-- Current Price -->
+                  <div class="mt-2">
+                    <span class="me-2">Now:</span>
+                    <span class="ms-2 fs-4 fw-bold">EGP {{selectedProduct.price * (1-selectedProduct.discount)}}</span
+                    ><span class="ms-2 text-muted fs-6">Inclusive of VAT</span>
+                  </div>
+                  <!-- Dicound Percentage -->
+                  <ng-container *ngIf="selectedProduct.discount<1 && selectedProduct.discount>0 ">
+                    <div class="mt-3">
+                      <span>Saving:</span>
+                      <span class="ms-2 fs-5 fw-bold">EGP {{selectedProduct.price * (selectedProduct.discount)}}</span
+                      ><span class="mx-3 mb-3 bg-success bg-opacity-10 text-success fw-bold"
+                        >{{selectedProduct.discount*100}}% off</span
+                      >
+                    </div>
+                  </ng-container>
+                  <!-- Note -->
+                  <div class="mt-3">
+                    <span class="text-muted fs-6 me-2"
+                      ><img class="icon me-2" src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg" alt="" />Monthly
+                      payment plans from EGP 244</span
+                    ><a href="">View more details</a>
+                  </div>
+                  <!-- Gif -->
+                  <div>
+                    <img
+                      class="img-fluid"
+                      src="https://k.nooncdn.com/cms/pages/20211108/cdd08046977b5339dcbb41ad94c0577b/en_free-delivery-pdp.gif"
+                      alt=""
+                    />
+                  </div>
+                  <!-- Cart Part -->
+                  <!-- TODO: NProduct option [color , size ] + animation + redirect -->
+                  <div class="container-fluid my-4 ms-0 ps-0">
+                    <div class="row">
+                      <!-- Quantity -->
+                      <div class="col-2 me-0">
+                        <select id="Quantity" class="p-2 fs-4">
+                          <option value="default" selected="true">1</option>
+                          <option *ngFor="let n of maxCountArr" value="{{n}}">{{n}}</option>
+                        </select>
+                      </div>
+                      <!-- Add to Cart -->
+                      <div class="col-8 px-0">
+                        <div class="btn badge ms-3 bg-primary w-100 h-100">
+                          <span class="txt-center fs-5">Add to Cart</span>
+                        </div>
+                      </div>
+                      <!-- Add to Favourite -->
+                      <div class="col-2">
+                        <span class="love fs-2 ps-2"><i class="fa-solid fa-heart" id="like" value="0"></i></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Shipper Informations -->
+          <div class="col-lg-4">
+            <!-- Free return -->
+            <div>
+              <span class="text-muted fs-6"
+                ><img class="icon me-2" src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns.svg" alt="" />Enjoy
+                hassle free returns with this offer. <a href="#">Learn more </a>
+              </span>
+            </div>
+            <hr />
+            <!-- Sold by -->
+            <div>
+              <span class="text-muted fs-6"
+                ><img class="icon me-2" src="https://z.nooncdn.com/s/app/com/noon/icons/seller.svg" alt="" />Sold by
+                <a href="#">{{selectedProduct.seller}}</a>
+              </span>
+            </div>
+            <hr />
+            <!-- Seller Review -->
+            <div>
+              <span class="me-3">Seller Reviews</span>
+              <span
+                ><i class="fa fa-star text-warning mx-1"></i><i class="fa fa-star text-warning mx-1"></i
+                ><i class="fa fa-star text-warning mx-1"></i><i class="fa fa-star text-warning mx-1"></i>
+                <i class="fa fa-star text-warning mx-1"></i> (4.5)</span
+              >
+              <span id="productCountReview" class="ms-5 fw-bold">96</span><br /><span class="text-muted"
+                >How are these calculated?
+                <img class="icon" src="https://z.nooncdn.com/s/app/com/noon/icons/help_v2.svg"
+              /></span>
+            </div>
+            <hr />
+            <!-- Instruction -->
+            <div class="container-fluid ps-0">
+              <!-- info-1 -->
+              <div id="info-1" class="row">
+                <div class="mb-4 me-0" style="width: 50px;">
+                  <img src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns_usp.svg" alt="" />
+                </div>
+                <div class="col-sm-10">
+                  <div class="fw-bolder">FREE RETURNS</div>
+                  <div class="text-muted">Get free returns on eligible items</div>
+                </div>
+              </div>
+              <!-- info-2 -->
+              <div id="info-2" class="row">
+                <div class="mb-4 me-0" style="width: 50px;">
+                  <img src="https://z.nooncdn.com/s/app/com/noon/icons/trusted_shipping_usp_v2.svg" alt="" />
+                </div>
+                <div class="col-sm-10">
+                  <div class="fw-bolder">TRUSTED SHIPPING</div>
+                  <div class="text-muted">Free shipping when you spend EGP 350 and above</div>
+                </div>
+              </div>
+              <!-- info-3 -->
+              <div id="info-3" class="row">
+                <div class="mb-4 me-0" style="width: 50px;">
+                  <img src="https://z.nooncdn.com/s/app/com/noon/icons/secure_usp.svg" alt="" />
+                </div>
+                <div class="col-sm-10">
+                  <div class="fw-bolder">SECURE SHOPPING</div>
+                  <div class="text-muted">Your data is always protected</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Product Informations -->
+      <div class="col-12">
+        <!-- Title -->
+        <div class="bg-light">
+          <span id="overview-title" class="btn btn-link fw-bold fs-4">Overview</span>
+          <span id="specifications-title" class="btn fs-4">Specifications</span>
+          <span id="reveiws-title" class="btn fs-4">Review</span>
+        </div>
+        <!-- Content -->
+        <div class="my-4">
+          <!-- overview -->
+          <div id="overview">
+            <div class="fw-bold">Highlights</div>
+            <div>
+              <ul>
+                <li>LED monitor features an incredibly slim and stylish profile</li>
+                <li>HD display aims to give you the best experience of on screen entertainment</li>
+                <li>Horizontal patterning on the rear panel provides a contemporary and stylish finish</li>
+                <li>
+                  Flicker free technology eliminates flickering and reduces eye fatigue at all brightness levels
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- Specifications -->
+          <div id="specifications" class="container-fluid">
+            <div class="row">
+              <!-- table-1 -->
+              <div class="col-6">
+                <table class="table table-striped table-hover">
+                  <tbody>
+                    <tr>
+                      <td>Adaptive Sync Technology</td>
+                      <td>AMD FreeSync</td>
+                    </tr>
+                    <tr>
+                      <td>Colour Name</td>
+                      <td>Black/Silver</td>
+                    </tr>
+                    <tr>
+                      <td>Display Resolution</td>
+                      <td>1920x1080</td>
+                    </tr>
+                    <tr>
+                      <td>Display Type</td>
+                      <td>LED</td>
+                    </tr>
+                    <tr>
+                      <td>Model Name</td>
+                      <td>HN Series</td>
+                    </tr>
+                    <tr>
+                      <td>Screen Size</td>
+                      <td>23.8 inch</td>
+                    </tr>
+                    <tr>
+                      <td>Feature 1</td>
+                      <td>Ergonomic</td>
+                    </tr>
+                    <tr>
+                      <td>Feature 2</td>
+                      <td>PC</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- table-2 -->
+              <div class="col-6">
+                <table class="col-6 table table-striped table-hover">
+                  <tbody>
+                    <tr>
+                      <td>Adaptive Sync Technology</td>
+                      <td>AMD FreeSync</td>
+                    </tr>
+                    <tr>
+                      <td>Colour Name</td>
+                      <td>Black/Silver</td>
+                    </tr>
+                    <tr>
+                      <td>Display Resolution</td>
+                      <td>1920x1080</td>
+                    </tr>
+                    <tr>
+                      <td>Display Type</td>
+                      <td>LED</td>
+                    </tr>
+                    <tr>
+                      <td>Model Name</td>
+                      <td>HN Series</td>
+                    </tr>
+                    <tr>
+                      <td>Screen Size</td>
+                      <td>23.8 inch</td>
+                    </tr>
+                    <tr>
+                      <td>Feature 1</td>
+                      <td>Ergonomic</td>
+                    </tr>
+                    <tr>
+                      <td>Feature 2</td>
+                      <td>PC</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- Reveiws -->
+          <div id="reveiws" class="visually-hidden">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-2">
+                    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
+                    <p class="text-secondary text-center">15 Minutes Ago</p>
+                  </div>
+                  <div class="col-md-10">
+                    <p>
+                      <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"
+                        ><strong>Maniruzzaman Akash</strong></a
+                      >
+                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
+                    </p>
+                    <div class="clearfix"></div>
+                    <p>
+                      Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
+                      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                      sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+                      Aldus PageMaker including versions of Lorem Ipsum.
+                    </p>
+                    <p>
+                      <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
+                      <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                    </p>
+                  </div>
+                </div>
+                <div class="card card-inner">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
+                        <p class="text-secondary text-center">15 Minutes Ago</p>
+                      </div>
+                      <div class="col-md-10">
+                        <p>
+                          <a href="https://maniruzzaman-akash.blogspot.com/p/contact.html"
+                            ><strong>Maniruzzaman Akash</strong></a
+                          >
+                        </p>
+                        <p>
+                          Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
+                          remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                          like Aldus PageMaker including versions of Lorem Ipsum.
+                        </p>
+                        <p>
+                          <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
+                          <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<app-home-footer></app-home-footer>

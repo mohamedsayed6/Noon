@@ -1,11 +1,30 @@
 export interface IProduct {
-
-id:number,
-Name:string,
-Price:number,
-Discount:number,
-Description:string,
-ImgURL:string,
-Quantity:number,
-CategoryId:number
+  id: number;
+  modelNumber: string;
+  name: string;
+  price: number;
+  quantity: number;
+  discount: number;
+  description: string;
+  imageThumb: string;
+  imagesGallary: string[];
+  categoryId: number;
+  highlights: string[];
+  specifications: object[];
+  available: boolean;
+  brand: string;
+  brandId: number;
+  rating: number;
+  reviewsCount: number;
+  seller: string;
+  maxQuantityPerOrder: number;
+  //   availableCount: number;
+  //   availableColor: string;
+  //   availableSize: string;
+  //   availableSizeCount: number;
+  //   availableSizeColor: string;
+  //   availableSizeColorCount: number;
+  //   reviews: object[];
+  //   createdAt: Date;
+  //   updatedAt: Date;
 }
