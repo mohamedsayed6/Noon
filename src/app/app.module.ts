@@ -18,14 +18,14 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { CategoryProductsComponent } from "./Components/home/category-products/category-products.component";
 import { PayPalComponent } from "./Shared/pay-pal/pay-pal.component";
 
-// import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-// import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-// import { UserModule } from './user/user.module';
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { UserModule } from "./user/user.module";
 
-// export function HttpLoaderFactory(http: HttpClient) {
-//   return new TranslateHttpLoader(http,'./assets/i18n/','.json');
-// }
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 
 @NgModule({
   declarations: [
@@ -52,15 +52,15 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     NgxPaginationModule,
     ReactiveFormsModule,
     FormsModule,
-    //   UserModule,
-    //   TranslateModule.forRoot({
-    //     loader: {
-    //         provide: TranslateLoader,
-    //         useFactory: HttpLoaderFactory,
-    //         deps: [HttpClient]
-    //     },
-    //     defaultLanguage:"en"
-    // })
+    UserModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: "en",
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

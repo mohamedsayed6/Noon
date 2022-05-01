@@ -16,12 +16,10 @@ const routes: Routes = [
   { path: "All Products", component: AllProductsComponent },
   { path: "Category/:cid", component: CategoryProductsComponent },
   { path: "Product/:id", component: ProductDetailsComponent },
-  // {
-  //   path: 'user',
-  //   loadChildren: () => import(`./user/user-routing/user-routing.module`).then(
-  //     module => module.UserRoutingModule
-  //   )
-  // },
+  {
+    path: "user",
+    loadChildren: () => import(`./user/user-routing/user-routing.module`).then((module) => module.UserRoutingModule),
+  },
   { path: "PayPal", component: PayPalComponent },
   { path: "**", component: NotFoundComponent },
 ];
