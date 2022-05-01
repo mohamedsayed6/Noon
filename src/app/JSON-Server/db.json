@@ -86,478 +86,477 @@
       "brandId": 1,
       "seller": "Noon"
     },
-
     {
       "id": 2,
-      "Name": "IPhone 13",
-      "Price": 15000,
-      "Discount": 0,
-      "Description": "Apple IPhone 13 Pro Max",
-      "CategoryId": 6,
-      "Quantity": 90,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1648570072/N50840187A_1.jpg"
+      "name": "IPhone 13",
+      "price": 15000,
+      "discount": 0,
+      "description": "Apple IPhone 13 Pro Max",
+      "categoryId": 6,
+      "quantity": 90,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1648570072/N50840187A_1.jpg"
     },
 
     {
       "id": 3,
-      "Name": "Nike Cargo Short",
-      "Price": 1769,
-      "Discount": 0.44,
-      "Description": "Nike NSW Club Shorts Black",
-      "CategoryId": 10,
-      "Quantity": 2,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1613148238/N43085259V_1.jpg"
+      "name": "Nike Cargo Short",
+      "price": 1769,
+      "discount": 0.44,
+      "description": "Nike NSW Club Shorts Black",
+      "categoryId": 10,
+      "quantity": 2,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1613148238/N43085259V_1.jpg"
     },
 
     {
       "id": 4,
-      "Name": "MANGO Bag",
-      "Price": 1189,
-      "Discount": 0.4,
-      "Description": "Mango Beaded Shoulder Bag Black",
-      "CategoryId": 12,
-      "Quantity": 1,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1614974934/N43969134A_1.jpg"
+      "name": "MANGO Bag",
+      "price": 1189,
+      "discount": 0.4,
+      "description": "Mango Beaded Shoulder Bag Black",
+      "categoryId": 12,
+      "quantity": 1,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1614974934/N43969134A_1.jpg"
     },
 
     {
       "id": 5,
-      "Name": "Tornado Microwave",
-      "Price": 4500,
-      "Discount": 0.3,
-      "Description": "Tornado Microwave Solo 20L TM-20MK Black",
-      "CategoryId": 16,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1604315670/N41780250A_1.jpg"
+      "name": "Tornado Microwave",
+      "price": 4500,
+      "discount": 0.3,
+      "description": "Tornado Microwave Solo 20L TM-20MK Black",
+      "categoryId": 16,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1604315670/N41780250A_1.jpg"
     },
 
     {
       "id": 6,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 7,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 8,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 9,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 10,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 11,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
       "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 12,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 13,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 14,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 15,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 16,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 17,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 18,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 19,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 20,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 21,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 22,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 23,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 24,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 25,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 26,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 27,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 28,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 29,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 30,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 31,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 32,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 33,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
       "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 34,
       "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 35,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 36,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 37,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 38,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 39,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 40,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 41,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 42,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 43,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
 
     {
       "id": 44,
-      "Name": "Samsung M31",
-      "Price": 4500,
-      "Discount": 0,
-      "Description": "Samsung M32, Dual SIM, 64 Back Camera",
-      "CategoryId": 2,
-      "Quantity": 0,
-      "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+      "name": "Samsung M31",
+      "price": 4500,
+      "discount": 0,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "categoryId": 2,
+      "quantity": 0,
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     }
   ]
 }

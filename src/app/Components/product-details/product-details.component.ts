@@ -38,7 +38,7 @@ export class ProductDetailsComponent implements OnInit {
   }
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params) => {
-      let num = params.get("pid");
+      let num = params.get("id");
       if (num != null) {
         this.selectedProductID = parseInt(num);
       }
