@@ -1,5 +1,5 @@
 <!-- Header -->
-<!-- <app-home-header></app-home-header> -->
+<app-home-header></app-home-header>
 <!-- Body -->
 <div class="container-fluid">
   <div class="row">
@@ -7,7 +7,19 @@
       <div class="container-fluid ms-4 mybody">
         <div class="row" id="contain">
           <!-- Category Path -->
-          <div class="col-12 mt-2 mb-4 text-muted fs-6">Beauty & Health > Beauty & Fragrance > Hair Care</div>
+          <ol class="list-unstyled ps-4">
+            <ng-container *ngIf="productCategories.length >1">
+              <ng-container *ngFor="let cat of productCategories">
+                <li class="list-unstyled d-inline-block">
+                  <span class="btn text-muted px-1" (click)="goCatProducts(cat.id)">{{cat?.name}}</span
+                  ><img class="bfqYvS" src="https://z.nooncdn.com/s/app/com/noon/icons/right-chevron.svg" />
+                </li>
+              </ng-container>
+            </ng-container>
+            <li class="list-unstyled d-inline-block">
+              <span class="btn text-muted px-1" (click)="goCatProducts(lastCat.id)">{{lastCat?.name}}</span>
+            </li>
+          </ol>
           <!-- Images+Product Data -->
           <div class="col-lg-8">
             <div class="container-fluid ps-0">
@@ -49,7 +61,7 @@
                     <a href="#">{{selectedProduct?.reviewsCount}} Rating</a>
                   </div>
                   <!-- Was Price -->
-                  <ng-container *ngIf=" selectedProduct.discount<1 && selectedProduct.discount>0">
+                  <ng-container *ngIf="selectedProduct.discount<1 && selectedProduct.discount>0">
                     <div class="mt-3">
                       <span class="me-2">Was:</span>
                       <span class="text-muted text-decoration-line-through">EGP {{selectedProduct?.price}}</span>
@@ -62,7 +74,7 @@
                     ><span class="ms-2 text-muted fs-6">Inclusive of VAT</span>
                   </div>
                   <!-- Dicound Percentage -->
-                  <ng-container *ngIf="selectedProduct.discount<1 && selectedProduct.discount>0 ">
+                  <ng-container *ngIf=" selectedProduct.discount<1 && selectedProduct.discount>0 ">
                     <div class="mt-3">
                       <span>Saving:</span>
                       <span class="ms-2 fs-5 fw-bold">EGP {{selectedProduct.price * (selectedProduct.discount)}}</span
@@ -192,96 +204,69 @@
         <!-- Content -->
         <div class="my-4">
           <!-- overview -->
-          <div *ngIf="selectedProduct.highlights" id="overview">
-            <div class="fw-bold">Highlights</div>
-            <div>
-              <ul>
-                <ng-container *ngFor="let h of selectedProduct.highlights">
-                  <li>{{h}}</li>
-                </ng-container>
-              </ul>
+          <ng-container *ngIf="selectedProduct!.highlights.length >0">
+            <div id="overview">
+              <div class="fw-bold">Highlights</div>
+              <div>
+                <ul>
+                  <ng-container *ngFor="let h of selectedProduct?.highlights">
+                    <li>{{h}}</li>
+                  </ng-container>
+                </ul>
+              </div>
             </div>
-          </div>
+          </ng-container>
           <!-- Specifications -->
           <div id="specifications" class="container-fluid">
             <div class="row">
               <!-- table-1 -->
               <div class="col-6">
-                <table class="table table-striped table-hover">
+                <table class="table table-striped borderless">
                   <tbody>
-                    <tr>
-                      <td>Adaptive Sync Technology</td>
-                      <td>AMD FreeSync</td>
+                    <tr *ngIf="selectedProduct.specifications[0]">
+                      <td>{{selectedProduct.specifications[0]?.key}}</td>
+                      <td>{{selectedProduct.specifications[0]?.value}}</td>
                     </tr>
-                    <tr>
-                      <td>Colour Name</td>
-                      <td>Black/Silver</td>
+                    <tr *ngIf="selectedProduct.specifications[2]">
+                      <td>{{selectedProduct.specifications[2]?.key}}</td>
+                      <td>{{selectedProduct.specifications[2]?.value}}</td>
                     </tr>
-                    <tr>
-                      <td>Display Resolution</td>
-                      <td>1920x1080</td>
+                    <tr *ngIf="selectedProduct.specifications[4]">
+                      <td>{{selectedProduct.specifications[4]?.key}}</td>
+                      <td>{{selectedProduct.specifications[4]?.value}}</td>
                     </tr>
-                    <tr>
-                      <td>Display Type</td>
-                      <td>LED</td>
-                    </tr>
-                    <tr>
-                      <td>Model Name</td>
-                      <td>HN Series</td>
-                    </tr>
-                    <tr>
-                      <td>Screen Size</td>
-                      <td>23.8 inch</td>
-                    </tr>
-                    <tr>
-                      <td>Feature 1</td>
-                      <td>Ergonomic</td>
-                    </tr>
-                    <tr>
-                      <td>Feature 2</td>
-                      <td>PC</td>
+                    <tr *ngIf="selectedProduct.specifications[6]" class="text-muted opacity-75">
+                      <td>{{selectedProduct.specifications[6]?.key}}</td>
+                      <td>{{selectedProduct.specifications[6]?.value}}</td>
                     </tr>
                   </tbody>
                 </table>
               </div>
               <!-- table-2 -->
               <div class="col-6">
-                <table class="col-6 table table-striped table-hover">
+                <table class="col-6 table table-striped borderless">
                   <tbody>
-                    <tr>
-                      <td>Adaptive Sync Technology</td>
-                      <td>AMD FreeSync</td>
+                    <tr *ngIf="selectedProduct.specifications[1]">
+                      <td>{{selectedProduct.specifications[1]?.key}}</td>
+                      <td>{{selectedProduct.specifications[1]?.value}}</td>
                     </tr>
-                    <tr>
-                      <td>Colour Name</td>
-                      <td>Black/Silver</td>
+                    <tr *ngIf="selectedProduct.specifications[3]">
+                      <td>{{selectedProduct.specifications[3]?.key}}</td>
+                      <td>{{selectedProduct.specifications[3]?.value}}</td>
                     </tr>
-                    <tr>
-                      <td>Display Resolution</td>
-                      <td>1920x1080</td>
+                    <tr *ngIf="selectedProduct.specifications[5]">
+                      <td>{{selectedProduct.specifications[5]?.key}}</td>
+                      <td>{{selectedProduct.specifications[5]?.value}}</td>
                     </tr>
-                    <tr>
-                      <td>Display Type</td>
-                      <td>LED</td>
-                    </tr>
-                    <tr>
-                      <td>Model Name</td>
-                      <td>HN Series</td>
-                    </tr>
-                    <tr>
-                      <td>Screen Size</td>
-                      <td>23.8 inch</td>
-                    </tr>
-                    <tr>
-                      <td>Feature 1</td>
-                      <td>Ergonomic</td>
-                    </tr>
-                    <tr>
-                      <td>Feature 2</td>
-                      <td>PC</td>
+                    <tr *ngIf="selectedProduct.specifications[7]" class="text-muted opacity-75">
+                      <td>{{selectedProduct.specifications[7]?.key}}</td>
+                      <td>{{selectedProduct.specifications[7]?.value}}</td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
+              <div *ngIf="selectedProduct.specifications.length >=8" class="text-center fs-6 w-100">
+                <span class="viewFullSpecifications">View Full Specifications</span>
               </div>
             </div>
           </div>
@@ -353,4 +338,4 @@
   </div>
 </div>
 <!-- Footer -->
-<!-- <app-home-footer></app-home-footer> -->
+<app-home-footer></app-home-footer>

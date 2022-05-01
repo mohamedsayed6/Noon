@@ -1,3 +1,4 @@
+import { ICategory } from "./icategory";
 export interface IProduct {
   id: number;
   modelNumber: string;
@@ -10,7 +11,7 @@ export interface IProduct {
   imagesGallary: string[];
   categoryId: number;
   highlights: string[];
-  specifications: object[];
+  specifications: Array<any>;
   available: boolean;
   brand: string;
   brandId: number;
@@ -18,6 +19,7 @@ export interface IProduct {
   reviewsCount: number;
   seller: string;
   maxQuantityPerOrder: number;
+  proCat: ICategory[];
   //   availableCount: number;
   //   availableColor: string;
   //   availableSize: string;

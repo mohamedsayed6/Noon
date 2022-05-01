@@ -77,7 +77,17 @@
         { "key": "Model Name", "value": "candle_lanterns-2" },
         { "key": "Capacity", "value": "None None" },
         { "key": "Colour Name", "value": "Orange" },
+        { "key": "Base Material", "value": "Metal" },
+        { "key": "Base Material", "value": "Metal" },
+        { "key": "Base Material", "value": "Metal" },
+        { "key": "Base Material", "value": "Metal" },
         { "key": "Base Material", "value": "Metal" }
+      ],
+      "proCat": [
+        { "id": 1, "name": "TVs" },
+        { "id": 2, "name": "Laptops" },
+        { "id": 3, "name": "Video Games" },
+        { "id": 4, "name": "Data Storage" }
       ],
       "available": true,
       "rating": 4.5,

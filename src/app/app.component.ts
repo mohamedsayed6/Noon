@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-// import {TranslateService} from "@ngx-translate/core"
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
   selector: "app-root",
@@ -9,7 +9,7 @@ import { Component } from "@angular/core";
 export class AppComponent {
   title = "Noon";
 
-  // constructor(private translate:TranslateService){
-  //   this.translate.setDefaultLang(localStorage.getItem("lang")!);
-  // }
+  constructor(private translate: TranslateService) {
+    this.translate.setDefaultLang(localStorage.getItem("lang")!);
+  }
 }
