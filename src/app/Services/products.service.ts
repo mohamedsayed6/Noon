@@ -20,8 +20,5 @@ export class ProductsService {
   GetProductById(pid: number): Observable<IProduct> {
     return this.httpclient.get<IProduct>(`http://localhost:3000/Products/${pid}`); //<== URL Parameter Not Query Parameter
   }
-  // <<<<<<< HEAD
 
-  // =======
-  // >>>>>>> f8b7900e3370acf05e331232c0043ec04df14ab6
 }
