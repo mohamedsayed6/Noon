@@ -13,7 +13,7 @@
                 <ng-container *ngFor="let cat of productCategories">
                   <li class="list-unstyled d-inline-block">
                     <span class="btn text-muted px-1" (click)="goCatProducts(cat.id)">{{cat?.name}}</span
-                    ><img class="bfqYvS" src="https://z.nooncdn.com/s/app/com/noon/icons/right-chevron.svg" />
+                    ><img class="arrowCat" src="https://z.nooncdn.com/s/app/com/noon/icons/right-chevron.svg" />
                   </li>
                 </ng-container>
               </ng-container>
@@ -22,7 +22,6 @@
               </li>
             </ol>
           </div>
-
           <!-- Images+Product Data -->
           <div class="col-lg-8">
             <div class="container-fluid">
@@ -59,7 +58,7 @@
                 <!-- product Data -->
                 <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
                   <!-- Title -->
-                  <div class="text-muted">{{selectedProduct?.brand}}</div>
+                  <div class="text-muted">{{selectedProduct?.brandName}}</div>
                   <!-- Product Name -->
                   <div class="fs-4 fw-bold">{{selectedProduct?.name}}</div>
                   <!-- Model Number -->
@@ -68,9 +67,9 @@
                       <span>Model Number : {{selectedProduct?.modelNumber}}</span></ng-container
                     >
                     <span class="badge bg-success mx-1"
-                      >{{selectedProduct?.rating}} <i class="fa fa-star text-light"></i>
+                      >{{selectedProduct?.overallRating}} <i class="fa fa-star text-light"></i>
                     </span>
-                    <a href="#">{{selectedProduct?.reviewsCount}} Rating</a>
+                    <a class="noonLink" href="#">{{selectedProduct?.reviews?.length}} Rating</a>
                   </div>
                   <!-- Was Price -->
                   <ng-container *ngIf="selectedProduct.discount<1 && selectedProduct.discount>0">
@@ -100,7 +99,7 @@
                     <span class="text-muted fs-6 me-2"
                       ><img class="icon me-2" src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg" alt="" />Monthly
                       payment plans from EGP 244</span
-                    ><a href="">View more details</a>
+                    ><a class="noonLink" href="">view details</a>
                   </div>
                   <!-- Gif -->
                   <div>
@@ -143,7 +142,7 @@
             <div>
               <span class="text-muted fs-6"
                 ><img class="icon me-2" src="https://z.nooncdn.com/s/app/com/noon/icons/free_returns.svg" alt="" />Enjoy
-                hassle free returns with this offer. <a href="#">Learn more </a>
+                hassle free returns with this offer. <a class="noonLink" href="#">Learn more </a>
               </span>
             </div>
             <hr />
@@ -151,7 +150,7 @@
             <div>
               <span class="text-muted fs-6"
                 ><img class="icon me-2" src="https://z.nooncdn.com/s/app/com/noon/icons/seller.svg" alt="" />Sold by
-                <a href="#">{{selectedProduct.seller}}</a>
+                <a class="noonLink" href="#">{{selectedProduct.sellerName}}</a>
               </span>
             </div>
             <hr />
@@ -209,141 +208,39 @@
       <div class="col-12">
         <!-- Title -->
         <div class="bg-light">
-          <span id="overview-title" class="btn btn-link fw-bold fs-4">Overview</span>
-          <span id="specifications-title" class="btn fs-4">Specifications</span>
-          <span id="reveiws-title" class="btn fs-4">Review</span>
+          <ng-container *ngIf="selectedProduct.highlights ||selectedProduct.specifications">
+            <span
+              #overview
+              id="overview"
+              class="btn fs-4"
+              [ngClass]="{'infoLink':isOverview}"
+              (click)="showProInfo(overview)"
+              >Overview</span
+            >
+          </ng-container>
+          <ng-container *ngIf="selectedProduct.specifications&&selectedProduct.specifications.length >8">
+            <span #spec id="spec" class="btn fs-4" [ngClass]="{'infoLink':isSpec}" (click)="showProInfo(spec)"
+              >Specifications</span
+            >
+          </ng-container>
+          <ng-container *ngIf="selectedProduct.reviews&&selectedProduct.specifications.length >8">
+            <span #review id="review" class="btn fs-4" [ngClass]="{'infoLink':isReview}" (click)="showProInfo(review)"
+              >Review</span
+            >
+          </ng-container>
         </div>
         <!-- Content -->
         <div class="my-4">
           <!-- overview -->
-          <ng-container *ngIf="selectedProduct!.highlights.length >0">
-            <div id="overview">
-              <div class="fw-bold">Highlights</div>
-              <div>
-                <ul>
-                  <ng-container *ngFor="let h of selectedProduct?.highlights">
-                    <li>{{h}}</li>
-                  </ng-container>
-                </ul>
-              </div>
-            </div>
-          </ng-container>
+          <app-overview
+            *ngIf="isOverview"
+            [chSelectedProduct]="selectedProduct"
+            (eventFullSpecDetails)="goFullSpecDetails()"
+          ></app-overview>
           <!-- Specifications -->
-          <div id="specifications" class="container-fluid">
-            <div class="row">
-              <!-- table-1 -->
-              <div class="col-6">
-                <table class="table table-striped borderless">
-                  <tbody>
-                    <tr *ngIf="selectedProduct.specifications[0]">
-                      <td>{{selectedProduct.specifications[0]?.key}}</td>
-                      <td>{{selectedProduct.specifications[0]?.value}}</td>
-                    </tr>
-                    <tr *ngIf="selectedProduct.specifications[2]">
-                      <td>{{selectedProduct.specifications[2]?.key}}</td>
-                      <td>{{selectedProduct.specifications[2]?.value}}</td>
-                    </tr>
-                    <tr *ngIf="selectedProduct.specifications[4]">
-                      <td>{{selectedProduct.specifications[4]?.key}}</td>
-                      <td>{{selectedProduct.specifications[4]?.value}}</td>
-                    </tr>
-                    <tr *ngIf="selectedProduct.specifications[6]" class="text-muted opacity-75">
-                      <td>{{selectedProduct.specifications[6]?.key}}</td>
-                      <td>{{selectedProduct.specifications[6]?.value}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- table-2 -->
-              <div class="col-6">
-                <table class="col-6 table table-striped borderless">
-                  <tbody>
-                    <tr *ngIf="selectedProduct.specifications[1]">
-                      <td>{{selectedProduct.specifications[1]?.key}}</td>
-                      <td>{{selectedProduct.specifications[1]?.value}}</td>
-                    </tr>
-                    <tr *ngIf="selectedProduct.specifications[3]">
-                      <td>{{selectedProduct.specifications[3]?.key}}</td>
-                      <td>{{selectedProduct.specifications[3]?.value}}</td>
-                    </tr>
-                    <tr *ngIf="selectedProduct.specifications[5]">
-                      <td>{{selectedProduct.specifications[5]?.key}}</td>
-                      <td>{{selectedProduct.specifications[5]?.value}}</td>
-                    </tr>
-                    <tr *ngIf="selectedProduct.specifications[7]" class="text-muted opacity-75">
-                      <td>{{selectedProduct.specifications[7]?.key}}</td>
-                      <td>{{selectedProduct.specifications[7]?.value}}</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div *ngIf="selectedProduct.specifications.length >=8" class="text-center fs-6 w-100">
-                <span class="viewFullSpecifications">View Full Specifications</span>
-              </div>
-            </div>
-          </div>
+          <app-specifications *ngIf="isSpec" [chSelectedProduct]="selectedProduct"></app-specifications>
           <!-- Reveiws -->
-          <div id="reveiws" class="visually-hidden">
-            <div class="card">
-              <div class="card-body">
-                <div class="row">
-                  <div class="col-md-2">
-                    <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
-                    <p class="text-secondary text-center">15 Minutes Ago</p>
-                  </div>
-                  <div class="col-md-10">
-                    <p>
-                      <a class="float-left" href="https://maniruzzaman-akash.blogspot.com/p/contact.html"
-                        ><strong>Maniruzzaman Akash</strong></a
-                      >
-                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                      <span class="float-right"><i class="text-warning fa fa-star"></i></span>
-                    </p>
-                    <div class="clearfix"></div>
-                    <p>
-                      Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
-                      remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                      sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-                      Aldus PageMaker including versions of Lorem Ipsum.
-                    </p>
-                    <p>
-                      <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-                      <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
-                    </p>
-                  </div>
-                </div>
-                <div class="card card-inner">
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-md-2">
-                        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid" />
-                        <p class="text-secondary text-center">15 Minutes Ago</p>
-                      </div>
-                      <div class="col-md-10">
-                        <p>
-                          <a href="https://maniruzzaman-akash.blogspot.com/p/contact.html"
-                            ><strong>Maniruzzaman Akash</strong></a
-                          >
-                        </p>
-                        <p>
-                          Lorem Ipsum is simply dummy text of the pr make but also the leap into electronic typesetting,
-                          remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                          like Aldus PageMaker including versions of Lorem Ipsum.
-                        </p>
-                        <p>
-                          <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>
-                          <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <app-reviews *ngIf="isReview"></app-reviews>
         </div>
       </div>
     </div>

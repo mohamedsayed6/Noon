@@ -5,7 +5,7 @@
     <a
       class="product-card ms-4"
       *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-      routerLink="/Product/{{prd.id}}"
+      [routerLink]="['/egypt-en', prd?.skuString, prd?.skuId ,'p']"
     >
       <div class="product-tumb">
         <img src="{{prd.imageThumb}}" />

@@ -1,3 +1,4 @@
+import { Ireview } from "./ireview";
 import { ICategory } from "./icategory";
 export interface IProduct {
   id: number;
@@ -15,11 +16,12 @@ export interface IProduct {
   highlights: string[];
   specifications: Array<any>;
   available: boolean;
-  brand: string;
   brandId: number;
-  rating: number;
-  reviewsCount: number;
-  seller: string;
+  brandName: string;
+  overallRating: number;
+  reviews: Ireview[];
+  sellerId: string;
+  sellerName: string;
   maxQuantityPerOrder: number;
   proCat: ICategory[];
   //   availableCount: number;

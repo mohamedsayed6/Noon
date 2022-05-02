@@ -4,7 +4,7 @@ export interface Ireview {
   productId: number;
   customerId: number;
   customerName: string;
-  review: string;
   rating: Rate;
+  comment: string;
   createdAt: Date;
 }

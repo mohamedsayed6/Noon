@@ -92,11 +92,12 @@
         { "id": 4, "name": "Data Storage" }
       ],
       "available": true,
-      "rating": 4.5,
-      "reviewsCount": 245,
-      "brand": "Samsung",
+      "overallRating": 4.5,
+      "reviews": [{}],
       "brandId": 1,
-      "seller": "Noon"
+      "brandName": "Samsung",
+      "sellerName": "Noon",
+      "sellerId": "1"
     },
     {
       "id": 2,

@@ -51,29 +51,18 @@ select {
   color: rgb(194, 106, 106);
   cursor: pointer;
 }
-.borderless td,
-.borderless th {
-  border: none;
-}
-.viewFullSpecifications {
-  color: rgb(49, 46, 46);
-  cursor: pointer;
-  //underline
-  text-decoration: underline;
-}
-// .viewFullSpecifications:hover {
-//   color: rgb(68, 171, 231);
-//   //animation remove underline from center
-//   animation: underline 0.5s;
-//   animation-fill-mode: forwards;
-// }
-.viewFullSpecifications {
+
+.noonLink {
   position: relative;
-  color: #000;
+  color: rgb(28, 95, 182);
+  cursor: pointer;
   text-decoration: none;
+  //underline
+  // text-decoration: underline;
 
   &:hover {
-    color: rgb(31, 90, 127);
+    // color: rgb(31, 90, 127);
+    color: rgb(28, 95, 182);
   }
 
   &::before {
@@ -84,7 +73,8 @@ select {
     height: 1px;
     bottom: 0;
     left: 0;
-    background-color: #000;
+    // background-color: #000;
+    background-color: rgb(28, 95, 182);
     transform: scaleX(1);
     transition: transform 0.3s ease;
   }
@@ -94,19 +84,16 @@ select {
   }
 }
 
-// .crumb {
-//   display: inline-block;
-
-//   a {
-//     color: rgb(0, 0, 0);
-//     text-decoration: none;
-//   }
-// }
-.bfqYvS {
+.arrowCat {
   width: 10px;
   max-width: unset;
   height: 10px;
   max-height: unset;
-  // margin-left: 1px;
-  // margin-right: 1px;
+}
+.infoLink {
+  color: rgb(28, 95, 182);
+  text-decoration: none;
+  font-weight: bold;
+  //add bottom border
+  border-bottom: 4px solid rgb(28, 95, 182);
 }
