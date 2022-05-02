@@ -2,8 +2,8 @@ import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { Router } from "@angular/router";
-import { ISignUp } from "src/app/Models/view models/vm with request/ISign-up.vm";
-import { AuthService } from "src/app/Services/auth.service";
+import { ISignUp } from "src/app/Core/Models/view models/vm with request/ISign-up.vm";
+import { AuthService } from "src/app/Core/Services/auth.service";
 
 @Component({
   selector: "app-sign-up",

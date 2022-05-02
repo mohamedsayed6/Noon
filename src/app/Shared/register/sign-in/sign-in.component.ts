@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-import { ISignIn } from "src/app/Models/view models/vm with request/ISign-in.vm";
-import { AuthService } from "src/app/Services/auth.service";
+import { ISignIn } from "src/app/Core/Models/view models/vm with request/ISign-in.vm";
+import { AuthService } from "src/app/Core/Services/auth.service";
 
 @Component({
   selector: "app-sign-in",

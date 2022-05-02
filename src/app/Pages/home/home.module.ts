@@ -6,7 +6,7 @@ import { HomeComponent } from "./main/home.component";
 import { CategoryProductsComponent } from "./category-products/category-products.component";
 import { AllProductsComponent } from "./all-products/all-products.component";
 import { NgxPaginationModule } from "ngx-pagination";
-import { AfterDiscountPricePipe } from "src/app/Pipes/after-discount-price.pipe";
+import { AfterDiscountPricePipe } from "src/app/Core/Pipes/after-discount-price.pipe";
 import { HomeRoutingModule } from "./home-routing.module";
 @NgModule({
   declarations: [HomeComponent, CategoryProductsComponent, AllProductsComponent, AfterDiscountPricePipe],

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from "@angular/core";
 import { Router } from "@angular/router";
-import { IProduct } from "src/app/Models/iproduct";
+import { IProduct } from "src/app/Core/Models/iproduct";
 
 @Component({
   selector: "app-overview",

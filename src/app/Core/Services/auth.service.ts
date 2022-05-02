@@ -1,11 +1,11 @@
-import { IAuthUser } from "./../Models/view models/vm from response/IAuthUser.vm";
+import { IAuthUser } from "../../Core/Models/view models/vm from response/IAuthUser.vm";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, map, Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { ISignIn } from "../Models/view models/vm with request/ISign-in.vm";
-import { ISignUp } from "../Models/view models/vm with request/ISign-up.vm";
+import { ISignIn } from "../../Core/Models/view models/vm with request/ISign-in.vm";
+import { ISignUp } from "../../Core/Models/view models/vm with request/ISign-up.vm";
 
 @Injectable({
   providedIn: "root",

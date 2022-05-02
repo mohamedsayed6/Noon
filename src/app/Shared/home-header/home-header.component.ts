@@ -2,10 +2,10 @@ import { RegisterComponent } from "./../register/register.component";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { Router } from "@angular/router";
-import { ICategory } from "src/app/Models/icategory";
-import { ISubCategory } from "src/app/Models/ISubCategory";
-import { CategoriesServiceService } from "src/app/Services/categories-service.service";
-import { SubCategoriesService } from "src/app/Services/SubCategories.service";
+import { ICategory } from "src/app/Core/Models/icategory";
+import { ISubCategory } from "src/app/Core/Models/ISubCategory";
+import { CategoriesServiceService } from "src/app/Core/Services/categories-service.service";
+import { SubCategoriesService } from "src/app/Core/Services/SubCategories.service";
 
 @Component({
   selector: "app-home-header",

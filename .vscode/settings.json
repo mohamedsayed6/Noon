@@ -1,35 +1,5 @@
 {
   "files.exclude": {
-    "**/.git": false,
-    "**/.svn": false,
-    "**/.hg": false,
-    "**/CVS": false,
-    "**/.DS_Store": false,
-    "**/Thumbs.db": false,
-    ".angular": false,
-    "node_modules": false,
-    ".vscode": false,
-    "src/environments": false,
-    "src/assets": false,
-    "**/*.tsx": false,
-    "**/*.css": false,
-    "**/*.js": false,
-    "**/*.spec.ts": false,
-    "**/*.json": false,
-    ".vscode/settings.json": false,
-    ".browserslistrc": false,
-    ".editorconfig": false,
-    ".gitignore": false,
-    "karma.conf.js": false,
-    "README.md": false,
-    "src/polyfills.ts": false,
-    "src/test.ts": false,
-    "src/styles.scss": false,
-    "src/main.ts": false,
-    "src/index.html": false
-  },
-
-  "explorerExclude.backup": {
     "**/.git": true,
     "**/.svn": true,
     "**/.hg": true,
@@ -57,5 +27,7 @@
     "src/styles.scss": true,
     "src/main.ts": true,
     "src/index.html": true
-  }
+  },
+
+  "explorerExclude.backup": null
 }

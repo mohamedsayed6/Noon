@@ -1,9 +1,9 @@
 import { ActivatedRoute, Router } from "@angular/router";
-import { ProductsService } from "src/app/Services/products.service";
-import { IProduct } from "src/app/Models/iproduct";
+import { ProductsService } from "src/app/Core/Services/products.service";
+import { IProduct } from "src/app/Core/Models/iproduct";
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
 import { Subscription } from "rxjs";
-import { ICategory } from "src/app/Models/icategory";
+import { ICategory } from "src/app/Core/Models/icategory";
 
 @Component({
   selector: "app-product-details",
