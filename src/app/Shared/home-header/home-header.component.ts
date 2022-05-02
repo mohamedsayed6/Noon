@@ -28,14 +28,12 @@ export class HomeHeaderComponent implements OnInit {
     this.SubCategoriesService.GetAllSubCategories().subscribe((subcategories) => (this.SubCategories = subcategories));
   }
 
-  // map(id:number)
-  // {
-
-  //   this.router.navigate([`Category`,id])
+  // map(id: number) {
+  //   this.router.navigate([`Category`, id]);
   // }
-  showAllProduct() {
-    this.router.navigate(["/Noon/AllProducts"]);
-  }
+  // showAllProduct() {
+  //   this.router.navigate(["/Noon/AllProducts"]);
+  // }
   loclaztion(st: string) {
     localStorage.setItem("lang", st);
     location.reload();

@@ -47,6 +47,8 @@
   "Products": [
     {
       "id": 1,
+      "skuId": "N43630263V",
+      "skuString": "galaxy-a52s-5g-dual-sim-awesome-black-8gb-ram-128gb-middle-east-version",
       "name": "Galaxy A52s 5G Dual SIM Awesome Black 8GB RAM 128GB - Middle East Version",
       "modelNumber": "A52s",
       "price": 8300.0,

@@ -8,7 +8,7 @@ import { ProductsService } from "src/app/Services/products.service";
   styleUrls: ["./all-products.component.scss"],
 })
 export class AllProductsComponent implements OnInit {
-  Products: IProduct[] = [];
+  Products!: IProduct[];
   page: number = 1;
   count: number = 0;
   productSize: number = 20;

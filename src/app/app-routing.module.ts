@@ -12,20 +12,21 @@ import { SignInComponent } from "./Shared/sign-in/sign-in.component";
 import { ProductDetailsComponent } from "./Components/pro-details/product-details/product-details.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/Noon", pathMatch: "full" },
+  { path: "", redirectTo: "/egypt-en", pathMatch: "full" },
   {
-    path: "Noon",
+    path: "egypt-en",
     loadChildren: () => import(`./Components/home/home-routing.module`).then((module) => module.HomeRoutingModule),
   },
-  {
-    path: "Product",
-    loadChildren: () =>
-      import(`./Components/pro-details/pro-details-routing.module`).then((module) => module.ProDetailsRoutingModule),
-  },
+  // {
+  //   path: "egypt-en/:SkuString/:SkuId/p",
+  //   loadChildren: () =>
+  //     import(`./Components/pro-details/pro-details-routing.module`).then((module) => module.ProDetailsRoutingModule),
+  // },
   {
     path: "user",
     loadChildren: () => import(`./user/user-routing/user-routing.module`).then((module) => module.UserRoutingModule),
   },
+  { path: "egypt-en/:skuString/:skuId/p", component: ProductDetailsComponent },
   { path: "SignIn", component: SignInComponent },
   { path: "PayPal", component: PayPalComponent },
   { path: "**", component: NotFoundComponent },

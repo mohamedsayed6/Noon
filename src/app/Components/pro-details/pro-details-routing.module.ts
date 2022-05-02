@@ -4,7 +4,7 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
 
 const routes: Routes = [
   {
-    path: ":id",
+    path: "egypt-en/:SkuString/:SkuId/p",
     component: ProductDetailsComponent,
   },
 ];

@@ -4,25 +4,28 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <div class="container-fluid ms-4 mybody">
+      <div class="container mx-2 px-0 justify-content-center">
         <div class="row" id="contain">
           <!-- Category Path -->
-          <ol class="list-unstyled ps-4">
-            <ng-container *ngIf="productCategories.length >1">
-              <ng-container *ngFor="let cat of productCategories">
-                <li class="list-unstyled d-inline-block">
-                  <span class="btn text-muted px-1" (click)="goCatProducts(cat.id)">{{cat?.name}}</span
-                  ><img class="bfqYvS" src="https://z.nooncdn.com/s/app/com/noon/icons/right-chevron.svg" />
-                </li>
+          <div class="col-12 ps-4">
+            <ol class="list-unstyled">
+              <ng-container *ngIf="productCategories.length >1">
+                <ng-container *ngFor="let cat of productCategories">
+                  <li class="list-unstyled d-inline-block">
+                    <span class="btn text-muted px-1" (click)="goCatProducts(cat.id)">{{cat?.name}}</span
+                    ><img class="bfqYvS" src="https://z.nooncdn.com/s/app/com/noon/icons/right-chevron.svg" />
+                  </li>
+                </ng-container>
               </ng-container>
-            </ng-container>
-            <li class="list-unstyled d-inline-block">
-              <span class="btn text-muted px-1" (click)="goCatProducts(lastCat.id)">{{lastCat?.name}}</span>
-            </li>
-          </ol>
+              <li class="list-unstyled d-inline-block">
+                <span class="btn text-muted px-1" (click)="goCatProducts(lastCat.id)">{{lastCat?.name}}</span>
+              </li>
+            </ol>
+          </div>
+
           <!-- Images+Product Data -->
           <div class="col-lg-8">
-            <div class="container-fluid ps-0">
+            <div class="container-fluid">
               <div class="row">
                 <!-- Images -->
                 <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
@@ -38,6 +41,15 @@
                       <!-- main img -->
                       <div class="col-8">
                         <img class="img-thumbnail mb-2 img-thumb" src="{{selectedProduct?.imageThumb}}" id="main-img" />
+                        <!-- <lib-ngx-image-zoom
+                          [thumbImage]="proImg"
+                          [magnification]="1"
+                          [enableScrollZoom]="true"
+                          [enableLens]="true"
+                          [lensWidth]="200"
+                          [lensHeight]="200"
+                          [circularLens]="true"
+                        ></lib-ngx-image-zoom> -->
                       </div>
                     </div>
                   </div>

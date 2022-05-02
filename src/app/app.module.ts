@@ -13,7 +13,6 @@ import { CommonModule } from "@angular/common";
 import { UserModule } from "./user/user.module";
 import { ProDetailsModule } from "./Components/pro-details/pro-details.module";
 import { HomeModule } from "./Components/home/home.module";
-
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }

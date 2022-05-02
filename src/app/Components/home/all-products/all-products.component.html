@@ -5,16 +5,16 @@
     <a
       class="product-card ms-4"
       *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-      [routerLink]="['/Product', prd.id]"
+      [routerLink]="['/egypt-en', prd?.skuString, prd?.skuId ,'p']"
     >
       <div class="product-tumb">
-        <img src="{{prd.imageThumb}}" />
+        <img src="{{prd?.imageThumb}}" />
       </div>
 
       <div class="product-details">
-        <h5>{{prd.name}}</h5>
+        <h5>{{prd?.name}}</h5>
 
-        <p>{{prd.description}}</p>
+        <p>{{prd?.description}}</p>
 
         <div class="">
           <div class="product-bottom-details">

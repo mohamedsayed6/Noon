@@ -1,6 +1,8 @@
 import { ICategory } from "./icategory";
 export interface IProduct {
   id: number;
+  skuId: "";
+  skuString: "";
   modelNumber: string;
   name: string;
   price: number;

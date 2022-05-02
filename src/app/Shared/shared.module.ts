@@ -9,6 +9,7 @@ import { SignInComponent } from "./sign-in/sign-in.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { PayPalComponent } from "./pay-pal/pay-pal.component";
+import { NgxImageZoomModule } from "ngx-image-zoom";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { PayPalComponent } from "./pay-pal/pay-pal.component";
     NotFoundComponent,
     PayPalComponent,
   ],
-  imports: [CommonModule, RouterModule], //<==router module is mandatory of your module use [routerlink]
+  imports: [CommonModule, RouterModule, NgxImageZoomModule], //<==router module is mandatory of your module use [routerlink]
   exports: [
     HomeHeaderComponent,
     HomeFooterComponent,
@@ -32,6 +33,7 @@ import { PayPalComponent } from "./pay-pal/pay-pal.component";
     NotFoundComponent,
     PayPalComponent,
     RouterModule, //<== not duplication
+    NgxImageZoomModule,
   ],
 })
 export class SharedModule {}

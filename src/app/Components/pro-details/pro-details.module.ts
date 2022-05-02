@@ -10,6 +10,6 @@ import { ProductDetailsComponent } from "./product-details/product-details.compo
 
 @NgModule({
   declarations: [ProductDetailsComponent, OverviewComponent, SpecificationsComponent, ReviewsComponent],
-  imports: [CommonModule, ProDetailsRoutingModule, SharedModule],
+  imports: [CommonModule, SharedModule],
 })
 export class ProDetailsModule {}

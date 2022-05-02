@@ -14,7 +14,7 @@ export class ProductDetailsComponent implements OnInit {
   //=============================================================Properties =================================================
   //#region Properties
   //product id
-  selectedProductID!: number;
+  selectedProductID!: string;
   //selected Prodeuct
   selectedProduct!: IProduct;
   maxCountArr: number[] = [];
@@ -25,6 +25,8 @@ export class ProductDetailsComponent implements OnInit {
   productCategories: ICategory[] = [];
   // last item in category
   lastCat!: ICategory;
+  //product img
+  proImg!: string;
   //destroy subscription
   sub!: Subscription[];
   //#endregion
@@ -44,12 +46,14 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params) => {
       //fetch product id from url
-      let num = params.get("id");
-      if (num != null) {
-        this.selectedProductID = parseInt(num);
+      let skuId = params.get("skuId");
+      if (skuId != null) {
+        this.selectedProductID = skuId;
       }
       this._productService.GetProductById(this.selectedProductID).subscribe((data) => {
-        this.selectedProduct = data;
+        this.selectedProduct = data[0];
+        console.log(data);
+        console.log(this.selectedProduct);
         // maxCountArr == maxQuantityPerOrder
         for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
           this.maxCountArr.push(i);
@@ -60,7 +64,11 @@ export class ProductDetailsComponent implements OnInit {
         this.productCategories.pop();
         // last Catetory
         this.lastCat = this.selectedProduct.proCat[this.selectedProduct.proCat.length - 1];
+        //product img
+        this.proImg = this.selectedProduct.imageThumb;
       });
+      console.log(this.selectedProductID);
+      console.log(this.selectedProduct);
     });
   }
 
