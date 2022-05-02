@@ -8,7 +8,7 @@ import { CategoryProductsComponent } from "./Components/home/category-products/c
 
 import { NotFoundComponent } from "./Shared/not-found/not-found.component";
 import { PayPalComponent } from "./Shared/pay-pal/pay-pal.component";
-import { SignInComponent } from "./Shared/sign-in/sign-in.component";
+import { SignInComponent } from "./Shared/register/sign-in/sign-in.component";
 import { ProductDetailsComponent } from "./Components/pro-details/product-details/product-details.component";
 
 const routes: Routes = [

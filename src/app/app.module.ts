@@ -13,6 +13,7 @@ import { CommonModule } from "@angular/common";
 import { UserModule } from "./user/user.module";
 import { ProDetailsModule } from "./Components/pro-details/pro-details.module";
 import { HomeModule } from "./Components/home/home.module";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -39,8 +40,10 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: "en",
     }),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
+  // entryComponents: [SignInComponent],
 })
 export class AppModule {}

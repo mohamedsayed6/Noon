@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="container-wrapper">
+    <h3 class="login-text"><i class="bi bi-person-circle ac-logo"></i>Login</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- email -->
+      <div class="item">
+        <input
+          class="input"
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+          [class.is-valid]="email?.valid"
+          [class.is-invalid]="email?.invalid"
+        />
+        <div [hidden]="email?.valid || email?.untouched" class="alert alert-danger">
+          <small *ngIf="email?.errors?.['required']">
+            Email is required
+          </small>
+          <small *ngIf="email?.errors?.['email']">
+            Not Vaild Email
+          </small>
+        </div>
+      </div>
+      <!-- password -->
+      <div class="item">
+        <input
+          class="input"
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          [class.is-valid]="password?.valid"
+          [class.is-invalid]="password?.invalid"
+        />
+        <div [hidden]="password?.valid || password?.untouched" class="alert alert-danger">
+          <small *ngIf="password?.errors?.['required']">
+            password is required
+          </small>
+        </div>
+      </div>
+      <span class="remember"> <a href="#">Forgot Password?</a> </span>
+
+      <div class="item submit"><button type="submit">Log in</button></div>
+    </form>
+    <h2><span>OR</span></h2>
+
+    <div class="social-media">
+      <a href="#"><div class="icons8-google social-mediaImg"></div></a>
+      <a href="#"><div class="icons8-facebook-circled social-mediaImg"></div></a>
+      <a href="#"><div class="icons8-twitter social-mediaImg"></div></a>
+    </div>
+    <span class="ac">Don't have an Account? <span class="btn btn-link" (click)="goSignUp()">Sign Up</span></span>
+  </div>
+</div>
