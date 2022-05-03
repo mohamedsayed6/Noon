@@ -14,8 +14,8 @@ import { SubCategoriesService } from "src/app/Core/Services/SubCategories.servic
 })
 export class HomeHeaderComponent implements OnInit {
   localstorge: string;
-  Categories: ICategory[] = [];
-  SubCategories: ISubCategory[] = [];
+  Categories!: ICategory[];
+  SubCategories!: ISubCategory[];
   constructor(
     private CategoriesService: CategoriesServiceService,
     private SubCategoriesService: SubCategoriesService,
@@ -26,9 +26,13 @@ export class HomeHeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.CategoriesService.GetAllCategories().subscribe((_categories) => (this.Categories = _categories));
+    this.CategoriesService.GetAllCategories().subscribe((_categories) => {
+      this.Categories = _categories;
+    });
 
-    this.SubCategoriesService.GetAllSubCategories().subscribe((subcategories) => (this.SubCategories = subcategories));
+    this.SubCategoriesService.GetAllSubCategories().subscribe((subcategories) => {
+      this.SubCategories = subcategories;
+    });
   }
 
   // map(id: number) {

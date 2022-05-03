@@ -58,182 +58,182 @@
   "Categories": [
     {
       "id": 1,
-      "Name": "ELECTRONICS"
+      "name": "ELECTRONICS"
     },
     {
       "id": 2,
-      "Name": "Mobiles"
+      "name": "Mobiles"
     },
     {
       "id": 3,
-      "Name": "MEN"
+      "name": "MEN"
     },
     {
       "id": 4,
-      "Name": "WOMEN"
+      "name": "WOMEN"
     },
     {
       "id": 5,
-      "Name": "HOME"
+      "name": "HOME"
     },
     {
       "id": 6,
-      "Name": "BEAUTY & HEALTH"
+      "name": "BEAUTY & HEALTH"
     },
     {
       "id": 7,
-      "Name": "BABY & TOYS"
+      "name": "BABY & TOYS"
     },
     {
       "id": 8,
-      "Name": "SUPERMARKET"
+      "name": "SUPERMARKET"
     }
   ],
   "SubCategories": [
     {
       "id": 1,
-      "Name": "TVs",
-      "MainCatId": 1
+      "name": "TVs",
+      "mainCatId": 1
     },
     {
       "id": 2,
-      "Name": "Laptops",
-      "MainCatId": 1
+      "name": "Laptops",
+      "mainCatId": 1
     },
     {
       "id": 3,
-      "Name": "Video Games",
-      "MainCatId": 1
+      "name": "Video Games",
+      "mainCatId": 1
     },
     {
       "id": 4,
-      "Name": "Data Storage",
-      "MainCatId": 1
+      "name": "Data Storage",
+      "mainCatId": 1
     },
     {
       "id": 5,
-      "Name": "Samsung",
-      "MainCatId": 2
+      "name": "Samsung",
+      "mainCatId": 2
     },
     {
       "id": 6,
-      "Name": "Apple",
-      "MainCatId": 2
+      "name": "Apple",
+      "mainCatId": 2
     },
     {
       "id": 7,
-      "Name": "Oppo",
-      "MainCatId": 2
+      "name": "Oppo",
+      "mainCatId": 2
     },
     {
       "id": 8,
-      "Name": "Nokia",
-      "MainCatId": 2
+      "name": "Nokia",
+      "mainCatId": 2
     },
     {
       "id": 9,
       "Name": "Adidas",
-      "MainCatId": 3
+      "mainCatId": 3
     },
     {
       "id": 10,
-      "Name": "Nike",
-      "MainCatId": 3
+      "name": "Nike",
+      "mainCatId": 3
     },
     {
       "id": 11,
-      "Name": "Puma",
-      "MainCatId": 3
+      "name": "Puma",
+      "mainCatId": 3
     },
     {
       "id": 12,
-      "Name": "Mango",
-      "MainCatId": 4
+      "name": "Mango",
+      "mainCatId": 4
     },
     {
       "id": 13,
-      "Name": "Only",
-      "MainCatId": 4
+      "name": "Only",
+      "mainCatId": 4
     },
     {
       "id": 14,
-      "Name": "Shoes",
-      "MainCatId": 4
+      "name": "Shoes",
+      "mainCatId": 4
     },
     {
       "id": 15,
-      "Name": "Jewellery",
-      "MainCatId": 4
+      "name": "Jewellery",
+      "mainCatId": 4
     },
     {
       "id": 16,
-      "Name": "Tornado",
-      "MainCatId": 5
+      "name": "Tornado",
+      "mainCatId": 5
     },
     {
       "id": 17,
-      "Name": "Toshiba",
-      "MainCatId": 5
+      "name": "Toshiba",
+      "mainCatId": 5
     },
     {
       "id": 18,
-      "Name": "Fresh",
-      "MainCatId": 5
+      "name": "Fresh",
+      "mainCatId": 5
     },
     {
       "id": 19,
-      "Name": "Philips",
-      "MainCatId": 5
+      "name": "Philips",
+      "mainCatId": 5
     },
     {
       "id": 20,
-      "Name": "Makeup",
-      "MainCatId": 6
+      "name": "Makeup",
+      "mainCatId": 6
     },
     {
       "id": 21,
-      "Name": "Hair Care",
-      "MainCatId": 6
+      "name": "Hair Care",
+      "mainCatId": 6
     },
     {
       "id": 22,
-      "Name": "Skin Care",
-      "MainCatId": 6
+      "name": "Skin Care",
+      "mainCatId": 6
     },
     {
       "id": 23,
-      "Name": "Health & Nutrition",
-      "MainCatId": 6
+      "name": "Health & Nutrition",
+      "mainCatId": 6
     },
     {
       "id": 24,
-      "Name": "Toys",
-      "MainCatId": 7
+      "name": "Toys",
+      "mainCatId": 7
     },
     {
       "id": 25,
-      "Name": "Baby Safety",
-      "MainCatId": 7
+      "name": "Baby Safety",
+      "mainCatId": 7
     },
     {
       "id": 28,
-      "Name": "Home Care & Cleaning",
-      "MainCatId": 8
+      "name": "Home Care & Cleaning",
+      "mainCatId": 8
     },
     {
       "id": 29,
-      "Name": "Snack Food",
-      "MainCatId": 8
+      "name": "Snack Food",
+      "mainCatId": 8
     },
     {
       "id": 30,
-      "Name": "Breakfast Food",
-      "MainCatId": 8
+      "name": "Breakfast Food",
+      "mainCatId": 8
     },
     {
       "id": 31,
-      "Name": "Candy & Chocolate",
-      "MainCatId": 8
+      "name": "Candy & Chocolate",
+      "mainCatId": 8
     }
   ],
   "Products": [
@@ -324,9 +324,7 @@
       ],
       "available": true,
       "overallRating": 4.5,
-      "reviews": [
-        {}
-      ],
+      "reviews": [{}],
       "brandId": 1,
       "brandName": "Samsung",
       "sellerName": "Noon",

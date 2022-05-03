@@ -78,8 +78,8 @@
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li *ngFor="let scat of SubCategories">
-                <ng-container *ngIf="scat.MainCatId==cat.id">
-                  <a class="dropdown-item" [routerLink]="['/egypt-en/Category',scat.id]">{{scat.Name}}</a>
+                <ng-container *ngIf="scat.mainCatId==cat.id">
+                  <a class="dropdown-item" [routerLink]="['/egypt-en/Category',scat.id]">{{scat.name}}</a>
                 </ng-container>
               </li>
             </ul>

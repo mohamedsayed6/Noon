@@ -9,9 +9,7 @@
 // }
 
 // }
-
-
-
+//==========================================================================================
 
 .main-color {
   background-color: #feef00;
@@ -25,8 +23,6 @@ a {
   color: black;
 }
 
-
-
 #firstNav li::before {
   content: " |";
 }
@@ -35,22 +31,13 @@ a {
   content: "";
 }
 
-
-
-
-
-
 //End First Nav
 //-------------------------------------------------------
-
-
 
 .dropdown-toggle::after {
   content: none;
 }
-
-
-
+//==========================================================================================
 // .secondNav {
 //   border-bottom: 0.5px solid #ced4da;
 //   width: 100%;
@@ -63,7 +50,7 @@ a {
 //   margin-right: 30px;
 //   margin-top: 7px;
 //   margin-bottom: -6px;
-//   font-size: .9rem;
+//   font-size: 0.9rem;
 // }
 
 // .allCategories {
@@ -72,10 +59,3 @@ a {
 //   margin-right: 25px;
 //   color: #3866df;
 // }
-
-
-
-
-
-
-
