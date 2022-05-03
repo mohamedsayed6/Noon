@@ -14,21 +14,23 @@
         "preferdLang":"Preferred language",
         "email":"Email",
         "password":"Password",
-        "save":"حفظ",
+        "save":"Save",
         "changepassword":"Change Password",
         "ar":"Arabic",
         "en":"English"
-
+        
     },
     "userAddress":{
           "Addresses":"Addresses",
         "PrimaryAddress":"Primary Address",
+        "OtherAddress":"Other Address",
         "Home":"Home",
         "Name":"Name",
         "Address":"Address",
           "PhoneNumber":"Phone Number",
-          "updateAdress":"Update Address",
-          "update":"Update"
+          "newAddress":"Add New Address",
+          "new":"Add",
+          "default":"Defualt Address"
     },
     "userReturn":{
         "Return":"Return",

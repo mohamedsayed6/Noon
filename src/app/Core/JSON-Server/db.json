@@ -10,7 +10,16 @@
       "Balance": 37377,
       "role": "lastuser2",
       "phone": "01003875982",
-      "Address": "Sohage"
+      "Address": [
+        {
+          "address": "sohage",
+          "default": true
+        },
+        {
+          "address": "assuit",
+          "default": false
+        }
+      ]
     },
     {
       "id": "u2",
@@ -22,52 +31,211 @@
       "Balance": 66006,
       "role": "firstuser1",
       "phone": "01175894384",
-      "Address": "Assuitsss"
+      "Address": [
+        {
+          "id": 1,
+          "address": "sohage",
+          "default": false
+        },
+        {
+          "id": 2,
+          "address": "assuit",
+          "default": false
+        },
+        {
+          "id": 3,
+          "address": "asswan",
+          "default": false
+        },
+        {
+          "id": 4,
+          "address": "qena",
+          "default": false
+        }
+      ]
     }
   ],
   "Categories": [
-    { "id": 1, "Name": "ELECTRONICS" },
-    { "id": 2, "Name": "Mobiles" },
-    { "id": 3, "Name": "MEN" },
-    { "id": 4, "Name": "WOMEN" },
-    { "id": 5, "Name": "HOME" },
-    { "id": 6, "Name": "BEAUTY & HEALTH" },
-    { "id": 7, "Name": "BABY & TOYS" },
-    { "id": 8, "Name": "SUPERMARKET" }
+    {
+      "id": 1,
+      "Name": "ELECTRONICS"
+    },
+    {
+      "id": 2,
+      "Name": "Mobiles"
+    },
+    {
+      "id": 3,
+      "Name": "MEN"
+    },
+    {
+      "id": 4,
+      "Name": "WOMEN"
+    },
+    {
+      "id": 5,
+      "Name": "HOME"
+    },
+    {
+      "id": 6,
+      "Name": "BEAUTY & HEALTH"
+    },
+    {
+      "id": 7,
+      "Name": "BABY & TOYS"
+    },
+    {
+      "id": 8,
+      "Name": "SUPERMARKET"
+    }
   ],
-
   "SubCategories": [
-    { "id": 1, "Name": "TVs", "MainCatId": 1 },
-    { "id": 2, "Name": "Laptops", "MainCatId": 1 },
-    { "id": 3, "Name": "Video Games", "MainCatId": 1 },
-    { "id": 4, "Name": "Data Storage", "MainCatId": 1 },
-    { "id": 5, "Name": "Samsung", "MainCatId": 2 },
-    { "id": 6, "Name": "Apple", "MainCatId": 2 },
-    { "id": 7, "Name": "Oppo", "MainCatId": 2 },
-    { "id": 8, "Name": "Nokia", "MainCatId": 2 },
-    { "id": 9, "Name": "Adidas", "MainCatId": 3 },
-    { "id": 10, "Name": "Nike", "MainCatId": 3 },
-    { "id": 11, "Name": "Puma", "MainCatId": 3 },
-    { "id": 12, "Name": "Mango", "MainCatId": 4 },
-    { "id": 13, "Name": "Only", "MainCatId": 4 },
-    { "id": 14, "Name": "Shoes", "MainCatId": 4 },
-    { "id": 15, "Name": "Jewellery", "MainCatId": 4 },
-    { "id": 16, "Name": "Tornado", "MainCatId": 5 },
-    { "id": 17, "Name": "Toshiba", "MainCatId": 5 },
-    { "id": 18, "Name": "Fresh", "MainCatId": 5 },
-    { "id": 19, "Name": "Philips", "MainCatId": 5 },
-    { "id": 20, "Name": "Makeup", "MainCatId": 6 },
-    { "id": 21, "Name": "Hair Care", "MainCatId": 6 },
-    { "id": 22, "Name": "Skin Care", "MainCatId": 6 },
-    { "id": 23, "Name": "Health & Nutrition", "MainCatId": 6 },
-    { "id": 24, "Name": "Toys", "MainCatId": 7 },
-    { "id": 25, "Name": "Baby Safety", "MainCatId": 7 },
-    { "id": 28, "Name": "Home Care & Cleaning", "MainCatId": 8 },
-    { "id": 29, "Name": "Snack Food", "MainCatId": 8 },
-    { "id": 30, "Name": "Breakfast Food", "MainCatId": 8 },
-    { "id": 31, "Name": "Candy & Chocolate", "MainCatId": 8 }
+    {
+      "id": 1,
+      "Name": "TVs",
+      "MainCatId": 1
+    },
+    {
+      "id": 2,
+      "Name": "Laptops",
+      "MainCatId": 1
+    },
+    {
+      "id": 3,
+      "Name": "Video Games",
+      "MainCatId": 1
+    },
+    {
+      "id": 4,
+      "Name": "Data Storage",
+      "MainCatId": 1
+    },
+    {
+      "id": 5,
+      "Name": "Samsung",
+      "MainCatId": 2
+    },
+    {
+      "id": 6,
+      "Name": "Apple",
+      "MainCatId": 2
+    },
+    {
+      "id": 7,
+      "Name": "Oppo",
+      "MainCatId": 2
+    },
+    {
+      "id": 8,
+      "Name": "Nokia",
+      "MainCatId": 2
+    },
+    {
+      "id": 9,
+      "Name": "Adidas",
+      "MainCatId": 3
+    },
+    {
+      "id": 10,
+      "Name": "Nike",
+      "MainCatId": 3
+    },
+    {
+      "id": 11,
+      "Name": "Puma",
+      "MainCatId": 3
+    },
+    {
+      "id": 12,
+      "Name": "Mango",
+      "MainCatId": 4
+    },
+    {
+      "id": 13,
+      "Name": "Only",
+      "MainCatId": 4
+    },
+    {
+      "id": 14,
+      "Name": "Shoes",
+      "MainCatId": 4
+    },
+    {
+      "id": 15,
+      "Name": "Jewellery",
+      "MainCatId": 4
+    },
+    {
+      "id": 16,
+      "Name": "Tornado",
+      "MainCatId": 5
+    },
+    {
+      "id": 17,
+      "Name": "Toshiba",
+      "MainCatId": 5
+    },
+    {
+      "id": 18,
+      "Name": "Fresh",
+      "MainCatId": 5
+    },
+    {
+      "id": 19,
+      "Name": "Philips",
+      "MainCatId": 5
+    },
+    {
+      "id": 20,
+      "Name": "Makeup",
+      "MainCatId": 6
+    },
+    {
+      "id": 21,
+      "Name": "Hair Care",
+      "MainCatId": 6
+    },
+    {
+      "id": 22,
+      "Name": "Skin Care",
+      "MainCatId": 6
+    },
+    {
+      "id": 23,
+      "Name": "Health & Nutrition",
+      "MainCatId": 6
+    },
+    {
+      "id": 24,
+      "Name": "Toys",
+      "MainCatId": 7
+    },
+    {
+      "id": 25,
+      "Name": "Baby Safety",
+      "MainCatId": 7
+    },
+    {
+      "id": 28,
+      "Name": "Home Care & Cleaning",
+      "MainCatId": 8
+    },
+    {
+      "id": 29,
+      "Name": "Snack Food",
+      "MainCatId": 8
+    },
+    {
+      "id": 30,
+      "Name": "Breakfast Food",
+      "MainCatId": 8
+    },
+    {
+      "id": 31,
+      "Name": "Candy & Chocolate",
+      "MainCatId": 8
+    }
   ],
-
   "Products": [
     {
       "id": 1,
@@ -75,7 +243,7 @@
       "skuString": "galaxy-a52s-5g-dual-sim-awesome-black-8gb-ram-128gb-middle-east-version",
       "name": "Galaxy A52s 5G Dual SIM Awesome Black 8GB RAM 128GB - Middle East Version",
       "modelNumber": "A52s",
-      "price": 8300.0,
+      "price": 8300,
       "discount": 0.2,
       "description": "Samsung M32, Dual SIM, 64 Back Camera",
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_400/v1637257602/N50099853A_1.jpg",
@@ -99,25 +267,66 @@
         "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
       ],
       "specifications": [
-        { "key": "Model Number", "value": "NERF02" },
-        { "key": "Model Name", "value": "candle_lanterns-2" },
-        { "key": "Capacity", "value": "None None" },
-        { "key": "Colour Name", "value": "Orange" },
-        { "key": "Base Material", "value": "Metal" },
-        { "key": "Base Material", "value": "Metal" },
-        { "key": "Base Material", "value": "Metal" },
-        { "key": "Base Material", "value": "Metal" },
-        { "key": "Base Material", "value": "Metal" }
+        {
+          "key": "Model Number",
+          "value": "NERF02"
+        },
+        {
+          "key": "Model Name",
+          "value": "candle_lanterns-2"
+        },
+        {
+          "key": "Capacity",
+          "value": "None None"
+        },
+        {
+          "key": "Colour Name",
+          "value": "Orange"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        }
       ],
       "proCat": [
-        { "id": 1, "name": "TVs" },
-        { "id": 2, "name": "Laptops" },
-        { "id": 3, "name": "Video Games" },
-        { "id": 4, "name": "Data Storage" }
+        {
+          "id": 1,
+          "name": "TVs"
+        },
+        {
+          "id": 2,
+          "name": "Laptops"
+        },
+        {
+          "id": 3,
+          "name": "Video Games"
+        },
+        {
+          "id": 4,
+          "name": "Data Storage"
+        }
       ],
       "available": true,
       "overallRating": 4.5,
-      "reviews": [{}],
+      "reviews": [
+        {}
+      ],
       "brandId": 1,
       "brandName": "Samsung",
       "sellerName": "Noon",
@@ -133,7 +342,6 @@
       "quantity": 90,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1648570072/N50840187A_1.jpg"
     },
-
     {
       "id": 3,
       "name": "Nike Cargo Short",
@@ -144,7 +352,6 @@
       "quantity": 2,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1613148238/N43085259V_1.jpg"
     },
-
     {
       "id": 4,
       "name": "MANGO Bag",
@@ -155,7 +362,6 @@
       "quantity": 1,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1614974934/N43969134A_1.jpg"
     },
-
     {
       "id": 5,
       "name": "Tornado Microwave",
@@ -166,7 +372,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1604315670/N41780250A_1.jpg"
     },
-
     {
       "id": 6,
       "name": "Samsung M31",
@@ -177,7 +382,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 7,
       "name": "Samsung M31",
@@ -188,7 +392,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 8,
       "name": "Samsung M31",
@@ -199,7 +402,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 9,
       "name": "Samsung M31",
@@ -210,7 +412,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 10,
       "name": "Samsung M31",
@@ -221,7 +422,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 11,
       "name": "Samsung M31",
@@ -232,7 +432,6 @@
       "quantity": 0,
       "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 12,
       "name": "Samsung M31",
@@ -243,7 +442,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 13,
       "name": "Samsung M31",
@@ -254,7 +452,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 14,
       "name": "Samsung M31",
@@ -265,7 +462,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 15,
       "name": "Samsung M31",
@@ -276,7 +472,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 16,
       "name": "Samsung M31",
@@ -287,7 +482,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 17,
       "name": "Samsung M31",
@@ -298,7 +492,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 18,
       "name": "Samsung M31",
@@ -309,7 +502,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 19,
       "name": "Samsung M31",
@@ -320,7 +512,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 20,
       "name": "Samsung M31",
@@ -331,7 +522,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 21,
       "name": "Samsung M31",
@@ -342,7 +532,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 22,
       "name": "Samsung M31",
@@ -353,7 +542,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 23,
       "name": "Samsung M31",
@@ -364,7 +552,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 24,
       "name": "Samsung M31",
@@ -375,7 +562,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 25,
       "name": "Samsung M31",
@@ -386,7 +572,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 26,
       "name": "Samsung M31",
@@ -397,7 +582,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 27,
       "name": "Samsung M31",
@@ -408,7 +592,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 28,
       "name": "Samsung M31",
@@ -419,7 +602,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 29,
       "name": "Samsung M31",
@@ -430,7 +612,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 30,
       "name": "Samsung M31",
@@ -441,7 +622,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 31,
       "name": "Samsung M31",
@@ -452,7 +632,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 32,
       "name": "Samsung M31",
@@ -463,7 +642,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 33,
       "name": "Samsung M31",
@@ -474,7 +652,6 @@
       "quantity": 0,
       "ImgURL": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 34,
       "Name": "Samsung M31",
@@ -485,7 +662,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 35,
       "name": "Samsung M31",
@@ -496,7 +672,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 36,
       "name": "Samsung M31",
@@ -507,7 +682,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 37,
       "name": "Samsung M31",
@@ -518,7 +692,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 38,
       "name": "Samsung M31",
@@ -529,7 +702,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 39,
       "name": "Samsung M31",
@@ -540,7 +712,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 40,
       "name": "Samsung M31",
@@ -551,7 +722,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 41,
       "name": "Samsung M31",
@@ -562,7 +732,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 42,
       "name": "Samsung M31",
@@ -573,7 +742,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 43,
       "name": "Samsung M31",
@@ -584,7 +752,6 @@
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
     },
-
     {
       "id": 44,
       "name": "Samsung M31",

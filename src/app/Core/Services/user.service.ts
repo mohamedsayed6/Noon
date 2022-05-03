@@ -21,7 +21,9 @@ export class UserService {
   GetUserById(uid: number): Observable<Iuser> {
     return this.httpclient.get<Iuser>(`http://localhost:3000/users?id=${uid}`);
   }
-
+  adduser(user: Iuser): Observable<Iuser> {
+    return this.httpclient.post<Iuser>(`http://localhost:3000/users`, JSON.stringify(user), this.httpoption);
+  }
   updateuser(user: Iuser): Observable<Iuser> {
     return this.httpclient.put<Iuser>(`http://localhost:3000/users/${user.id}`, JSON.stringify(user), this.httpoption);
   }

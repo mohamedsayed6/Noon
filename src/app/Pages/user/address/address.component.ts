@@ -28,13 +28,26 @@ export class AddressComponent implements OnInit {
     document.getElementById("pop")?.classList.remove("pop");
   }
 
-  Updateuser(phone: any, address: any) {
-    this.user.phone = phone;
-    this.user.Address = address;
+ 
+  addAddress(phone: any, address: any,def:any) {
+   this.user.Address.push({id:4,address:address,default:def});
     this.userservice.updateuser(this.user).subscribe({
       next: (pro) => {
         this.route.navigateByUrl("/Address");
       },
     });
+  }
+  change(def:boolean,id:number){
+
+    console.log("ddddddddddddd");
+    console.log(this.user)
+  this.user.Address.filter(a=>a.id!=id).map(a=>a.default= false)
+  this.user.Address.filter(a=>a.id==id).map(a=>a.default= !def)
+  console.log(this.user)
+  this.userservice.updateuser(this.user).subscribe({
+    next: (pro) => {
+      this.route.navigateByUrl("/user/Address");
+    },
+  });
   }
 }

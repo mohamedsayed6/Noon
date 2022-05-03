@@ -25,12 +25,14 @@
     "userAddress":{
         "Addresses":"العنواين",
       "PrimaryAddress":"العنوان الرئيسي",
+      "OtherAddress":"عنوان اخر",
       "Home":"الرئيسي",
       "Name":"ألاسم",
       "Address":"العنوان",
         "PhoneNumber":"رقم الموبيل",
-        "updateAdress":"تعديل العنوان",
-        "update":"تعديل"
+        "newAddress":" اضافة عنوان جديد",
+        "new":"أضافة",
+        "default":"العنوان الاساسي"
   },
   "userReturn":{
     "Return":"المرتجعات",

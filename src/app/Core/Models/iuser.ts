@@ -8,5 +8,5 @@ export interface Iuser {
     Balance:number,
     role:string,
     phone:string,
-    Address:string
+    Address:any[]
 }

@@ -3,9 +3,10 @@
   
     <div id="updateAddress" class="d-none updateAddress"  >
         <div class="header">
-            <h1 class="">{{'userAddress.updateAdress'|translate}}
+            <h1 class="">{{'userAddress.newAddress'|translate}}
                 <button class="float-end btn btn-defualt close" (click)="divhide()">X</button>
             </h1>
+            
            
           </div>
         
@@ -13,15 +14,23 @@
             <div class="row mt-5">
               <div class="col-lg-12 mt-5">
                   <label>{{'userAddress.Address'|translate}}</label>
-                  <input type="text" class="form-control" name="Address" #address [value]="user.Address"
+                  <input type="text" class="form-control" name="Address" #address 
                 >
               </div>
               <div class="col-lg-12 mt-5">
                 <label>{{'userAddress.PhoneNumber'|translate}}</label>
-                <input type="text" class="form-control" name="phone" #phone  [value]="user.phone">
+                <input type="text" class="form-control" name="phone" #phone >
             </div>
+            <div class="col-lg-12 mt-5">
+              <div class="form-check form-switch col-4">
+                <label class="form-check-label" for="flexSwitchCheckChecked">{{'userAddress.default'|translate}}</label>
+                <input class="form-check-input" type="checkbox" name="Address" role="switch" id="flexSwitchCheckChecked" #def
+                >
+                
+              </div>
+          </div>
                <div class="col-lg-12 mt-5  text-center">
-                  <button class="btn btn-primary w-50" (click)="Updateuser(phone.value,address.value)" >{{'userAddress.update'|translate}}</button>
+                  <button class="btn btn-primary w-50" (click)="addAddress(phone.value,address.value,def.value)" >{{'userAddress.new'|translate}}</button>
                </div>
              
             </div>
@@ -36,37 +45,46 @@
   
           <div class="row">
               <div class="col-lg-9">
-                  <h3>{{'userAddress.Addresses'|translate}}</h3>
+                  <h1>{{'userAddress.Addresses'|translate}}</h1>
                 <p>see how your Address managed and check the lastest status on your Address</p>
   
               </div>
               <div class="col-lg-3">
-                  <button class="btn btn-primary" (click)="showdiv()">{{'userAddress.updateAdress'|translate}}</button>
+                  <button class="btn btn-primary" (click)="showdiv()">{{'userAddress.newAddress'|translate}}</button>
   
               </div>
           </div>  
-  
-              <div class="row headaddress mt-4 ">
-                  <h4>{{'userAddress.PrimaryAddress'|translate}}</h4>
-              </div>
+
+           <div class="row headaddress mt-4">
+                <div class="col-10">
+                  <h2>{{'userAddress.PrimaryAddress'|translate}}</h2>
+               </div>
+               <div class="form-check form-switch col-2">
+                 <label class="form-check-label" for="flexSwitchCheckChecked">{{'userAddress.default'|translate}}</label>
+                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" 
+                 [checked]="user.Address[0].default" (change)="change(user.Address[0].default,user.Address[0].id)"
+                 >
+                 
+               </div>
+           </div>
                  
           
           <div class="cart p-4">
                    <div class="row">
                      
-                        <h3>{{'userAddress.Home'|translate}}</h3>
+                        <h2>{{'userAddress.Home'|translate}}</h2>
                        <div class="col-lg-3">
-                           <h5>{{'userAddress.Name'|translate}}</h5>
+                           <h2>{{'userAddress.Name'|translate}}</h2>
                          <p>{{user.FirstName + " " + user.LastName}}</p>
                      </div>
                      <div class="col-lg-6">
-                        <h5>{{'userAddress.Address'|translate}}</h5>
+                        <h2>{{'userAddress.Address'|translate}}</h2>
                         <p>see how your Address managed and check the lastest status on your Address</p>
-                        <p>{{user.Address}}</p>
+                        <p>{{user.Address[0].address}}</p>
                         
                      </div>
                      <div class="col-lg-3">
-                      <h5>{{'userAddress.PhoneNumber'|translate}}</h5>
+                      <h2>{{'userAddress.PhoneNumber'|translate}}</h2>
                       <p>{{user.phone}}</p>
                     
   
@@ -77,8 +95,46 @@
   
              <!--=========================-->
   
-
-  
-
-  </div>
-  
+                <!--=========================-->
+        <div *ngFor="let item of user.Address ;let i=index" >  
+              <ng-container *ngIf="i >0">
+                <div class="row headaddress mt-4">
+                  <div class="col-10">
+                 <h2 class="d-inline">{{'userAddress.OtherAddress'|translate}}</h2>
+                 </div>
+                 <div class="form-check form-switch col-2">
+                   <label class="form-check-label" for="flexSwitchCheckChecked">{{'userAddress.default'|translate}}</label>
+                   <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked"
+                   [checked]="item.default" (change)="change(item.default,item.id)">
+                   
+                 </div>
+             </div>
+                
+         
+               <div class="cart p-4">
+                       <div class="row">
+                         
+                             <h2>{{'userAddress.Home'|translate}}</h2>
+                           <div class="col-lg-3">
+                               <h2>{{'userAddress.Name'|translate}}</h2>
+                             <p>{{user.FirstName + " " + user.LastName}}</p>
+                         </div>
+                         <div class="col-lg-6">
+                             <h2>{{'userAddress.Address'|translate}}</h2>
+                             <p>see how your Address managed and check the lastest status on your Address</p>
+                             <p>{{item.address}}</p>
+                             
+                         </div>
+                         <div class="col-lg-3">
+                           <h2>{{'userAddress.PhoneNumber'|translate}}</h2>
+                           <p>{{user.phone}}</p>
+                         
+     
+                         </div>  
+                       </div>
+             
+     
+             </div>
+              </ng-container>
+         
+</div>  

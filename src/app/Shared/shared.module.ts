@@ -9,7 +9,6 @@ import { UserFooterComponent } from "./user-footer/user-footer.component";
 import { SignInComponent } from "./register/sign-in/sign-in.component";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { PayPalComponent } from "./pay-pal/pay-pal.component";
-import { NgxImageZoomModule } from "ngx-image-zoom";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from "@angular/material/dialog";
 import { RegisterComponent } from "./register/register.component";
@@ -31,7 +30,6 @@ import { SignUpComponent } from "./register/sign-up/sign-up.component";
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    NgxImageZoomModule,
     BrowserAnimationsModule,
     MatDialogModule,
   ], //<==router module is mandatory of your module use [routerlink]
@@ -46,8 +44,7 @@ import { SignUpComponent } from "./register/sign-up/sign-up.component";
     NotFoundComponent,
     PayPalComponent,
     RouterModule, //<== not duplication
-    NgxImageZoomModule,
-    // add angular popup material,
+  
   ],
 })
 export class SharedModule {}
