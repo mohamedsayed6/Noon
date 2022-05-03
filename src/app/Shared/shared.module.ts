@@ -26,7 +26,7 @@ import { SignUpComponent } from "./register/sign-up/sign-up.component";
     NotFoundComponent,
     PayPalComponent,
   ],
-<<<<<<< HEAD
+
   imports: [
     CommonModule,
     RouterModule,
@@ -34,9 +34,9 @@ import { SignUpComponent } from "./register/sign-up/sign-up.component";
     BrowserAnimationsModule,
     MatDialogModule,
   ], //<==router module is mandatory of your module use [routerlink]
-=======
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, BrowserAnimationsModule, MatDialogModule], //<==router module is mandatory of your module use [routerlink]
->>>>>>> 88c27bb9e9a0be6215fa19e7fcb41c63daf06ef9
+
+  //<==router module is mandatory of your module use [routerlink]
+
   exports: [
     HomeHeaderComponent,
     HomeFooterComponent,
@@ -48,11 +48,8 @@ import { SignUpComponent } from "./register/sign-up/sign-up.component";
     NotFoundComponent,
     PayPalComponent,
     RouterModule, //<== not duplication
-<<<<<<< HEAD
-  
-=======
-    // add angular popup material,
->>>>>>> 88c27bb9e9a0be6215fa19e7fcb41c63daf06ef9
+
+
   ],
 })
 export class SharedModule {}
