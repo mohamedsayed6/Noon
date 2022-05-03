@@ -1,6 +1,30 @@
 {
-  "users": [],
-
+  "users": [
+    {
+      "id": "u1",
+      "FirstName": "firstuser1",
+      "LastName": "laststuser1",
+      "email": "user1@gmail.com",
+      "password": "user1234",
+      "IsActive": true,
+      "Balance": 37377,
+      "role": "lastuser2",
+      "phone": "01003875982",
+      "Address": "Sohage"
+    },
+    {
+      "id": "u2",
+      "FirstName": "kerolosss",
+      "LastName": "sadkihdhdh",
+      "email": "user1@gmail.com",
+      "password": "user5",
+      "IsActive": true,
+      "Balance": 66006,
+      "role": "firstuser1",
+      "phone": "01175894384",
+      "Address": "Assuitsss"
+    }
+  ],
   "Categories": [
     { "id": 1, "Name": "ELECTRONICS" },
     { "id": 2, "Name": "Mobiles" },
@@ -570,6 +594,101 @@
       "categoryId": 2,
       "quantity": 0,
       "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1643636735/N52513392A_2.jpg"
+    }
+  ],
+  "orders": [
+    {
+      "id": "NEGDB0063826809",
+      "name": "oneplus 7pro",
+      "image": "https://mobizil.com/wp-content/uploads/2019/05/OnePlus-7-Pro.jpg",
+      "customer": "1",
+      "items": "1",
+      "date": "2022-01-25",
+      "returned": false,
+      "firstName": "Hady",
+      "lastName": "Abo El-Wafa",
+      "phone": "+201117191177"
+    },
+    {
+      "id": "NEGCA0096520964",
+      "name": "samsung s21 plus",
+      "image": "https://riz.shop/wp-content/uploads/MbSamsung577.jpg",
+      "customer": "2",
+      "items": "20,2,3",
+      "date": "2022-01-01",
+      "returned": false,
+      "firstName": "Keyrillos",
+      "lastName": "Sedki",
+      "phone": "+201203586159"
+    },
+    {
+      "id": "NEGCA0095326964",
+      "name": "samsung TV NEO QLED",
+      "image": "https://images.samsung.com/is/image/samsung/p6pim/ae_ar/qa65qn85aauxzn/gallery/ae-ar-qled-tv-qa65qn85aauxzn-front-silver-457883429",
+      "customer": "3",
+      "items": "5,6",
+      "date": "2022-02-25",
+      "returned": true,
+      "firstName": "Keyrillos",
+      "lastName": "Sedki",
+      "phone": "+201203586159"
+    },
+    {
+      "id": "NEGCA00969201484",
+      "name": "samsung TV QLED",
+      "image": "https://www.cdiscount.com/pdt2/8/0/a/1/700x700/samqe55q80a/rw/samsung-qe55q80a-tv-qled-uhd-4k-55-138cm.jpg",
+      "customer": "4",
+      "items": "20",
+      "date": "2022-01-12",
+      "returned": false,
+      "firstName": "Keyrillos",
+      "lastName": "Sedki",
+      "phone": "+201203586159"
+    },
+    {
+      "id": "NEGCA0095236964",
+      "name": "Active Foundation Badge Cap Black",
+      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1624606634/N47740084V_1.jpg",
+      "customer": "1",
+      "items": "18",
+      "date": "2022-03-01",
+      "returned": false,
+      "firstName": "Mohammed",
+      "lastName": "Sayed",
+      "phone": "+201149610479"
+    },
+    {
+      "id": "NEGCA0010252964",
+      "name": "Mesh Striped Sneakers Black",
+      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1637650480/N51557096V_1.jpg",
+      "customer": "2",
+      "items": "15,18",
+      "date": "2021-01-12",
+      "returned": true,
+      "firstName": "Mohammed",
+      "lastName": "Sayed",
+      "phone": "+201149610479"
+    },
+    {
+      "name": "Cloud Print Windbreaker Jacket Black",
+      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1609326951/N39740079V_1.jpg",
+      "id": "NEGCA0099962964",
+      "customer": "4",
+      "items": "17",
+      "date": "2022-02-22",
+      "returned": true,
+      "firstName": "Emad",
+      "lastName": "Naeim",
+      "phone": "+201093058380"
+    },
+    {
+      "id": "NEGCA0097852964",
+      "name": "Oversized Denim Jacket Navy",
+      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1604070537/N40033286V_1.jpg",
+      "customer": "3",
+      "items": "13",
+      "date": "2022-01-12",
+      "returned": "flase"
     }
   ]
 }

@@ -5,7 +5,44 @@
         "return":"return",
         "profile":"Profile",
         "payment":"payment"
-    }
+    },
+    "userprofile":{
+        "generalInfo":"General Information",
+        "security":"Scurity",
+        "firstName":"FirstName",
+        "lastName":"LastName",
+        "preferdLang":"Preferred language",
+        "email":"Email",
+        "password":"Password",
+        "save":"حفظ",
+        "changepassword":"Change Password",
+        "ar":"Arabic",
+        "en":"English"
 
-    
+    },
+    "userAddress":{
+          "Addresses":"Addresses",
+        "PrimaryAddress":"Primary Address",
+        "Home":"Home",
+        "Name":"Name",
+        "Address":"Address",
+          "PhoneNumber":"Phone Number",
+          "updateAdress":"Update Address",
+          "update":"Update"
+    },
+    "userReturn":{
+        "Return":"Return",
+      "ReturnId":"Return ID",
+      "Address":"Address",
+        "Approved":"Approved",
+        "Express":"Express",
+        "RefundMethod":"Refund Method",
+        "tax":"Tax Credit Note"
+      
+  },
+  "userorder":{
+      "order":"order",
+      "Dileveried":"Dileveried"
+  }
+
 }

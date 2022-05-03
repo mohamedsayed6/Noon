@@ -9,6 +9,13 @@ export class UsersideComponent implements OnInit {
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
+
+    this.translate.use(localStorage.getItem("lang")!)
+    if(localStorage.getItem("lang")=="ar"){
+    document.body.style.direction="rtl";
+    }
+
     this.translate.use(localStorage.getItem("lang")!);
+
   }
 }

@@ -1,20 +1,20 @@
      <div class="row">
        
             <div class="order p-4" id="order">
-                <h4>Order</h4>
+                <h4>{{'userorder.order'|translate}}</h4>
                 <p>see how your order managed and check the lastest status on your order</p>
 
-                <div class="cart mt-4 p-4">
+                <div class="cart mt-4 p-4"  *ngFor="let item of orderList">
                     <div>
                         <div class="row">
-                            <p>Order element.id <time>element.date</time></p>
+                            <p>{{item.id}} <time>{{item.date}}</time></p>
                             <div class="col-lg-2 col-md-2" col-sm-2>
-                             <img src="${element.image}" class="img-fluid">
+                             <img src="{{item.image}}" class="img-fluid">
                                
                             </div>
                             <div class="col-lg-9 col-md-9 col-sm-9">
-                                <p>element.name</p>
-                                <p style="color:green;">Dileveried</p>
+                                <p>{{item.name}}</p>
+                                <p style="color:green;">{{'userorder.Dileveried'|translate}}</p>
                                
                             </div>
                             <button class="btn btn-outline-primary mt-4 mb-4" style="width:250px;">Review This Order</button>
