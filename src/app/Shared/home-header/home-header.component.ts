@@ -6,6 +6,7 @@ import { ICategory } from "src/app/Core/Models/icategory";
 import { ISubCategory } from "src/app/Core/Models/ISubCategory";
 import { CategoriesServiceService } from "src/app/Core/Services/categories-service.service";
 import { SubCategoriesService } from "src/app/Core/Services/SubCategories.service";
+import { AuthService } from "src/app/Core/Services/auth.service";
 
 @Component({
   selector: "app-home-header",
@@ -21,7 +22,8 @@ export class HomeHeaderComponent implements OnInit {
     private CategoriesService: CategoriesServiceService,
     private SubCategoriesService: SubCategoriesService,
     private router: Router,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _auth: AuthService
   ) {
     this.localstorge = localStorage.getItem("lang")!;
   }
@@ -35,7 +37,7 @@ export class HomeHeaderComponent implements OnInit {
       this.SubCategories = subcategories;
     });
     //get token from localstorage
-    this.token = localStorage.getItem("token");
+    this.token = localStorage.getItem("currentUser");
   }
 
   // map(id: number) {
@@ -51,13 +53,12 @@ export class HomeHeaderComponent implements OnInit {
   register() {
     const dialogConfig = new MatDialogConfig();
     // dialogConfig.disableClose = true;
-    // dialogConfig.panelClass = "bg-transparent";
-    // dialogConfig.backdropClass = "bg-transparent";
     dialogConfig.autoFocus = true;
     this._dialog.open(RegisterComponent, dialogConfig);
   }
   logout() {
-    localStorage.removeItem("token");
+    this._auth.logout();
     this.router.navigate(["/"]);
+    window.location.reload();
   }
 }
