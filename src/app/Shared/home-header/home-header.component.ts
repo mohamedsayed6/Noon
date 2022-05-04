@@ -65,6 +65,16 @@ export class HomeHeaderComponent implements OnInit {
   }
   // test Cart
   TTest() {
-    this._cartService.test();
+    this._cartService.getCartItems().subscribe(
+      () => {
+        console.log("test");
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        console.log("test complete");
+      }
+    );
   }
 }

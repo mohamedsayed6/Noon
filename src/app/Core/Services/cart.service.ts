@@ -11,9 +11,7 @@ export class CartService {
   constructor(private _api: HttpClient) {}
   //add to cart
   test() {
-    this._api.get("http://localhost:23146/api/Cart/test").subscribe();
-
-    // // this.httpclient.get(`${environment.APIBaseURL}` + "Cart/test");
+    return this._api.get(`${environment.APIBaseURL}` + "/Cart/test");
   }
   //get all cart items
   getCartItems(): Observable<IProduct[]> {
@@ -21,11 +19,11 @@ export class CartService {
   }
 
   // Add to cart
-  addToCart(product: IProduct) {
-    return this._api.post(`${environment.APIBaseURL}` + "/Cart/AddToCart", product);
+  addToCart(productId: number) {
+    return this._api.post(`${environment.APIBaseURL}` + "/Cart/AddToCart", productId);
   }
   //Remove from cart
-  removeFromCart(product: IProduct) {
-    return this._api.delete(`${environment.APIBaseURL}` + "/Cart/RemoveFromCart" + product.skuId);
+  removeFromCart(productId: number) {
+    return this._api.delete(`${environment.APIBaseURL}` + "/Cart/RemoveFromCart" + productId);
   }
 }
