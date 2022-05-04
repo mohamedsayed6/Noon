@@ -1,3 +1,4 @@
+import { CartService } from "./../../Core/Services/cart.service";
 import { RegisterComponent } from "./../register/register.component";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
@@ -23,7 +24,8 @@ export class HomeHeaderComponent implements OnInit {
     private SubCategoriesService: SubCategoriesService,
     private router: Router,
     private _dialog: MatDialog,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private _cartService: CartService
   ) {
     this.localstorge = localStorage.getItem("lang")!;
   }
@@ -60,5 +62,9 @@ export class HomeHeaderComponent implements OnInit {
     this._auth.logout();
     this.router.navigate(["/"]);
     window.location.reload();
+  }
+  // test Cart
+  TTest() {
+    this._cartService.test();
   }
 }
