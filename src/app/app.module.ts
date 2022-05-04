@@ -14,12 +14,14 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeModule } from "./Pages/home/home.module";
 import { UserModule } from "./Pages/user/user.module";
 import { ProDetailsModule } from "./Pages/pro-details/pro-details.module";
+import { WishListComponent } from './Pages/cart/wish-list/wish-list.component';
+import { OrderSummryComponent } from './Pages/cart/order-summry/order-summry.component';
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
-  declarations: [AppComponent, CartComponent],
+  declarations: [AppComponent, CartComponent, WishListComponent, OrderSummryComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
