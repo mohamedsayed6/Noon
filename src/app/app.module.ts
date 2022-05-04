@@ -4,7 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CartComponent } from "./Pages/cart/cart.component";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgxPaginationModule } from "ngx-pagination";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
@@ -14,8 +14,13 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeModule } from "./Pages/home/home.module";
 import { UserModule } from "./Pages/user/user.module";
 import { ProDetailsModule } from "./Pages/pro-details/pro-details.module";
+
 import { WishListComponent } from './Pages/cart/wish-list/wish-list.component';
 import { OrderSummryComponent } from './Pages/cart/order-summry/order-summry.component';
+
+import { JwtInterceptor } from "./Core/Interceptors/jwt.interceptor";
+import { ErrorInterceptor } from "./Core/Interceptors/error.interceptor";
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
@@ -44,7 +49,18 @@ export function HttpLoaderFactory(http: HttpClient) {
     }),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true,
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
   // entryComponents: [SignInComponent],
 })

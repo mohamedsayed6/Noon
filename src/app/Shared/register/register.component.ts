@@ -9,16 +9,14 @@ export class RegisterComponent implements OnInit {
   isSignUp!: boolean;
   constructor() {}
   ngOnInit(): void {
-    this.isSignIn = true;
-    this.isSignUp = false;
+    this.isSignIn = false;
+    this.isSignUp = true;
   }
   openSignIn() {
-    console.log("sign in works");
     this.isSignIn = true;
     this.isSignUp = false;
   }
   openSignUp() {
-    console.log("sign up works");
     this.isSignIn = false;
     this.isSignUp = true;
   }
