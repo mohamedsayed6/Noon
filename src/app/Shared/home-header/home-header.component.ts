@@ -16,6 +16,7 @@ export class HomeHeaderComponent implements OnInit {
   localstorge: string;
   Categories!: ICategory[];
   SubCategories!: ISubCategory[];
+  token!: any;
   constructor(
     private CategoriesService: CategoriesServiceService,
     private SubCategoriesService: SubCategoriesService,
@@ -33,6 +34,8 @@ export class HomeHeaderComponent implements OnInit {
     this.SubCategoriesService.GetAllSubCategories().subscribe((subcategories) => {
       this.SubCategories = subcategories;
     });
+    //get token from localstorage
+    this.token = localStorage.getItem("token");
   }
 
   // map(id: number) {
@@ -52,5 +55,9 @@ export class HomeHeaderComponent implements OnInit {
     // dialogConfig.backdropClass = "bg-transparent";
     dialogConfig.autoFocus = true;
     this._dialog.open(RegisterComponent, dialogConfig);
+  }
+  logout() {
+    localStorage.removeItem("token");
+    this.router.navigate(["/"]);
   }
 }

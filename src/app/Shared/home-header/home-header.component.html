@@ -28,12 +28,27 @@
             English
           </button>
         </li>
-        <li class="list-inline-item" *ngIf="true">
-          <a routerLink="/user">
-            User
-          </a>
+        <li class="list-inline-item" *ngIf="token">
+          <button mat-button [matMenuTriggerFor]="menu">
+            <div>
+              <small class="bg-transparent">ahlan ! Hady</small>
+              <div class="bg-transparent fw-bold">My Account</div>
+            </div>
+            <span><i class="fa-solid fa-arrow-down"></i></span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink="/user/order">Orders</button>
+            <button mat-menu-item routerLink="/user/Address">Addresses</button>
+            <button mat-menu-item routerLink="/user">Payments</button>
+            <button mat-menu-item routerLink="/user">noon Credits</button>
+            <button mat-menu-item routerLink="/user/return">Returns</button>
+            <button mat-menu-item routerLink="/user">Warranty Claims</button>
+            <button mat-menu-item routerLink="/user">Preferences</button>
+            <button mat-menu-item routerLink="/user/profile">Profile</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+          </mat-menu>
         </li>
-        <li class="list-inline-item">
+        <li class="list-inline-item" *ngIf="!token">
           <span class="btn" (click)="register()"> Sign In <i class="fa-solid fa-user"></i> </span>
         </li>
 

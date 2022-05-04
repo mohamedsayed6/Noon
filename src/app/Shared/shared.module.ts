@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatDialogModule } from "@angular/material/dialog";
 import { RegisterComponent } from "./register/register.component";
 import { SignUpComponent } from "./register/sign-up/sign-up.component";
-
+import { MatMenuModule } from "@angular/material/menu";
 @NgModule({
   declarations: [
     HomeHeaderComponent,
@@ -27,13 +27,7 @@ import { SignUpComponent } from "./register/sign-up/sign-up.component";
     PayPalComponent,
   ],
 
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-  ], //<==router module is mandatory of your module use [routerlink]
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, BrowserAnimationsModule, MatDialogModule, MatMenuModule], //<==router module is mandatory of your module use [routerlink]
 
   //<==router module is mandatory of your module use [routerlink]
 
@@ -48,8 +42,6 @@ import { SignUpComponent } from "./register/sign-up/sign-up.component";
     NotFoundComponent,
     PayPalComponent,
     RouterModule, //<== not duplication
-
-
   ],
 })
 export class SharedModule {}

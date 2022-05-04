@@ -25,3 +25,17 @@ body {
   background: white;
   color: rgba(0, 0, 0, 0.87);
 }
+
+.mat-menu-panel {
+  background: white;
+  color: rgba(0, 0, 0, 0.87);
+  button {
+    color: rgba(0, 0, 0, 0.87);
+  }
+}
+
+.mat-menu-trigger {
+  background: #feef00;
+  color: #000;
+  border: none;
+}
