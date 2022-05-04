@@ -48,8 +48,8 @@ export class HomeHeaderComponent implements OnInit {
   register() {
     const dialogConfig = new MatDialogConfig();
     // dialogConfig.disableClose = true;
-    // dialogConfig.width = "60%";
-    // dialogConfig.height = "60%";
+    // dialogConfig.panelClass = "bg-transparent";
+    // dialogConfig.backdropClass = "bg-transparent";
     dialogConfig.autoFocus = true;
     this._dialog.open(RegisterComponent, dialogConfig);
   }
