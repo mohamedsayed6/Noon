@@ -18,7 +18,7 @@
         "changepassword":"Change Password",
         "ar":"Arabic",
         "en":"English"
-        
+
     },
     "userAddress":{
           "Addresses":"Addresses",
@@ -40,11 +40,15 @@
         "Express":"Express",
         "RefundMethod":"Refund Method",
         "tax":"Tax Credit Note"
-      
+
   },
   "userorder":{
       "order":"order",
       "Dileveried":"Dileveried"
+  },
+  "Search":{
+       "Name":"What are you looking for?"
+
   }
 
 }

@@ -37,14 +37,12 @@
             <span><i class="fa-solid fa-arrow-down"></i></span>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink="/user/order">Orders</button>
-            <button mat-menu-item routerLink="/user/Address">Addresses</button>
-            <button mat-menu-item routerLink="/user">Payments</button>
-            <button mat-menu-item routerLink="/user">noon Credits</button>
-            <button mat-menu-item routerLink="/user/return">Returns</button>
-            <button mat-menu-item routerLink="/user">Warranty Claims</button>
-            <button mat-menu-item routerLink="/user">Preferences</button>
-            <button mat-menu-item routerLink="/user/profile">Profile</button>
+
+            <button mat-menu-item routerLink="/user/order"><img src="	https://z.nooncdn.com/s/app/com/noon/icons/orders_menu_icon_v3.svg">Orders</button>
+            <button mat-menu-item routerLink="/user/Address"><img src="https://z.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg">Addresses</button>
+            <button mat-menu-item routerLink="/user"><img src="https://z.nooncdn.com/s/app/com/noon/icons/payment_menu_icon_v3.svg">Payments</button>
+            <button mat-menu-item routerLink="/user/return"><img src="	https://z.nooncdn.com/s/app/com/noon/icons/returns_menu_icon_v3.svg">Returns</button>
+            <button mat-menu-item routerLink="/user/profile"><img src="	https://z.nooncdn.com/s/app/com/noon/icons/profile_menu_icon_v3.svg">Profile</button>
             <button mat-menu-item (click)="logout()">Logout</button>
           </mat-menu>
         </li>
@@ -53,7 +51,7 @@
         </li>
 
         <li class="list-inline-item">
-          <a routerLink="cart"> Cart <i class="fa-solid fa-cart-shopping"></i> </a>
+          <a [routerLink]="['/egypt-en/cart']"> Cart <i class="fa-solid fa-cart-shopping"></i> </a>
         </li>
       </ul>
     </div>
@@ -103,6 +101,7 @@
       </div>
     </div>
   </nav>
+
 </div>
 <!-- <button class="btn btn-primary" (click)="TTest()">Test Cart</button> -->
 <!-- <img src="{{apiUrl}}/images/ww.png" alt="Noon Logo" /> -->

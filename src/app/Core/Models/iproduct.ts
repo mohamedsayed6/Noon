@@ -2,7 +2,7 @@ import { Ireview } from "./ireview";
 import { ICategory } from "./icategory";
 export interface IProduct {
   id: number;
-  skuId: "";
+  skuId: string;
   skuString: "";
   modelNumber: string;
   name: string;

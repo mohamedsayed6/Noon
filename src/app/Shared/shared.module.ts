@@ -14,6 +14,15 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { RegisterComponent } from "./register/register.component";
 import { SignUpComponent } from "./register/sign-up/sign-up.component";
 import { MatMenuModule } from "@angular/material/menu";
+import { HttpClient } from "@angular/common/http";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateModule } from "@ngx-translate/core";
+
+
+
+export function userHttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
 @NgModule({
   declarations: [
     HomeHeaderComponent,
@@ -27,7 +36,17 @@ import { MatMenuModule } from "@angular/material/menu";
     PayPalComponent,
   ],
 
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, BrowserAnimationsModule, MatDialogModule, MatMenuModule], //<==router module is mandatory of your module use [routerlink]
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, BrowserAnimationsModule,
+     MatDialogModule, MatMenuModule,
+     TranslateModule.forChild({
+      loader: {
+        provide: TranslateModule,
+        useFactory: userHttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: "en",
+    })
+    ], //<==router module is mandatory of your module use [routerlink]
 
   //<==router module is mandatory of your module use [routerlink]
 
