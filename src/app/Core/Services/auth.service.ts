@@ -26,7 +26,7 @@ export class AuthService {
   //=========================================================    Methods  ====================================
   //login user
   login(vmSignIn: ISignIn) {
-    return this._api.post<IAuthUser>(`${environment.APIBaseURL}` + "/Auth/SignIn", vmSignIn).pipe(
+    return this._api.post<IAuthUser>(`${environment.APIBaseURL}` + "/api/Auth/SignIn", vmSignIn).pipe(
       map((authUser) => {
         // login successful if there's a jwt token in the response
         if (authUser && authUser.token) {
@@ -47,6 +47,6 @@ export class AuthService {
   }
   //register user
   register(vmSignUp: ISignUp) {
-    return this._api.post(`${environment.APIBaseURL}` + "/Auth/Register", vmSignUp);
+    return this._api.post(`${environment.APIBaseURL}` + "/api/Auth/Register", vmSignUp);
   }
 }

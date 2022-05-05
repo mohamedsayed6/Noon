@@ -8,6 +8,7 @@ import { ISubCategory } from "src/app/Core/Models/ISubCategory";
 import { CategoriesServiceService } from "src/app/Core/Services/categories-service.service";
 import { SubCategoriesService } from "src/app/Core/Services/SubCategories.service";
 import { AuthService } from "src/app/Core/Services/auth.service";
+import { environment } from "src/environments/environment";
 
 @Component({
   selector: "app-home-header",
@@ -15,6 +16,7 @@ import { AuthService } from "src/app/Core/Services/auth.service";
   styleUrls: ["./home-header.component.scss"],
 })
 export class HomeHeaderComponent implements OnInit {
+  apiUrl: string = environment.APIBaseURL;
   localstorge: string;
   Categories!: ICategory[];
   SubCategories!: ISubCategory[];
@@ -65,9 +67,45 @@ export class HomeHeaderComponent implements OnInit {
   }
   // test Cart
   TTest() {
+    // this._cartService.addToCart(2, 3).subscribe(
+    //   () => {
+    //     console.log("test");
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   },
+    //   () => {
+    //     console.log("test complete");
+    //   }
+    // );
+
+    // this._cartService.removeFromCart(2).subscribe(
+    //   () => {
+    //     console.log("test");
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   },
+    //   () => {
+    //     console.log("test complete");
+    //   }
+    // );
+
+    // this._cartService.updateQuantity(2, 1).subscribe(
+    //   () => {
+    //     console.log("test");
+    //   },
+    //   (err) => {
+    //     console.log(err);
+    //   },
+    //   () => {
+    //     console.log("test complete");
+    //   }
+    // );
+
     this._cartService.getCartItems().subscribe(
-      () => {
-        console.log("test");
+      (response) => {
+        console.log(response);
       },
       (err) => {
         console.log(err);
