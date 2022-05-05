@@ -20,13 +20,18 @@ import { OrderSummryComponent } from './Pages/cart/order-summry/order-summry.com
 
 import { JwtInterceptor } from "./Core/Interceptors/jwt.interceptor";
 import { ErrorInterceptor } from "./Core/Interceptors/error.interceptor";
+import { OrderComponent } from './Pages/order/order/order.component';
+import { AddressComponent } from './Pages/order/address/address.component';
+import { PaymentComponent } from './Pages/order/payment/payment.component';
+import { OrderSummeryOrderComponent } from './Pages/order/order-summery-order/order-summery-order.component';
+import { PaymentOrderComponent } from './Pages/order/payment/payment-order/payment-order.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
-  declarations: [AppComponent, CartComponent, WishListComponent, OrderSummryComponent],
+  declarations: [AppComponent, CartComponent, WishListComponent, OrderSummryComponent, OrderComponent, AddressComponent, PaymentComponent, OrderSummeryOrderComponent, PaymentOrderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -4,6 +4,8 @@ import { NotFoundComponent } from "./Shared/not-found/not-found.component";
 import { PayPalComponent } from "./Shared/pay-pal/pay-pal.component";
 import { ProductDetailsComponent } from "./Pages/pro-details/product-details/product-details.component";
 import { CartComponent } from "./Pages/cart/cart.component";
+import { OrderComponent } from "./Pages/order/order/order.component";
+import { PaymentComponent } from "./Pages/order/payment/payment.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/egypt-en", pathMatch: "full" },
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: "egypt-en/:skuString/:skuId/p", component: ProductDetailsComponent },
   // { path: "SignIn", component: SignInComponent },
   { path: "PayPal", component: PayPalComponent },
+  { path: "egypt-en/cart/order", component:OrderComponent },
+  { path: "egypt-en/cart/order/payment", component:PaymentComponent },
   { path: "egypt-en/cart", component:CartComponent },
   { path: "**", component: NotFoundComponent },
 ];
