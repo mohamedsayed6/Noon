@@ -1,4 +1,4 @@
-import { FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { FormGroup, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -14,6 +14,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { RegisterComponent } from "./register/register.component";
 import { SignUpComponent } from "./register/sign-up/sign-up.component";
 import { MatMenuModule } from "@angular/material/menu";
+import { SearchComponent } from './search/search.component';
 @NgModule({
   declarations: [
     HomeHeaderComponent,
@@ -25,9 +26,12 @@ import { MatMenuModule } from "@angular/material/menu";
     RegisterComponent,
     NotFoundComponent,
     PayPalComponent,
+    SearchComponent,
   ],
 
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, BrowserAnimationsModule, MatDialogModule, MatMenuModule], //<==router module is mandatory of your module use [routerlink]
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, 
+    BrowserAnimationsModule, MatDialogModule, MatMenuModule ,FormsModule,
+  ReactiveFormsModule], //<==router module is mandatory of your module use [routerlink]
 
   //<==router module is mandatory of your module use [routerlink]
 
@@ -42,6 +46,7 @@ import { MatMenuModule } from "@angular/material/menu";
     NotFoundComponent,
     PayPalComponent,
     RouterModule, //<== not duplication
+    SearchComponent
   ],
 })
 export class SharedModule {}

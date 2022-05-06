@@ -36,4 +36,11 @@ export class CategoryProductsComponent implements OnInit {
     this.productSize = event.target.value;
     this.page = 1;
   }
+  SreachText:string="";
+
+onSearchTextEnterd(searchvalue:string){
+this.SreachText=searchvalue;
+console.log(this.SreachText)
+}
+
 }

@@ -1,3 +1,5 @@
+import { IAddress } from "./iaddress";
+
 export interface Iuser {
     id:string,
     FirstName:string,
@@ -8,5 +10,5 @@ export interface Iuser {
     Balance:number,
     role:string,
     phone:string,
-    Address:any[]
+    Address:IAddress[]
 }

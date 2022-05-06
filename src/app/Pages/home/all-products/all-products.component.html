@@ -1,12 +1,14 @@
 <!-- <app-home-header></app-home-header> -->
-
+<app-home-header (SearchTextCganged)="onSearchTextEnterd($event)"></app-home-header>
 <div class="container-fluid">
   <div class="row">
     <a
       class="product-card ms-4"
       *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-      [routerLink]="['/egypt-en', prd?.skuString, prd?.skuId ,'p']"
-    >
+      [routerLink]="['/egypt-en', prd?.skuString, prd?.skuId ,'p']" >
+ 
+    <div  *ngIf="SreachText  =='' || prd.name.toLowerCase().includes(SreachText)
+    || prd.quantity.toString().includes(SreachText) ||prd.description.toLowerCase().includes(SreachText)">
       <div class="product-tumb">
         <img src="{{prd?.imageThumb}}" />
       </div>
@@ -45,6 +47,10 @@
           </div>
         </div>
       </div>
+
+
+    </div>
+      
     </a>
   </div>
 

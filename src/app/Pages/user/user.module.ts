@@ -12,6 +12,7 @@ import { TranslateModule } from "@ngx-translate/core";
 import { HttpClient } from "@angular/common/http";
 import { UserHearderComponent } from './user-hearder/user-hearder.component';
 import { UserFooterComponent } from './user-footer/user-footer.component';
+import { PaymentComponent } from './payment/payment.component';
 
 export function userHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -20,6 +21,8 @@ export function userHttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
   
+  
+    PaymentComponent
   ],
   imports: [
     CommonModule,

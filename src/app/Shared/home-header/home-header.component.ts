@@ -1,6 +1,6 @@
 import { CartService } from "./../../Core/Services/cart.service";
 import { RegisterComponent } from "./../register/register.component";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,EventEmitter, Output } from "@angular/core";
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { ICategory } from "src/app/Core/Models/icategory";
@@ -9,6 +9,7 @@ import { CategoriesServiceService } from "src/app/Core/Services/categories-servi
 import { SubCategoriesService } from "src/app/Core/Services/SubCategories.service";
 import { AuthService } from "src/app/Core/Services/auth.service";
 import { environment } from "src/environments/environment";
+
 
 @Component({
   selector: "app-home-header",
@@ -21,6 +22,9 @@ export class HomeHeaderComponent implements OnInit {
   Categories!: ICategory[];
   SubCategories!: ISubCategory[];
   token!: any;
+ 
+
+
   constructor(
     private CategoriesService: CategoriesServiceService,
     private SubCategoriesService: SubCategoriesService,
@@ -115,4 +119,14 @@ export class HomeHeaderComponent implements OnInit {
       }
     );
   }
+  
+  searchtext:string="";
+  @Output()
+  SearchTextCganged:EventEmitter<string> = new EventEmitter<string>()
+
+  onSearchTextChange(st:string){
+    this.searchtext=st
+    this.SearchTextCganged.emit(this.searchtext)
+  }
+
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit,OnChanges } from "@angular/core";
 import { IProduct } from "src/app/Core/Models/iproduct";
 import { ProductsService } from "src/app/Core/Services/products.service";
+import { HomeComponent } from "../main/home.component";
+
 
 @Component({
   selector: "app-all-products",
@@ -14,12 +16,16 @@ export class AllProductsComponent implements OnInit {
   productSize: number = 20;
   productSizes: any = [5, 10, 15, 20];
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService) {
+ 
+  }
 
   ngOnInit(): void {
     this.productsService.GetAllProducts().subscribe((productlist) => (this.Products = productlist));
+  
   }
 
+ 
   onDataChange(event: any) {
     this.page = event;
   }
@@ -28,4 +34,11 @@ export class AllProductsComponent implements OnInit {
     this.productSize = event.target.value;
     this.page = 1;
   }
+SreachText:string="";
+
+onSearchTextEnterd(searchvalue:string){
+this.SreachText=searchvalue;
+console.log(this.SreachText)
+}
+
 }
