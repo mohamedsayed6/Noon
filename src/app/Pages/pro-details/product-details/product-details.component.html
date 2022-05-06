@@ -115,16 +115,16 @@
                     <div class="row">
                       <!-- Quantity -->
                       <div class="col-2 me-0">
-                        <select id="Quantity" class="p-2 fs-4">
-                          <option value="default" selected="true">1</option>
-                          <option *ngFor="let n of maxCountArr" value="{{n}}">{{n}}</option>
+                        <select id="Quantity" class="p-2 fs-4" [(ngModel)]="ProductQuantity">
+                          <!-- <option value="1" selected="true">1</option> -->
+                          <option *ngFor="let n of maxCountArr" value="{{n}}" >{{n}}</option>
                         </select>
                       </div>
                       <!-- Add to Cart -->
                       <div class="col-8 px-0">
-                        <div class="btn badge ms-3 bg-primary w-100 h-100">
-                          <span class="txt-center fs-5">Add to Cart</span>
-                        </div>
+                        <button class="btn badge ms-3 bg-primary w-100 h-100" (click)="AddToCart()">
+                          Add to Cart
+                        </button>
                       </div>
                       <!-- Add to Favourite -->
                       <div class="col-2">

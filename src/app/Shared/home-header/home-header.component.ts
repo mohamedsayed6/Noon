@@ -56,6 +56,10 @@ export class HomeHeaderComponent implements OnInit {
   // }
   loclaztion(st: string) {
     localStorage.setItem("lang", st);
+    if(localStorage.getItem("ar")=="ar")
+    {
+      document.body.style.direction="rtl";
+    }
     location.reload();
   }
   register() {

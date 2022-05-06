@@ -330,46 +330,385 @@
       "sellerName": "Noon",
       "sellerId": "1"
     },
+
     {
       "id": 2,
-      "name": "IPhone 13",
-      "price": 15000,
-      "discount": 0,
-      "description": "Apple IPhone 13 Pro Max",
-      "categoryId": 6,
-      "quantity": 90,
-      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1648570072/N50840187A_1.jpg"
+      "skuId": "N43630263S",
+      "skuString": "galaxy-a52s-5g-dual-sim-awesome-black-8gb-ram-128gb-middle-east-version",
+      "name": "Galaxy A52s 5G Dual SIM Awesome Black 8GB RAM 128GB - Middle East Version",
+      "modelNumber": "A52s",
+      "price": 8300,
+      "discount": 0.2,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1648570072/N50840187A_1.jpg",
+      "categoryId": 5,
+      "quantity": 100,
+      "maxQuantityPerOrder": 10,
+      "imagesGallary": [
+        "https://z.nooncdn.com/products/tr:n-t_80/v1637257602/N50099853A_1.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_2.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_3.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953277/N50099853A_6.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_7.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_8.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_9.jpg"
+      ],
+      "highlights": [
+        "Ceramic shield with four times better drop performance",
+        "A14 bionic is super efficient for great battery life",
+        "OLED delivers brighter brights, darker blacks and higher resolution for everything you look at",
+        "Wide camera brings in 27% more light",
+        "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
+      ],
+      "specifications": [
+        {
+          "key": "Model Number",
+          "value": "NERF02"
+        },
+        {
+          "key": "Model Name",
+          "value": "candle_lanterns-2"
+        },
+        {
+          "key": "Capacity",
+          "value": "None None"
+        },
+        {
+          "key": "Colour Name",
+          "value": "Orange"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        }
+      ],
+      "proCat": [
+        {
+          "id": 1,
+          "name": "TVs"
+        },
+        {
+          "id": 2,
+          "name": "Laptops"
+        },
+        {
+          "id": 3,
+          "name": "Video Games"
+        },
+        {
+          "id": 4,
+          "name": "Data Storage"
+        }
+      ],
+      "available": true,
+      "overallRating": 4.5,
+      "reviews": [{}],
+      "brandId": 1,
+      "brandName": "Samsung",
+      "sellerName": "Noon",
+      "sellerId": "1"
     },
+
     {
       "id": 3,
-      "name": "Nike Cargo Short",
-      "price": 1769,
-      "discount": 0.44,
-      "description": "Nike NSW Club Shorts Black",
-      "categoryId": 10,
-      "quantity": 2,
-      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1613148238/N43085259V_1.jpg"
+      "skuId": "N43630263A",
+      "skuString": "galaxy-a52s-5g-dual-sim-awesome-black-8gb-ram-128gb-middle-east-version",
+      "name": "Galaxy A52s 5G Dual SIM Awesome Black 8GB RAM 128GB - Middle East Version",
+      "modelNumber": "A52s",
+      "price": 8300,
+      "discount": 0.2,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1613148238/N43085259V_1.jpg",
+      "categoryId": 5,
+      "quantity": 100,
+      "maxQuantityPerOrder": 10,
+      "imagesGallary": [
+        "https://z.nooncdn.com/products/tr:n-t_80/v1637257602/N50099853A_1.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_2.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_3.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953277/N50099853A_6.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_7.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_8.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_9.jpg"
+      ],
+      "highlights": [
+        "Ceramic shield with four times better drop performance",
+        "A14 bionic is super efficient for great battery life",
+        "OLED delivers brighter brights, darker blacks and higher resolution for everything you look at",
+        "Wide camera brings in 27% more light",
+        "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
+      ],
+      "specifications": [
+        {
+          "key": "Model Number",
+          "value": "NERF02"
+        },
+        {
+          "key": "Model Name",
+          "value": "candle_lanterns-2"
+        },
+        {
+          "key": "Capacity",
+          "value": "None None"
+        },
+        {
+          "key": "Colour Name",
+          "value": "Orange"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        }
+      ],
+      "proCat": [
+        {
+          "id": 1,
+          "name": "TVs"
+        },
+        {
+          "id": 2,
+          "name": "Laptops"
+        },
+        {
+          "id": 3,
+          "name": "Video Games"
+        },
+        {
+          "id": 4,
+          "name": "Data Storage"
+        }
+      ],
+      "available": true,
+      "overallRating": 4.5,
+      "reviews": [{}],
+      "brandId": 1,
+      "brandName": "Samsung",
+      "sellerName": "Noon",
+      "sellerId": "1"
     },
+
     {
       "id": 4,
-      "name": "MANGO Bag",
-      "price": 1189,
-      "discount": 0.4,
-      "description": "Mango Beaded Shoulder Bag Black",
-      "categoryId": 12,
-      "quantity": 1,
-      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1614974934/N43969134A_1.jpg"
+      "skuId": "N43630263X",
+      "skuString": "galaxy-a52s-5g-dual-sim-awesome-black-8gb-ram-128gb-middle-east-version",
+      "name": "Galaxy A52s 5G Dual SIM Awesome Black 8GB RAM 128GB - Middle East Version",
+      "modelNumber": "A52s",
+      "price": 8300,
+      "discount": 0.2,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1614974934/N43969134A_1.jpg",
+      "categoryId": 5,
+      "quantity": 100,
+      "maxQuantityPerOrder": 10,
+      "imagesGallary": [
+        "https://z.nooncdn.com/products/tr:n-t_80/v1637257602/N50099853A_1.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_2.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_3.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953277/N50099853A_6.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_7.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_8.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_9.jpg"
+      ],
+      "highlights": [
+        "Ceramic shield with four times better drop performance",
+        "A14 bionic is super efficient for great battery life",
+        "OLED delivers brighter brights, darker blacks and higher resolution for everything you look at",
+        "Wide camera brings in 27% more light",
+        "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
+      ],
+      "specifications": [
+        {
+          "key": "Model Number",
+          "value": "NERF02"
+        },
+        {
+          "key": "Model Name",
+          "value": "candle_lanterns-2"
+        },
+        {
+          "key": "Capacity",
+          "value": "None None"
+        },
+        {
+          "key": "Colour Name",
+          "value": "Orange"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        }
+      ],
+      "proCat": [
+        {
+          "id": 1,
+          "name": "TVs"
+        },
+        {
+          "id": 2,
+          "name": "Laptops"
+        },
+        {
+          "id": 3,
+          "name": "Video Games"
+        },
+        {
+          "id": 4,
+          "name": "Data Storage"
+        }
+      ],
+      "available": true,
+      "overallRating": 4.5,
+      "reviews": [{}],
+      "brandId": 1,
+      "brandName": "Samsung",
+      "sellerName": "Noon",
+      "sellerId": "1"
     },
+
     {
       "id": 5,
-      "name": "Tornado Microwave",
-      "price": 4500,
-      "discount": 0.3,
-      "description": "Tornado Microwave Solo 20L TM-20MK Black",
-      "categoryId": 16,
-      "quantity": 0,
-      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1604315670/N41780250A_1.jpg"
+      "skuId": "N43630263P",
+      "skuString": "galaxy-a52s-5g-dual-sim-awesome-black-8gb-ram-128gb-middle-east-version",
+      "name": "Galaxy A52s 5G Dual SIM Awesome Black 8GB RAM 128GB - Middle East Version",
+      "modelNumber": "A52s",
+      "price": 8300,
+      "discount": 0.2,
+      "description": "Samsung M32, Dual SIM, 64 Back Camera",
+      "imageThumb": "https://z.nooncdn.com/products/tr:n-t_240/v1604315670/N41780250A_1.jpg",
+      "categoryId": 5,
+      "quantity": 100,
+      "maxQuantityPerOrder": 10,
+      "imagesGallary": [
+        "https://z.nooncdn.com/products/tr:n-t_80/v1637257602/N50099853A_1.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_2.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_3.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953277/N50099853A_6.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_7.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_8.jpg",
+        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_9.jpg"
+      ],
+      "highlights": [
+        "Ceramic shield with four times better drop performance",
+        "A14 bionic is super efficient for great battery life",
+        "OLED delivers brighter brights, darker blacks and higher resolution for everything you look at",
+        "Wide camera brings in 27% more light",
+        "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
+      ],
+      "specifications": [
+        {
+          "key": "Model Number",
+          "value": "NERF02"
+        },
+        {
+          "key": "Model Name",
+          "value": "candle_lanterns-2"
+        },
+        {
+          "key": "Capacity",
+          "value": "None None"
+        },
+        {
+          "key": "Colour Name",
+          "value": "Orange"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        },
+        {
+          "key": "Base Material",
+          "value": "Metal"
+        }
+      ],
+      "proCat": [
+        {
+          "id": 1,
+          "name": "TVs"
+        },
+        {
+          "id": 2,
+          "name": "Laptops"
+        },
+        {
+          "id": 3,
+          "name": "Video Games"
+        },
+        {
+          "id": 4,
+          "name": "Data Storage"
+        }
+      ],
+      "available": true,
+      "overallRating": 4.5,
+      "reviews": [{}],
+      "brandId": 1,
+      "brandName": "Samsung",
+      "sellerName": "Noon",
+      "sellerId": "1"
     },
+
+
+
     {
       "id": 6,
       "name": "Samsung M31",

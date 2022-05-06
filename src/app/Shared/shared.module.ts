@@ -14,7 +14,19 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { RegisterComponent } from "./register/register.component";
 import { SignUpComponent } from "./register/sign-up/sign-up.component";
 import { MatMenuModule } from "@angular/material/menu";
+
 import { SearchComponent } from './search/search.component';
+
+import { HttpClient } from "@angular/common/http";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
+import { TranslateModule } from "@ngx-translate/core";
+
+
+
+export function userHttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
+
 @NgModule({
   declarations: [
     HomeHeaderComponent,
@@ -29,9 +41,22 @@ import { SearchComponent } from './search/search.component';
     SearchComponent,
   ],
 
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, 
-    BrowserAnimationsModule, MatDialogModule, MatMenuModule ,FormsModule,
-  ReactiveFormsModule], //<==router module is mandatory of your module use [routerlink]
+
+//<==router module is mandatory of your module use [routerlink]
+
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, BrowserAnimationsModule,
+     MatDialogModule, MatMenuModule,FormsModule,
+     ReactiveFormsModule,
+     TranslateModule.forChild({
+      loader: {
+        provide: TranslateModule,
+        useFactory: userHttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: "en",
+    })
+    ], //<==router module is mandatory of your module use [routerlink]
+
 
   //<==router module is mandatory of your module use [routerlink]
 

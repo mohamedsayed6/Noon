@@ -11,9 +11,10 @@
         </div>
 
         <div class="col-8 col-md-9 col-lg-10 col-xl-10 col-xxl-11 text-center">
-          <input type="text" placeholder="What are you looking for?" class="col-12 rounded border-0 p-2 mt-2"
+
+          <input type="text"  placeholder="{{'Search.Name'|translate }}" class="col-12 rounded border-0 p-2 mt-2"
             #search (input)=" onSearchTextChange(search.value)"/>
-              
+
         </div>
       </div>
     </div>
@@ -39,7 +40,8 @@
             <span><i class="fa-solid fa-arrow-down"></i></span>
           </button>
           <mat-menu #menu="matMenu">
-   
+
+
             <button mat-menu-item routerLink="/user/order"><img src="	https://z.nooncdn.com/s/app/com/noon/icons/orders_menu_icon_v3.svg">Orders</button>
             <button mat-menu-item routerLink="/user/Address"><img src="https://z.nooncdn.com/s/app/com/noon/icons/addresses_menu_icon_v3.svg">Addresses</button>
             <button mat-menu-item routerLink="/user/payment"><img src="https://z.nooncdn.com/s/app/com/noon/icons/payment_menu_icon_v3.svg">Payments</button>
@@ -53,7 +55,7 @@
         </li>
 
         <li class="list-inline-item">
-          <a routerLink="cart"> Cart <i class="fa-solid fa-cart-shopping"></i> </a>
+          <a [routerLink]="['/egypt-en/cart']"> Cart <i class="fa-solid fa-cart-shopping"></i> </a>
         </li>
       </ul>
     </div>
@@ -103,6 +105,7 @@
       </div>
     </div>
   </nav>
+
 </div>
 <!-- <button class="btn btn-primary" (click)="TTest()">Test Cart</button> -->
 <!-- <img src="{{apiUrl}}/images/ww.png" alt="Noon Logo" /> -->

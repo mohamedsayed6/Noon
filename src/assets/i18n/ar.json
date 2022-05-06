@@ -1,5 +1,5 @@
 {
-    
+
     "userprofileLinks":{
         "order":"الطلب",
         "Address":"العنواين",
@@ -7,7 +7,7 @@
         "profile":"البروفايل",
         "payment":"الدفع"
     },
-    
+
     "userprofile":{
         "generalInfo":"المعلومات العامة",
         "security":"الامان",
@@ -42,13 +42,16 @@
     "Express":"ارسل سريع",
     "RefundMethod":"طريقة السداد",
     "tax":"الائتمان الضريبي"
-  
+
 },
 "userorder":{
     "order":"الطلبات",
     "Dileveried":"تم التوصيل"
+},
+"Search":{
+  "Name":"أنت بتدور علي ايه؟"
+
 }
 
 
-    
 }
