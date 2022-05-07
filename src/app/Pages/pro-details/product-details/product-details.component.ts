@@ -1,31 +1,29 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from 'src/app/Core/Services/products.service';
-import { IProduct } from 'src/app/Core/Models/iproduct';
-import {
-  Component,
-  EventEmitter,
-  OnChanges,
-  OnInit,
-  Output,
-  SimpleChanges,
-} from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ICategory } from 'src/app/Core/Models/icategory';
-import { ICartProduct } from 'src/app/Core/Models/icart-product';
-import { IwishList } from 'src/app/Core/Models/iwish-list-';
-import { flush } from '@angular/core/testing';
+
+import { ActivatedRoute, Router } from "@angular/router";
+import { ProductsService } from "src/app/Core/Services/products.service";
+import { IProduct } from "src/app/Core/Models/iproduct";
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
+import { Subscription } from "rxjs";
+import { ICategory } from "src/app/Core/Models/icategory";
+import { ICartProduct } from "src/app/Core/Models/icart-product";
+import { IwishList } from "src/app/Core/Models/iwish-list-";
+
 
 @Component({
-  selector: 'app-product-details',
-  templateUrl: './product-details.component.html',
-  styleUrls: ['./product-details.component.scss'],
+  selector: "app-product-details",
+  templateUrl: "./product-details.component.html",
+  styleUrls: ["./product-details.component.scss"],
 })
 export class ProductDetailsComponent implements OnInit, OnChanges {
   //=============================================================Properties =================================================
   //#region Properties
   //product id
-  selectedProductID!: string;
+
+
   productId:number=0
+
+  selectedProductID!: number;
+
   //selected Prodeuct
   selectedProduct!: IProduct;
   maxCountArr: number[] = [];
@@ -48,10 +46,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //Mohamed Changes
   //Array Of ProductsId Quantity
   LocalStorageProducts: ICartProduct[] = [];
+
   ProductQuantity:number=1
   LSProduct: ICartProduct={ID:0,Name:"",Quantity:this.ProductQuantity,ImgURL:"",SellerName:""};
   WishListProduct:IwishList={productId:0,customerId:""}
   WishListProductLocalStorge:IwishList[]=[]
+
   //#endregion
   //===================================================Constructor + Lifecycle Hooks ========================================
   //#region Lifecycle Hooks
@@ -69,11 +69,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params) => {
       //fetch product id from url
-      let skuId = params.get('skuId');
-      skuId = params.get('skuId');
-      if (skuId != null) {
-        this.selectedProductID = skuId;
+      // let proId = params.get("pid");
+      let proId = params.get("pid");
+      if (proId != null) {
+        this.selectedProductID = +proId;
       }
+
       this._productService.GetProductById(this.selectedProductID)
         .subscribe(data => {
           this.selectedProduct = data[0];
@@ -99,16 +100,13 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
             }
 
         });
-      // style
-      this.isOverview = true;
-      this.isSpec = false;
-      this.isReview = false;
-     
-    });
 
    
 
     
+
+    });
+
   }
 isInwishlist!:boolean
   //#endregion
@@ -119,10 +117,10 @@ isInwishlist!:boolean
     // this.cOutEvent.emit({ product: product, count: count });
   }
   goCatProducts(id: number) {
-    this._router.navigate(['/egypt-en/Category', id]);
+    this._router.navigate(["/egypt-en/Category", id]);
   }
   showProInfo(ele: any) {
-    if (ele.id === 'overview') {
+    if (ele.id === "overview") {
       this.isOverview = true;
       this.isSpec = false;
       this.isReview = false;
@@ -131,7 +129,7 @@ isInwishlist!:boolean
       console.log(this.isReview);
       // ele.classList.add("btn-link", "fw-bold");
     }
-    if (ele.id === 'spec') {
+    if (ele.id === "spec") {
       this.isOverview = false;
       this.isSpec = true;
       this.isReview = false;
@@ -139,7 +137,7 @@ isInwishlist!:boolean
       console.log(this.isSpec);
       console.log(this.isReview);
     }
-    if (ele.id === 'review') {
+    if (ele.id === "review") {
       this.isOverview = false;
       this.isSpec = false;
       this.isReview = true;
@@ -153,34 +151,35 @@ isInwishlist!:boolean
     this.isSpec = true;
     this.isReview = false;
   }
-//Mohamed Changes
-//Add Product To LocalStorage/Database
+  //Mohamed Changes
+  //Add Product To LocalStorage/Database
   AddToCart() {
     // alert(this.selectedProduct.skuId);
 
-    if (localStorage.getItem('currentUser')) alert("There's User");
-
+    if (localStorage.getItem("currentUser")) alert("There's User");
     else {
-
       this.LSProduct.Quantity = this.ProductQuantity;
-      this.LSProduct.ID=this.selectedProduct.id;
-      this.LSProduct.Name=this.selectedProduct.skuString;
-      this.LSProduct.ImgURL=this.selectedProduct.imageThumb;
-      this.LSProduct.SellerName=this.selectedProduct.sellerName;
+      this.LSProduct.ID = this.selectedProduct.id;
+      this.LSProduct.Name = this.selectedProduct.skuString;
+      this.LSProduct.ImgURL = this.selectedProduct.imageThumb;
+      this.LSProduct.SellerName = this.selectedProduct.sellerName;
 
-      if (localStorage.getItem('LocalStorageProducts')) {
-        this.LocalStorageProducts = JSON.parse(localStorage.getItem('LocalStorageProducts')!);
+      if (localStorage.getItem("LocalStorageProducts")) {
+        this.LocalStorageProducts = JSON.parse(localStorage.getItem("LocalStorageProducts")!);
         if (this.LocalStorageProducts.find((p) => p.ID == this.LSProduct.ID))
           //this.LocalStorageProducts.find((p) => p.ProductId == this.LSProduct.ProductId)!.Quantity=this.LSProduct.Quantity;
           return;
         this.LocalStorageProducts.push(this.LSProduct);
-        localStorage.setItem('LocalStorageProducts', JSON.stringify(this.LocalStorageProducts));
-      } else
-      {
+        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+      } else {
         this.LocalStorageProducts.push(this.LSProduct);
+
         localStorage.setItem('LocalStorageProducts', JSON.stringify(this.LocalStorageProducts));
 
        
+
+        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+
       }
     }
   }

@@ -18,12 +18,12 @@ const routes: Routes = [
     loadChildren: () =>
       import(`./Pages/user/user-routing/user-routing.module`).then((module) => module.UserRoutingModule),
   },
-  { path: "egypt-en/:skuString/:skuId/p", component: ProductDetailsComponent },
+  { path: "egypt-en/p/:pid", component: ProductDetailsComponent },
   // { path: "SignIn", component: SignInComponent },
   { path: "PayPal", component: PayPalComponent },
-  { path: "egypt-en/cart/order", component:OrderComponent },
-  { path: "egypt-en/cart/order/payment", component:PaymentComponent },
-  { path: "egypt-en/cart", component:CartComponent },
+  { path: "egypt-en/cart/order", component: OrderComponent },
+  { path: "egypt-en/cart/order/payment", component: PaymentComponent },
+  { path: "egypt-en/cart", component: CartComponent },
   { path: "**", component: NotFoundComponent },
 ];
 
