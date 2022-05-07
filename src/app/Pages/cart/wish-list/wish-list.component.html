@@ -6,15 +6,14 @@
             <div class="header p-1" id="headerwishlist">   
                 <h3>WishList</h3>
             </div>
-            <div>
+            <div *ngFor="let item of ListProduct">
                 <div class="row p-4">
                     <div class="col-lg-2">
-                       <img src="element.image" class="img-fluid">
+                       <img src="{{item.imageThumb}}" class="img-fluid">
                     </div>
                     <div class="col-lg-7">
-                        <p>element.name</p>
-                        <p>Dilevery by teamorrow</p>
-                        <p>element.seller</p>
+                        <p>{{item.name}}</p>
+                        <p>{{item.description}}</p>
     
                     </div>
                     <div class="col-lg-3 text-center">

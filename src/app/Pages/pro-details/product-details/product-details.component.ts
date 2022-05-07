@@ -12,6 +12,8 @@ import {
 import { Subscription } from 'rxjs';
 import { ICategory } from 'src/app/Core/Models/icategory';
 import { ICartProduct } from 'src/app/Core/Models/icart-product';
+import { IwishList } from 'src/app/Core/Models/iwish-list-';
+import { flush } from '@angular/core/testing';
 
 @Component({
   selector: 'app-product-details',
@@ -23,6 +25,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //#region Properties
   //product id
   selectedProductID!: string;
+  productId:number=0
   //selected Prodeuct
   selectedProduct!: IProduct;
   maxCountArr: number[] = [];
@@ -47,6 +50,8 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   LocalStorageProducts: ICartProduct[] = [];
   ProductQuantity:number=1
   LSProduct: ICartProduct={ID:0,Name:"",Quantity:this.ProductQuantity,ImgURL:"",SellerName:""};
+  WishListProduct:IwishList={productId:0,customerId:""}
+  WishListProductLocalStorge:IwishList[]=[]
   //#endregion
   //===================================================Constructor + Lifecycle Hooks ========================================
   //#region Lifecycle Hooks
@@ -69,10 +74,11 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       if (skuId != null) {
         this.selectedProductID = skuId;
       }
-      this._productService
-        .GetProductById(this.selectedProductID)
-        .subscribe((data) => {
+      this._productService.GetProductById(this.selectedProductID)
+        .subscribe(data => {
           this.selectedProduct = data[0];
+          console.log(data[0].id)
+          this.productId=data[0].id
           // maxCountArr == maxQuantityPerOrder
           for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
             this.maxCountArr.push(i);
@@ -87,18 +93,24 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
           //product img
           this.proImg = this.selectedProduct.imageThumb;
 
+          if(localStorage.getItem('wishlist')){
+            this.WishListProductLocalStorge = JSON.parse(localStorage.getItem('wishlist')!);
+            this.isInwishlist =this.WishListProductLocalStorge.find(p => p.productId ==this.productId) !=null
+            }
 
         });
       // style
       this.isOverview = true;
       this.isSpec = false;
       this.isReview = false;
-
+     
     });
 
+   
 
+    
   }
-
+isInwishlist!:boolean
   //#endregion
   //=============================================================Methods=====================================================
   //#region Methods
@@ -167,9 +179,43 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       {
         this.LocalStorageProducts.push(this.LSProduct);
         localStorage.setItem('LocalStorageProducts', JSON.stringify(this.LocalStorageProducts));
+
+       
       }
     }
   }
 
   //#endregion
+
+  AddToWishList(){
+    
+    if (false) alert("There's  User NOt found");
+
+    else {
+      
+     
+      this.WishListProduct.productId=this.selectedProduct.id;
+       this.WishListProduct.customerId="u2"
+        console.log(  this.WishListProduct)
+      if (localStorage.getItem('wishlist')) {
+     
+        this.WishListProductLocalStorge = JSON.parse(localStorage.getItem('wishlist')!);
+        if (this.WishListProductLocalStorge.find(p => p.productId == this.WishListProduct.productId))
+              return;
+          
+        this.WishListProductLocalStorge.push(this.WishListProduct);
+        localStorage.setItem('wishlist', JSON.stringify(this.WishListProductLocalStorge));
+        location.reload()
+      } else
+      {
+       
+        this.WishListProductLocalStorge.push(this.WishListProduct);
+        localStorage.setItem('wishlist', JSON.stringify(this.WishListProductLocalStorge));
+      location.reload()
+      }
+    }
+
+  }
+
+
 }

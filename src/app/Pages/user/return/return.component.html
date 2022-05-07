@@ -1,7 +1,7 @@
 
     <div class="row">
        <div class="col-lg-12 col-md-12  ">
-           <h3>{{'userReturn.Return'|translate}}</h3>
+           <h1>{{'userReturn.Return'|translate}}</h1>
        </div>
        
     <div class="order" id="order"  *ngFor="let item of orderList">
@@ -17,13 +17,13 @@
                  <div class="row">
                      
                      <div class="col-lg-6">
-                       <h6>{{'userReturn.Address'|translate}}</h6>
+                       <h4>{{'userReturn.Address'|translate}}</h4>
                        <p>{{item.firstName + " " + item.lastName }}</p>
                        <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
                        <p>{{item.phone}}</p>
                    </div>
                    <div class="col-lg-6 ">
-                      <h6>{{'userReturn.RefundMethod'|translate}}</h6>
+                      <h4>{{'userReturn.RefundMethod'|translate}}</h4>
                       
                    </div>
                     <div class="col-lg-12">

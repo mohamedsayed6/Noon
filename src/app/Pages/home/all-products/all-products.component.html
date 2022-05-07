@@ -10,8 +10,7 @@
       *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
       [routerLink]="['/egypt-en', prd?.skuString, prd?.skuId ,'p']" >
  
-    <div  *ngIf="SreachText  =='' || prd.name.toLowerCase().includes(SreachText)
-    || prd.quantity.toString().includes(SreachText) ||prd.description.toLowerCase().includes(SreachText)">
+    <div >
       <div class="product-tumb">
         <img src="{{prd?.imageThumb}}" />
       </div>

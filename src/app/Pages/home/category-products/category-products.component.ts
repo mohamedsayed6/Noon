@@ -38,9 +38,29 @@ export class CategoryProductsComponent implements OnInit {
   }
   SreachText:string="";
 
-onSearchTextEnterd(searchvalue:string){
-this.SreachText=searchvalue;
-console.log(this.SreachText)
-}
+  onSearchTextEnterd(searchvalue:string){
+    this.SreachText=searchvalue;
+    
+    console.log(this.SreachText)
+    
+      if(this.SreachText !==""){
+    
+        console.log(this.SreachText)
+        this.Products = this.Products.filter(p=>p.name?.toLowerCase().includes(this.SreachText)) 
+      ||this.Products.filter(p=>p.description?.toLowerCase().includes(this.SreachText)) 
+      
+      
+        
+      }else{
+        this.productsService.GetAllProducts().subscribe((productlist) => {
+          this.Products = productlist
+    }
+    );
+      }
+      
+    
+    
+    
+    }
 
 }

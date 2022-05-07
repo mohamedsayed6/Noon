@@ -1,8 +1,8 @@
      <div class="row">
        
             <div class="order p-4" id="order">
-                <h4>{{'userorder.order'|translate}}</h4>
-                <p>see how your order managed and check the lastest status on your order</p>
+                <h1>{{'userorder.order'|translate}}</h1>
+                <p>{{'userorder.descrip'|translate}}</p>
 
                 <div class="cart mt-4 p-4"  *ngFor="let item of orderList">
                     <div>
@@ -17,7 +17,7 @@
                                 <p style="color:green;">{{'userorder.Dileveried'|translate}}</p>
                                
                             </div>
-                            <button class="btn btn-outline-primary mt-4 mb-4" style="width:250px;">Review This Order</button>
+                            <button class="btn btn-outline-primary mt-4 mb-4" style="width:250px;">{{'userorder.Review'|translate}}</button>
 
                         </div>
                       

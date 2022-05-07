@@ -6,6 +6,10 @@ footer {
   background-color: rgb(124, 225, 81);
   text-align: center;
 }
+button{
+  outline: none;
+ 
+}
 .icon {
   width: 24px;
   max-width: unset;
@@ -42,16 +46,22 @@ select {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-#like {
+.like {
   color: rgb(240, 236, 236);
   width: 100%;
   text-align: center;
 }
-#like:hover {
+.like:hover {
   color: rgb(194, 106, 106);
   cursor: pointer;
 }
 
+.inwishlist{
+  color: rgb(194, 106, 106);
+}
+.inwishlist:hover{
+  color: rgb(240, 236, 236);
+}
 .noonLink {
   position: relative;
   color: rgb(28, 95, 182);
