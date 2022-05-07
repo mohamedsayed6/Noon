@@ -17,8 +17,8 @@ export class ProductsService {
     return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?CategoryId=${catid}`);
   }
 
-  GetProductById(skuId: string): Observable<IProduct[]> {
-    return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?skuId=${skuId}`); //<== Query Parameter
+  GetProductById(pid: number): Observable<IProduct[]> {
+    return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?id=${pid}`); //<== Query Parameter
     // return this.httpclient.get<IProduct>(`http://localhost:3000/Products/${pid}`); //<== URL Parameter Not Query Parameter
   }
 }
