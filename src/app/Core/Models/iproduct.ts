@@ -16,7 +16,7 @@ export interface IProduct {
   description: string;
   descriptionAr: string;
   imageThumb: string;
-  imagesGallary: IImage[];
+  imagesGallery: IImage[];
   categoryId: number;
   highlights: Ihighlights[];
   specifications: Ispec[];

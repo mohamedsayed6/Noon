@@ -33,13 +33,22 @@
                       <!-- sub imgs -->
                       <!-- TODO: vl Silder + zoomable image -->
                       <div class="ms-0 imgs-gallary col-4" id="imgs-gallary">
-                        <ng-container *ngFor="let img of selectedProduct?.imagesGallary">
-                          <img class="img-fluid btn mb-2" [src]="img.imageName" alt="img" id="sub-img" />
+                        <ng-container *ngIf="this.proImgs">
+                          <ng-container *ngFor="let img of proImgs">
+                            <img
+                              #selectedImg
+                              class="img-fluid btn mb-2"
+                              src="{{img}}"
+                              alt="img"
+                              id="sub-img"
+                              (click)="changeMainImage(selectedImg)"
+                            />
+                          </ng-container>
                         </ng-container>
                       </div>
                       <!-- main img -->
                       <div class="col-8">
-                        <img class="img-thumbnail mb-2 img-thumb" src="{{selectedProduct?.imageThumb}}" id="main-img" />
+                        <img class="img-thumbnail mb-2 img-thumb" src="{{mainProImg}}" id="main-img" />
                         <!-- <lib-ngx-image-zoom
                           [thumbImage]="proImg"
                           [magnification]="1"

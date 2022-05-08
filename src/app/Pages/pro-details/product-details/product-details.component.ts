@@ -1,7 +1,7 @@
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductsService } from "src/app/Core/Services/products.service";
 import { IProduct } from "src/app/Core/Models/iproduct";
-import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from "@angular/core";
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from "@angular/core";
 import { Subscription } from "rxjs";
 import { ICategory } from "src/app/Core/Models/icategory";
 import { ICartProduct } from "src/app/Core/Models/icart-product";
@@ -16,17 +16,15 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //=============================================================Properties =================================================
   //#region Properties
   //product id
-
   productId: number = 0;
-
   selectedProductID!: number;
-
   //selected Prodeuct
   selectedProduct!: IProduct;
   maxCountArr: number[] = [];
-  //child to parent
-  // @Output()
-  // cOutEvent!: EventEmitter<any>;
+  //main product image
+  mainProImg!: string;
+  //img gallery
+  proImgs: string[] = [];
   //product categories
   productCategories: ICategory[] = [];
   // last item in category
@@ -40,7 +38,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //destroy subscription
   sub!: Subscription[];
 
-  //Mohamed Changes
+  //Mohamed Changes=============================>
   //Array Of ProductsId Quantity
   LocalStorageProducts: ICartProduct[] = [];
   ProductQuantity: number = 1;
@@ -56,7 +54,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     DescrptionAr: "",
   };
 
-  //Kero Changes
+  //Kero Changes================================>
   WishListProduct: IwishList = { productId: 0, customerId: "" };
   WishListProductLocalStorge: IwishList[] = [];
 
@@ -71,6 +69,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     this.isOverview = true;
   }
   ngOnChanges(changes: SimpleChanges): void {}
+
   ngOnDestroy(): void {
     // this.sub.forEach((item) => {
     //   item.unsubscribe();
@@ -87,6 +86,13 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       this._productService.GetProductById(this.selectedProductID).subscribe((data) => {
         this.selectedProduct = data;
         this.productId = data.id;
+        //set main product image
+        this.mainProImg = this.selectedProduct.imageThumb;
+        //push imageThum + all imageName of product image gallery to this.proImgs
+        this.proImgs.push(this.selectedProduct.imageThumb);
+        this.selectedProduct.imagesGallery.forEach((item) => {
+          this.proImgs.push(item.imageName);
+        });
         // maxCountArr == maxQuantityPerOrder
         for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
           this.maxCountArr.push(i);
@@ -97,8 +103,6 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
         this.productCategories.pop();
         // last Catetory
         this.lastCat = this.selectedProduct.parentsCategories[this.selectedProduct.parentsCategories.length - 1];
-        //
-        console.log(this.selectedProduct.imagesGallary);
         //==============================================================
         //Mohamed Changes
         //product img
@@ -142,7 +146,11 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     this.isReview = false;
   }
 
-  //Mohamed Changes
+  changeMainImage(ele: any) {
+    // this.mainImg.nativeElement.src = ele.src;
+    this.mainProImg = ele.src;
+  }
+  //=============================================================Mohamed Changes=====================================================
   //Add Product To LocalStorage/Database
   AddToCart() {
     // alert(this.selectedProduct.skuId);
@@ -176,7 +184,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       }
     }
   }
-  //#endregion
+
   AddToWishList() {
     if (false) alert("There's  User NOt found");
     else {
