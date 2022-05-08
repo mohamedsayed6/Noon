@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { environment } from "src/environments/environment";
+import { environment } from "src/environments/environment.prod";
 import { IProduct } from "../../Core/Models/iproduct";
 
 @Injectable({
@@ -24,4 +24,5 @@ export class ProductsService {
     // return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?id=${pid}`); //<== Query Parameter
     // return this.httpclient.get<IProduct>(`http://localhost:3000/Products/${pid}`); //<== URL Parameter Not Query Parameter
   }
+// 
 }

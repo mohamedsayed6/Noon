@@ -46,7 +46,8 @@ export class AllProductsComponent implements OnInit, OnChanges {
     if (this.SreachText !== "") {
       this.Products =
         this.Products.filter((p) => p.name?.toLowerCase().includes(this.SreachText)) ||
-        this.Products.filter((p) => p.description?.toLowerCase().includes(this.SreachText));
+        this.Products.filter((p) => p.description?.toLowerCase().includes(this.SreachText))
+       
 
       console.log(this.Products);
     } else {

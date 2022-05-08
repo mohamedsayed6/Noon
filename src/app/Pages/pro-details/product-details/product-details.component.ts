@@ -110,6 +110,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
         if (localStorage.getItem("wishlist")) {
           this.WishListProductLocalStorge = JSON.parse(localStorage.getItem("wishlist")!);
           this.isInwishlist = this.WishListProductLocalStorge.find((p) => p.productId == this.productId) != null;
+          console.log(this.isInwishlist)
         }
       });
     });

@@ -1,6 +1,7 @@
 export interface Iorder {
     id:string,
     name: string,
+    nameAr:string,
     image: string,
     customer: string,
     items:string
@@ -9,4 +10,5 @@ export interface Iorder {
     firstName: string
     lastName: string
     phone: string
+    productId:number;
 }

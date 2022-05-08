@@ -50,7 +50,7 @@
         {
           "id": 4,
           "address": "qena",
-          "default": true
+          "default": false
         },
         {
           "id": 5,
@@ -60,7 +60,7 @@
         {
           "id": 6,
           "address": "kdjjdfjfj",
-          "default": false
+          "default": true
         }
       ]
     }
@@ -770,115 +770,6 @@
       "brandName": "Samsung",
       "sellerName": "Noon",
       "sellerId": "1"
-    }
-  ],
-  "orders": [
-    {
-      "id": "NEGDB0063826809",
-      "name": "oneplus 7pro",
-      "nameAr": "اون بلس برو 7",
-      "image": "https://mobizil.com/wp-content/uploads/2019/05/OnePlus-7-Pro.jpg",
-      "customer": "1",
-      "items": "1",
-      "date": "2022-01-25",
-      "returned": false,
-      "firstName": "Hady",
-      "lastName": "Abo El-Wafa",
-      "phone": "+201117191177",
-      "productId": 6
-    },
-    {
-      "id": "NEGCA0096520964",
-      "name": "samsung s21 plus",
-      "image": "https://riz.shop/wp-content/uploads/MbSamsung577.jpg",
-      "customer": "2",
-      "items": "20,2,3",
-      "date": "2022-01-01",
-      "returned": false,
-      "firstName": "Keyrillos",
-      "lastName": "Sedki",
-      "phone": "+201203586159",
-      "productId": 7
-    },
-    {
-      "id": "NEGCA0095326964",
-      "name": "samsung TV NEO QLED",
-      "nameAr": "سامسونج شاشة",
-      "image": "https://images.samsung.com/is/image/samsung/p6pim/ae_ar/qa65qn85aauxzn/gallery/ae-ar-qled-tv-qa65qn85aauxzn-front-silver-457883429",
-      "customer": "3",
-      "items": "5,6",
-      "date": "2022-02-25",
-      "returned": true,
-      "firstName": "Keyrillos",
-      "lastName": "Sedki",
-      "phone": "+201203586159",
-      "productId": 3
-    },
-    {
-      "id": "NEGCA00969201484",
-      "name": "samsung TV QLED",
-      "image": "https://www.cdiscount.com/pdt2/8/0/a/1/700x700/samqe55q80a/rw/samsung-qe55q80a-tv-qled-uhd-4k-55-138cm.jpg",
-      "customer": "4",
-      "items": "20",
-      "date": "2022-01-12",
-      "returned": false,
-      "firstName": "Keyrillos",
-      "lastName": "Sedki",
-      "phone": "+201203586159",
-      "productId": 1
-    },
-    {
-      "id": "NEGCA0095236964",
-      "name": "Active Foundation Badge Cap Black",
-      "nameAr": "فواندينش اسود كاب",
-      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1624606634/N47740084V_1.jpg",
-      "customer": "1",
-      "items": "18",
-      "date": "2022-03-01",
-      "returned": false,
-      "firstName": "Mohammed",
-      "lastName": "Sayed",
-      "phone": "+201149610479",
-      "productId": 2
-    },
-    {
-      "id": "NEGCA0010252964",
-      "name": "Mesh Striped Sneakers Black",
-      "nameAr": " اسود نافي جاكيت",
-      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1637650480/N51557096V_1.jpg",
-      "customer": "2",
-      "items": "15,18",
-      "date": "2021-01-12",
-      "returned": true,
-      "firstName": "Mohammed",
-      "lastName": "Sayed",
-      "phone": "+201149610479",
-      "productId": 6
-    },
-    {
-      "name": "Cloud Print Windbreaker Jacket Black",
-      "nameAr": "نافي جاكيت",
-      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1609326951/N39740079V_1.jpg",
-      "id": "NEGCA0099962964",
-      "customer": "4",
-      "items": "17",
-      "date": "2022-02-22",
-      "returned": true,
-      "firstName": "Emad",
-      "lastName": "Naeim",
-      "phone": "+201093058380",
-      "productId": 4
-    },
-    {
-      "id": "NEGCA0097852964",
-      "name": "Oversized Denim Jacket Navy",
-      "nameAr": "نافي جاكيت",
-      "image": "https://z.nooncdn.com/products/tr:n-t_240/v1604070537/N40033286V_1.jpg",
-      "customer": "3",
-      "items": "13",
-      "date": "2022-01-12",
-      "returned": "flase",
-      "productId": 5
     }
   ]
 }
