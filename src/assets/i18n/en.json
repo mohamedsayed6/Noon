@@ -52,6 +52,16 @@
   "Search":{
        "Name":"What are you looking for?"
 
-  }
+  },
 
+
+  "orderSummery":{
+        "OrderSummary":"Order Summary",
+        "free":"Free",
+        "subtotatl":"subtotal",
+        "Total":"Total",
+        "descripe":"Monthly payment plans from EGP 500",
+        "detailes":"Shipping Detials",
+        "chackOut":"Check Out"
+  }
 }

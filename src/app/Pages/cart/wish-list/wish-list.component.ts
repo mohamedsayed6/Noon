@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IProduct } from 'src/app/Core/Models/iproduct';
 import { IwishList } from 'src/app/Core/Models/iwish-list-';
 import { ProductsService } from 'src/app/Core/Services/products.service';
@@ -9,7 +10,7 @@ import { ProductsService } from 'src/app/Core/Services/products.service';
 })
 export class WishListComponent implements OnInit {
 
-  constructor(private prodService:ProductsService) { }
+  constructor(private prodService:ProductsService,private route:Router) { }
 wishListProduct:IwishList[]=[]
 ListProduct:IProduct[]=[]
   ngOnInit(): void {
@@ -22,9 +23,14 @@ ListProduct:IProduct[]=[]
     })
    })
   }
-
+ 
 }
-
-
+deletewishlist(id:number){
+  if(localStorage.getItem("wishlist")){
+    this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
+      localStorage.setItem("wishlist",JSON.stringify(this.wishListProduct.filter(p=>p.productId != id)))
+     location.reload()
+}
+}
 }
 

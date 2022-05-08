@@ -3,41 +3,6 @@
 <div class="container-fluid">
 
 
-<div class="container-fluid overflow-hidden" id="ProductList">
-
-  <div class="row">
-    <a
-      class="product-card ms-4"
-      *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-      [routerLink]="['/egypt-en', prd?.skuString, prd?.skuId ,'p']" >
- 
-    <div >
-      <div class="product-tumb">
-        <img src="{{prd?.imageThumb}}" />
-      </div>
-
-      <div class="product-details">
-        <h5>{{prd?.name}}</h5>
-
-        <p>{{prd?.description}}</p>
-
-        <div class="">
-          <div class="product-bottom-details">
-            <ng-container *ngIf="prd.discount==0;  else NoDicount">
-              <span class="mb-5 fw-bold">
-                {{prd.price | currency: "EGP ":"symbol"}}
-              </span>
-            </ng-container>
-
-            <ng-template #NoDicount>
-              <span class="fw-bold">
-                {{prd.price | afterDiscountPrice:prd.discount |currency: "EGP ":"symbol"}}
-              </span>
-
-              <span class="text-success"> {{prd.discount*100}}% Off </span>
-              <br />
-              <span class="text-decoration-line-through fw-light"> {{prd.price|currency: "EGP ":"symbol"}} </span>
-            </ng-template>
 
   <div class="container-fluid overflow-hidden" id="ProductList">
     <div class="row">
@@ -46,10 +11,7 @@
         *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
         [routerLink]="['/egypt-en','p',prd?.id]"
       >
-        <div
-          *ngIf="SreachText  =='' || prd.name.toLowerCase().includes(SreachText)
-    || prd.quantity.toString().includes(SreachText) ||prd.description.toLowerCase().includes(SreachText)"
-        >
+        <div      >
           <div class="product-tumb">
             <img src="{{prd?.imageThumb}}" />
 

@@ -17,16 +17,10 @@
     
                     </div>
                     <div class="col-lg-3 text-center">
-                        <p>EgY5560</p>
-                        <div >
-                            <select>
-                                <option value="">1</option>
-                                <option value="">2</option>
-                                <option value="">3</option>
-                            </select>
-                        </div>
+                        <p>EGP {{item.price}}</p>
+                       
                         
-                        <button class="btn btn-warning mt-4">Express</button>
+                        <button class="btn btn-danger mt-4" (click)="deletewishlist(item.id)">Remove</button>
     
                     </div>
     
