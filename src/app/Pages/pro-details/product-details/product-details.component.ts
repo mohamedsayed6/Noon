@@ -1,4 +1,3 @@
-
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductsService } from "src/app/Core/Services/products.service";
 import { IProduct } from "src/app/Core/Models/iproduct";
@@ -7,7 +6,6 @@ import { Subscription } from "rxjs";
 import { ICategory } from "src/app/Core/Models/icategory";
 import { ICartProduct } from "src/app/Core/Models/icart-product";
 import { IwishList } from "src/app/Core/Models/iwish-list-";
-
 
 @Component({
   selector: "app-product-details",
@@ -19,8 +17,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //#region Properties
   //product id
 
-
-  productId:number=0
+  productId: number = 0;
 
   selectedProductID!: number;
 
@@ -47,10 +44,10 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //Array Of ProductsId Quantity
   LocalStorageProducts: ICartProduct[] = [];
 
-  ProductQuantity:number=1
-  LSProduct: ICartProduct={ID:0,Name:"",Quantity:this.ProductQuantity,ImgURL:"",SellerName:""};
-  WishListProduct:IwishList={productId:0,customerId:""}
-  WishListProductLocalStorge:IwishList[]=[]
+  ProductQuantity: number = 1;
+  LSProduct: ICartProduct = { ID: 0, Name: "", Quantity: this.ProductQuantity, ImgURL: "", SellerName: "" };
+  WishListProduct: IwishList = { productId: 0, customerId: "" };
+  WishListProductLocalStorge: IwishList[] = [];
 
   //#endregion
   //===================================================Constructor + Lifecycle Hooks ========================================
@@ -59,7 +56,9 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     private _productService: ProductsService,
     private _activatedRoute: ActivatedRoute,
     private _router: Router
-  ) {}
+  ) {
+    this.isOverview = true;
+  }
   ngOnChanges(changes: SimpleChanges): void {}
   ngOnDestroy(): void {
     // this.sub.forEach((item) => {
@@ -74,83 +73,65 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       if (proId != null) {
         this.selectedProductID = +proId;
       }
-
-      this._productService.GetProductById(this.selectedProductID)
-        .subscribe(data => {
-          this.selectedProduct = data[0];
-          console.log(data[0].id)
-          this.productId=data[0].id
-          // maxCountArr == maxQuantityPerOrder
-          for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
-            this.maxCountArr.push(i);
-          }
-          //get product categories
-          this.productCategories = [...this.selectedProduct.proCat]; //clone array
-          // remove last element from array
-          this.productCategories.pop();
-          // last Catetory
-          this.lastCat =
-            this.selectedProduct.proCat[this.selectedProduct.proCat.length - 1];
-          //product img
-          this.proImg = this.selectedProduct.imageThumb;
-
-          if(localStorage.getItem('wishlist')){
-            this.WishListProductLocalStorge = JSON.parse(localStorage.getItem('wishlist')!);
-            this.isInwishlist =this.WishListProductLocalStorge.find(p => p.productId ==this.productId) !=null
-            }
-
-        });
-
-   
-
-    
-
+      this._productService.GetProductById(this.selectedProductID).subscribe((data) => {
+        this.selectedProduct = data;
+        this.productId = data.id;
+        // maxCountArr == maxQuantityPerOrder
+        for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
+          this.maxCountArr.push(i);
+        }
+        //get product categories
+        this.productCategories = [...this.selectedProduct.parentsCategories]; //clone array
+        // remove last element from array
+        this.productCategories.pop();
+        // last Catetory
+        this.lastCat = this.selectedProduct.parentsCategories[this.selectedProduct.parentsCategories.length - 1];
+        //
+        console.log(this.selectedProduct.imagesGallary);
+        //==============================================================
+        //Mohamed Changes
+        //product img
+        this.proImg = this.selectedProduct.imageThumb;
+        //style for product info
+        if (localStorage.getItem("wishlist")) {
+          this.WishListProductLocalStorge = JSON.parse(localStorage.getItem("wishlist")!);
+          this.isInwishlist = this.WishListProductLocalStorge.find((p) => p.productId == this.productId) != null;
+        }
+      });
     });
-
   }
-isInwishlist!:boolean
+  isInwishlist!: boolean;
   //#endregion
   //=============================================================Methods=====================================================
   //#region Methods
-  // child to parent communication on click => add to cart file => event emitter fire with data => get child data executed
-  addToCartHandler(product: IProduct, count: number) {
-    // this.cOutEvent.emit({ product: product, count: count });
-  }
   goCatProducts(id: number) {
     this._router.navigate(["/egypt-en/Category", id]);
   }
+
   showProInfo(ele: any) {
     if (ele.id === "overview") {
       this.isOverview = true;
       this.isSpec = false;
       this.isReview = false;
-      console.log(this.isOverview);
-      console.log(this.isSpec);
-      console.log(this.isReview);
-      // ele.classList.add("btn-link", "fw-bold");
     }
     if (ele.id === "spec") {
       this.isOverview = false;
       this.isSpec = true;
       this.isReview = false;
-      console.log(this.isOverview);
-      console.log(this.isSpec);
-      console.log(this.isReview);
     }
     if (ele.id === "review") {
       this.isOverview = false;
       this.isSpec = false;
       this.isReview = true;
-      console.log(this.isOverview);
-      console.log(this.isSpec);
-      console.log(this.isReview);
     }
   }
+
   goFullSpecDetails() {
     this.isOverview = false;
     this.isSpec = true;
     this.isReview = false;
   }
+
   //Mohamed Changes
   //Add Product To LocalStorage/Database
   AddToCart() {
@@ -160,7 +141,7 @@ isInwishlist!:boolean
     else {
       this.LSProduct.Quantity = this.ProductQuantity;
       this.LSProduct.ID = this.selectedProduct.id;
-      this.LSProduct.Name = this.selectedProduct.skuString;
+      this.LSProduct.Name = this.selectedProduct.name; //skustring
       this.LSProduct.ImgURL = this.selectedProduct.imageThumb;
       this.LSProduct.SellerName = this.selectedProduct.sellerName;
 
@@ -174,47 +155,32 @@ isInwishlist!:boolean
       } else {
         this.LocalStorageProducts.push(this.LSProduct);
 
-        localStorage.setItem('LocalStorageProducts', JSON.stringify(this.LocalStorageProducts));
-
-       
-
         localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
 
+        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
       }
     }
   }
 
-  //#endregion
-
-  AddToWishList(){
-    
+  AddToWishList() {
     if (false) alert("There's  User NOt found");
-
     else {
-      
-     
-      this.WishListProduct.productId=this.selectedProduct.id;
-       this.WishListProduct.customerId="u2"
-        console.log(  this.WishListProduct)
-      if (localStorage.getItem('wishlist')) {
-     
-        this.WishListProductLocalStorge = JSON.parse(localStorage.getItem('wishlist')!);
-        if (this.WishListProductLocalStorge.find(p => p.productId == this.WishListProduct.productId))
-              return;
-          
+      this.WishListProduct.productId = this.selectedProduct.id;
+      this.WishListProduct.customerId = "u2";
+      console.log(this.WishListProduct);
+      if (localStorage.getItem("wishlist")) {
+        this.WishListProductLocalStorge = JSON.parse(localStorage.getItem("wishlist")!);
+        if (this.WishListProductLocalStorge.find((p) => p.productId == this.WishListProduct.productId)) return;
+
         this.WishListProductLocalStorge.push(this.WishListProduct);
-        localStorage.setItem('wishlist', JSON.stringify(this.WishListProductLocalStorge));
-        location.reload()
-      } else
-      {
-       
+        localStorage.setItem("wishlist", JSON.stringify(this.WishListProductLocalStorge));
+        location.reload();
+      } else {
         this.WishListProductLocalStorge.push(this.WishListProduct);
-        localStorage.setItem('wishlist', JSON.stringify(this.WishListProductLocalStorge));
-      location.reload()
+        localStorage.setItem("wishlist", JSON.stringify(this.WishListProductLocalStorge));
+        location.reload();
       }
     }
-
   }
-
-
+  //#endregion
 }

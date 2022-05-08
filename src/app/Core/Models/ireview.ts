@@ -2,9 +2,16 @@ import { Rate } from "./rate.enum";
 export interface Ireview {
   id: number;
   productId: number;
-  customerId: number;
+  // customerId: number;
   customerName: string;
-  rating: Rate;
-  comment: string;
+  SellerName: string;
+  productRating: Rate;
+  sellerRating: Rate;
+  productComment: string;
+  sellerComment: string;
+  isProductCommentAnonymous: boolean;
+  isSellerCommentAnonymous: boolean;
+  isAsDescription: boolean;
+  isDeliveredOnTime: boolean;
   createdAt: Date;
 }

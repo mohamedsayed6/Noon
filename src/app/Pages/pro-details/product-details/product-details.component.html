@@ -34,7 +34,7 @@
                       <!-- TODO: vl Silder + zoomable image -->
                       <div class="ms-0 imgs-gallary col-4" id="imgs-gallary">
                         <ng-container *ngFor="let img of selectedProduct?.imagesGallary">
-                          <img class="img-fluid btn mb-2" src="{{img}}" alt="img" id="sub-img" />
+                          <img class="img-fluid btn mb-2" [src]="img.imageName" alt="img" id="sub-img" />
                         </ng-container>
                       </div>
                       <!-- main img -->
@@ -117,7 +117,7 @@
                       <div class="col-2 me-0">
                         <select id="Quantity" class="p-2 fs-4" [(ngModel)]="ProductQuantity">
                           <!-- <option value="1" selected="true">1</option> -->
-                          <option *ngFor="let n of maxCountArr" value="{{n}}" >{{n}}</option>
+                          <option *ngFor="let n of maxCountArr" value="{{n}}">{{n}}</option>
                         </select>
                       </div>
                       <!-- Add to Cart -->
@@ -128,8 +128,9 @@
                       </div>
                       <!-- Add to Favourite -->
                       <div class="col-2">
-                        <button class="love fs-2 ps-2 btn btn-defualt" (click)="AddToWishList()"><i class="like fa-solid fa-heart" 
-                         [ngClass]="{'inwishlist':isInwishlist }"  value="0"></i></button>
+                        <button class="love fs-2 ps-2 btn btn-defualt" (click)="AddToWishList()">
+                          <i class="like fa-solid fa-heart" [ngClass]="{'inwishlist':isInwishlist }" value="0"></i>
+                        </button>
                       </div>
                     </div>
                   </div>

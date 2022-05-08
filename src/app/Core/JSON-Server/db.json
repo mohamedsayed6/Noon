@@ -261,20 +261,47 @@
       "quantity": 100,
       "maxQuantityPerOrder": 10,
       "imagesGallary": [
-        "https://z.nooncdn.com/products/tr:n-t_80/v1637257602/N50099853A_1.jpg",
-        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_2.jpg",
-        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_3.jpg",
-        "https://z.nooncdn.com/products/tr:n-t_80/v1629953277/N50099853A_6.jpg",
-        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_7.jpg",
-        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_8.jpg",
-        "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_9.jpg"
+        {
+          "id": 1,
+          "imageName": "https://z.nooncdn.com/products/tr:n-t_80/v1637257602/N50099853A_1.jpg"
+        },
+        {
+          "id": 2,
+          "imageName": "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_2.jpg"
+        },
+        {
+          "id": 3,
+          "imageName": "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_3.jpg"
+        },
+        {
+          "id": 4,
+          "imageName": "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_7.jpg"
+        },
+        {
+          "id": 5,
+          "imageName": "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_8.jpg"
+        },
+        {
+          "id": 6,
+          "imageName": "https://z.nooncdn.com/products/tr:n-t_80/v1629953276/N50099853A_9.jpg"
+        }
       ],
       "highlights": [
-        "Ceramic shield with four times better drop performance",
-        "A14 bionic is super efficient for great battery life",
-        "OLED delivers brighter brights, darker blacks and higher resolution for everything you look at",
-        "Wide camera brings in 27% more light",
-        "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
+        {
+          "feature": "Ceramic shield with four times better drop performance"
+        },
+        {
+          "feature": "A14 bionic is super efficient for great battery life"
+        },
+        {
+          "feature": "OLED delivers brighter brights, darker blacks and higher resolution for everything you look at"
+        },
+        {
+          "feature": "Wide camera brings in 27% more light"
+        },
+        {
+          "feature": "Facetime is available on the product & would be accessible in regions where facetime is permitted by telecom operators"
+        }
       ],
       "specifications": [
         {
@@ -334,9 +361,7 @@
       ],
       "available": true,
       "overallRating": 4.5,
-      "reviews": [
-        {}
-      ],
+      "reviews": [{}],
       "brandId": 1,
       "brandName": "Samsung",
       "sellerName": "Noon",
@@ -429,9 +454,7 @@
       ],
       "available": true,
       "overallRating": 4.5,
-      "reviews": [
-        {}
-      ],
+      "reviews": [{}],
       "brandId": 1,
       "brandName": "Samsung",
       "sellerName": "Noon",
@@ -524,9 +547,7 @@
       ],
       "available": true,
       "overallRating": 4.5,
-      "reviews": [
-        {}
-      ],
+      "reviews": [{}],
       "brandId": 1,
       "brandName": "Samsung",
       "sellerName": "Noon",
@@ -619,9 +640,7 @@
       ],
       "available": true,
       "overallRating": 4.5,
-      "reviews": [
-        {}
-      ],
+      "reviews": [{}],
       "brandId": 1,
       "brandName": "Samsung",
       "sellerName": "Noon",
@@ -714,9 +733,7 @@
       ],
       "available": true,
       "overallRating": 4.5,
-      "reviews": [
-        {}
-      ],
+      "reviews": [{}],
       "brandId": 1,
       "brandName": "Samsung",
       "sellerName": "Noon",

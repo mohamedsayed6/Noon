@@ -1,9 +1,12 @@
+import { Ispec } from "./ispec";
+import { Ihighlights } from "./ihighlights";
+import { IImage } from "./IImage";
 import { Ireview } from "./ireview";
 import { ICategory } from "./icategory";
 export interface IProduct {
   id: number;
-  skuId: string;
-  skuString: "";
+  // skuId: string;
+  // skuString: "";
   modelNumber: string;
   name: string;
   price: number;
@@ -11,26 +14,24 @@ export interface IProduct {
   discount: number;
   description: string;
   imageThumb: string;
-  imagesGallary: string[];
+  imagesGallary: IImage[];
   categoryId: number;
-  highlights: string[];
-  specifications: Array<any>;
+  highlights: Ihighlights[];
+  specifications: Ispec[];
   available: boolean;
   brandId: number;
+  brandCode: string;
   brandName: string;
-  overallRating: number;
-  reviews: Ireview[];
+  overallRating: number; //will be initialized in service
+  reviews: Ireview[]; //will be initialized in service
   sellerId: string;
   sellerName: string;
   maxQuantityPerOrder: number;
-  proCat: ICategory[];
+  parentsCategories: ICategory[]; //will be initialized in service
   //   availableCount: number;
   //   availableColor: string;
   //   availableSize: string;
   //   availableSizeCount: number;
   //   availableSizeColor: string;
   //   availableSizeColorCount: number;
-  //   reviews: object[];
-  //   createdAt: Date;
-  //   updatedAt: Date;
 }
