@@ -10,7 +10,10 @@ import { OrderService } from "src/app/Core/Services/order.service";
 })
 export class OrderComponent implements OnInit {
   orderList: Iorder[] = [];
-  constructor(private orderservice: OrderService, private route: Router) {}
+  lang!:string
+  constructor(private orderservice: OrderService, private route: Router) {
+this.lang=localStorage.getItem("lang")!
+  }
 
   ngOnInit(): void {
     this.orderservice.GetAllorders().subscribe((_orders) => {

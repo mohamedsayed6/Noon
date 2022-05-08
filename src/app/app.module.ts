@@ -25,6 +25,8 @@ import { AddressComponent } from './Pages/order/address/address.component';
 import { PaymentComponent } from './Pages/order/payment/payment.component';
 import { OrderSummeryOrderComponent } from './Pages/order/order-summery-order/order-summery-order.component';
 import { PaymentOrderComponent } from './Pages/order/payment/payment-order/payment-order.component';
+import { StringLengthPipe } from './Core/Pipes/string-length.pipe';
+import { NameStringLengthPipe } from './Core/Pipes/name-string-length.pipe';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");

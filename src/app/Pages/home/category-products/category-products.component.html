@@ -1,21 +1,23 @@
 <!-- <app-home-header></app-home-header> -->
 <app-home-header (SearchTextCganged)="onSearchTextEnterd($event)"></app-home-header>
-<div class="container-fluid">
+
+<div class="container-fluid overflow-hidden" id="ProductList">
   <div class="row">
     <a
       class="product-card ms-4"
       *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-      [routerLink]="['/egypt-en','p', prd?.id]"
+      [routerLink]="['/egypt-en','p',prd?.id]"
     >
       <div>
         <div class="product-tumb">
-          <img src="{{prd.imageThumb}}" />
+          <img src="{{prd?.imageThumb}}" />
         </div>
 
         <div class="product-details">
-          <h5>{{prd.name}}</h5>
+          <!-- <h5>{{localstorge=="en"?prd?.name:prd?.nameAr}}</h5> -->
+          <h5>{{(localstorge=="en"? prd.name:prd.nameAr)|stringLength}}</h5>
 
-          <p>{{prd.description}}</p>
+          <!-- <p>{{localstorge=="en"?prd?.description:prd?.descriptionAr}}</p> -->
 
           <div class="">
             <div class="product-bottom-details">
@@ -50,10 +52,12 @@
     </a>
   </div>
 
-  <div class="page">
-    <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onDataChange($event)">
+  <div class="page d-flex flex-row justify-content-center align-content-center">
+    <pagination-controls
+      previousLabel="{{'Pagination.Previous'|translate}}"
+      nextLabel="{{'Pagination.Next'|translate}}"
+      (pageChange)="onDataChange($event)"
+    >
     </pagination-controls>
   </div>
 </div>
-
-<!-- <app-home-footer></app-home-footer> -->

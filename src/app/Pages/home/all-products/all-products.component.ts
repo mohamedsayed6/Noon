@@ -14,13 +14,16 @@ export class AllProductsComponent implements OnInit, OnChanges {
   count: number = 0;
   productSize: number = 20;
   productSizes: any = [5, 10, 15, 20];
+  localstorge: string = "en";
+  arRegx: string = "/[\u0600-\u06FF]/";
 
-  constructor(private productsService: ProductsService) {}
+  constructor(private productsService: ProductsService) {
+    if (localStorage.getItem("lang")) this.localstorge = localStorage.getItem("lang")!;
+  }
   ngOnChanges(changes: SimpleChanges): void {}
 
   ngOnInit(): void {
     this.productsService.GetAllProducts().subscribe((productlist) => {
-      console.log(productlist);
       this.Products = productlist;
     });
   }
@@ -36,15 +39,16 @@ export class AllProductsComponent implements OnInit, OnChanges {
   SreachText: string = "";
 
   onSearchTextEnterd(searchvalue: string) {
-    this.SreachText = searchvalue;
+    this.SreachText = searchvalue.toLowerCase();
 
     console.log(this.SreachText);
 
     if (this.SreachText !== "") {
-      console.log(this.SreachText);
       this.Products =
         this.Products.filter((p) => p.name?.toLowerCase().includes(this.SreachText)) ||
         this.Products.filter((p) => p.description?.toLowerCase().includes(this.SreachText));
+
+      console.log(this.Products);
     } else {
       this.productsService.GetAllProducts().subscribe((productlist) => {
         this.Products = productlist;

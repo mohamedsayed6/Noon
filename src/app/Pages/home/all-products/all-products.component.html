@@ -14,9 +14,10 @@
           </div>
 
           <div class="product-details">
-            <h5>{{prd?.name}}</h5>
+            <!-- <h5>{{localstorge=="en"?prd?.name:prd?.nameAr}}</h5> -->
+            <h5>{{(localstorge=="en"? prd.name:prd.nameAr)|stringLength}}</h5>
 
-            <p>{{prd?.description}}</p>
+            <!-- <p>{{localstorge=="en"?prd?.description:prd?.descriptionAr}}</p> -->
 
             <div class="">
               <div class="product-bottom-details">
@@ -109,8 +110,17 @@
               </div>
             </div>
           </div>
-        </div></a
+        </div>
+      </a>
+    </div>
+
+    <div class="page d-flex flex-row justify-content-center align-content-center">
+      <pagination-controls
+        previousLabel="{{'Pagination.Previous'|translate}}"
+        nextLabel="{{'Pagination.Next'|translate}}"
+        (pageChange)="onDataChange($event)"
       >
+      </pagination-controls>
     </div>
   </div>
 </div>

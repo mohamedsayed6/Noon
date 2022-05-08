@@ -10,7 +10,10 @@ import { UserService } from "src/app/Core/Services/user.service";
 })
 export class ProfileComponent implements OnInit {
   user!: Iuser;
-  constructor(private userservice: UserService, private route: Router) {}
+  lang:string
+  constructor(private userservice: UserService, private route: Router) {
+    this.lang=localStorage.getItem("lang")!
+  }
 
   ngOnInit(): void {
     this.userservice.GetAllUsers().subscribe((_user) => {

@@ -4,9 +4,15 @@ export interface ICartProduct {
 
   ID:number,
   Name:string,
-  Quantity:number,
+  NameAr:string,
+  Description:string,
+  DescrptionAr:string,
   ImgURL:string,
-  SellerName:string
+  Price:number,
+  TotalPrice:number,
+  Quantity:number
+
+
 
 
 }

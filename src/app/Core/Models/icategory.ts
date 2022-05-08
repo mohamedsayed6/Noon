@@ -3,4 +3,5 @@ export interface ICategory {
   name: string;
   code: string;
   cartParentId: string;
+  nameAr: string;
 }
