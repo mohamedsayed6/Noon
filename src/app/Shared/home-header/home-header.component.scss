@@ -9,6 +9,7 @@
 // }
 
 // }
+
 //==========================================================================================
 
 .main-color {
@@ -30,6 +31,25 @@ a {
 #firstNav li:first-child::before {
   content: "";
 }
+
+
+
+
+@media screen and (max-width:990px) and (min-width:450px) {
+
+#headerList{
+  width: 600px;
+}
+}
+
+
+
+
+
+
+
+
+
 
 //End First Nav
 //-------------------------------------------------------
@@ -62,6 +82,4 @@ a {
 // .customize + * .mat-menu-panel {
 //   background: red;
 // }
-#Navbar{
-  z-index: 0;
-}
+

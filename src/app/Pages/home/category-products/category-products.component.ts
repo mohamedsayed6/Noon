@@ -15,12 +15,19 @@ export class CategoryProductsComponent implements OnInit {
   count: number = 0;
   productSize: number = 20;
   productSizes: any = [5, 10, 15, 20];
+  localstorge:string="en";
 
-  constructor(private activeRout: ActivatedRoute, private productsService: ProductsService) {}
+  constructor(private activeRout: ActivatedRoute, private productsService: ProductsService) {
+
+
+    if(localStorage.getItem("lang"))
+       this.localstorge = localStorage.getItem("lang")!;
+
+  }
 
   ngOnInit(): void {
     this.activeRout.paramMap.subscribe((paramMap) => {
-      this.currentCID = Number(paramMap.get("pid"));
+      this.currentCID = Number(paramMap.get("cid"));
 
       this.productsService
         .GetProductsByCategoryId(this.currentCID)
@@ -40,27 +47,27 @@ export class CategoryProductsComponent implements OnInit {
 
   onSearchTextEnterd(searchvalue:string){
     this.SreachText=searchvalue;
-    
+
     console.log(this.SreachText)
-    
+
       if(this.SreachText !==""){
-    
+
         console.log(this.SreachText)
-        this.Products = this.Products.filter(p=>p.name?.toLowerCase().includes(this.SreachText)) 
-      ||this.Products.filter(p=>p.description?.toLowerCase().includes(this.SreachText)) 
-      
-      
-        
+        this.Products = this.Products.filter(p=>p.name?.toLowerCase().includes(this.SreachText))
+      ||this.Products.filter(p=>p.description?.toLowerCase().includes(this.SreachText))
+
+
+
       }else{
         this.productsService.GetAllProducts().subscribe((productlist) => {
           this.Products = productlist
     }
     );
       }
-      
-    
-    
-    
+
+
+
+
     }
 
 }

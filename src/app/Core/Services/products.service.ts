@@ -14,7 +14,7 @@ export class ProductsService {
   }
 
   GetProductsByCategoryId(catid: number): Observable<IProduct[]> {
-    return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?CategoryId=${catid}`);
+    return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?categoryId=${catid}`);
   }
 
   GetProductById(pid: number): Observable<IProduct[]> {

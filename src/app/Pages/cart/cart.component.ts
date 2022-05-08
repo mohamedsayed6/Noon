@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICartProduct } from 'src/app/Core/Models/icart-product';
+import { IProduct } from 'src/app/Core/Models/iproduct';
 
 @Component({
   selector: 'app-cart',
@@ -8,8 +9,14 @@ import { ICartProduct } from 'src/app/Core/Models/icart-product';
 })
 export class CartComponent implements OnInit {
 
+  lang:string="en";
   LocalStorageProducts:ICartProduct[]=[]
-  constructor() { }
+
+  constructor() {
+
+   this.lang=localStorage.getItem("lang")!
+
+   }
 
   ngOnInit(): void {
 
@@ -26,8 +33,11 @@ export class CartComponent implements OnInit {
   Remove(ProductID:number)
   {
     if(localStorage.getItem("currentUser")){}
+
     else{
-    localStorage.setItem('LocalStorageProducts', JSON.stringify(this.LocalStorageProducts.filter(p=>p.ID!=ProductID)));
+
+      localStorage.setItem('LocalStorageProducts',
+       JSON.stringify(this.LocalStorageProducts.filter(p=>p.ID!=ProductID)));
     }
     window.location.reload();
   }

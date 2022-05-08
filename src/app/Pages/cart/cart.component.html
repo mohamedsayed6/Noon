@@ -19,11 +19,13 @@
                   <img [src]="product.ImgURL" class="img-fluid">
                 </div>
                 <div class="col-lg-7">
-                  <p>{{product.Name}}</p>
+                  <p>{{lang=="en"?product.Name:product.NameAr}}</p>
+                  <p>{{lang=="en"?product.Description:product.DescrptionAr}}</p>
                   <p>{{product.Quantity}}</p>
-                  <p>{{product.SellerName}}</p>
+                  <p>{{product.Price}}</p>
+                  <p>{{product.TotalPrice}}</p>
 
-                  <button (click)="Remove(product.ID)">Remove</button>
+                  <button (click)="Remove(product.ID)">{{'Cart.Remove'|translate}}</button>
 
                 </div>
 
@@ -37,7 +39,11 @@
 
         </div>
 
-        <button class="btn btn-outline-primary mt-4 mb-4">continue Shopping</button>
+       <a routerLink="/">
+          <button class="btn btn-outline-primary mt-4 mb-4">
+            {{'Cart.ContinueShopping'|translate}}
+          </button>
+        </a>
 
 
 
