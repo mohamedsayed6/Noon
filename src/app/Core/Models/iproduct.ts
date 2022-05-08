@@ -6,10 +6,12 @@ export interface IProduct {
   skuString: "";
   modelNumber: string;
   name: string;
+  nameAr:string;
   price: number;
   quantity: number;
   discount: number;
   description: string;
+  descriptionAr:string;
   imageThumb: string;
   imagesGallary: string[];
   categoryId: number;
@@ -24,6 +26,8 @@ export interface IProduct {
   sellerName: string;
   maxQuantityPerOrder: number;
   proCat: ICategory[];
+
+
   //   availableCount: number;
   //   availableColor: string;
   //   availableSize: string;

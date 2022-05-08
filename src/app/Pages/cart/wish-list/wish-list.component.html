@@ -12,15 +12,15 @@
                        <img src="{{item.imageThumb}}" class="img-fluid">
                     </div>
                     <div class="col-lg-7">
-                        <p>{{item.name}}</p>
-                        <p>{{item.description}}</p>
+                        <p>{{lang=="en"?item.name:item.nameAr}}</p>
+                        <p>{{lang=="en"?item.description:item.descriptionAr}}</p>
     
                     </div>
                     <div class="col-lg-3 text-center">
                         <p>EGP {{item.price}}</p>
                        
                         
-                        <button class="btn btn-danger mt-4" (click)="deletewishlist(item.id)">Remove</button>
+                        <button class="btn btn-danger mt-4" (click)="deletewishlist(item.id)">{{'Cart.Remove'|translate}}</button>
     
                     </div>
     

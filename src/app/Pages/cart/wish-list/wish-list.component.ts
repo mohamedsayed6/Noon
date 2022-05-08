@@ -10,15 +10,20 @@ import { ProductsService } from 'src/app/Core/Services/products.service';
 })
 export class WishListComponent implements OnInit {
 
-  constructor(private prodService:ProductsService,private route:Router) { }
-wishListProduct:IwishList[]=[]
-ListProduct:IProduct[]=[]
+lang:string
+
+  constructor(private prodService:ProductsService) {
+    this.lang=localStorage.getItem("lang")!
+   }
+     wishListProduct:IwishList[]=[]
+     ListProduct:IProduct[]=[]
+
   ngOnInit(): void {
    if(localStorage.getItem("wishlist")){
      this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
 
-   this.prodService.GetAllProducts().subscribe(prods=>{
-    this.wishListProduct.forEach((value)=>{
+      this.prodService.GetAllProducts().subscribe(prods=>{
+      this.wishListProduct.forEach((value)=>{
       this.ListProduct.push(prods.find(p=>p.id==value.productId)!)
     })
    })

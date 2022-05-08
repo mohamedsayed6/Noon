@@ -46,9 +46,11 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //Mohamed Changes
   //Array Of ProductsId Quantity
   LocalStorageProducts: ICartProduct[] = [];
-
   ProductQuantity:number=1
-  LSProduct: ICartProduct={ID:0,Name:"",Quantity:this.ProductQuantity,ImgURL:"",SellerName:""};
+  CartProduct:ICartProduct={ID:0,Quantity:0,Name:"",NameAr:"",ImgURL:"",
+                           Price:0,TotalPrice:0, Description:"",DescrptionAr:""}
+
+  //Kero Changes
   WishListProduct:IwishList={productId:0,customerId:""}
   WishListProductLocalStorge:IwishList[]=[]
 
@@ -101,9 +103,9 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
         });
 
-   
 
-    
+
+
 
     });
 
@@ -158,26 +160,30 @@ isInwishlist!:boolean
 
     if (localStorage.getItem("currentUser")) alert("There's User");
     else {
-      this.LSProduct.Quantity = this.ProductQuantity;
-      this.LSProduct.ID = this.selectedProduct.id;
-      this.LSProduct.Name = this.selectedProduct.skuString;
-      this.LSProduct.ImgURL = this.selectedProduct.imageThumb;
-      this.LSProduct.SellerName = this.selectedProduct.sellerName;
+
+      this.CartProduct.ID=this.selectedProduct.id;
+      this.CartProduct.Quantity=this.ProductQuantity;
+      this.CartProduct.Name=this.selectedProduct.name;
+      this.CartProduct.NameAr=this.selectedProduct.nameAr;
+      this.CartProduct.ImgURL=this.selectedProduct.imageThumb;
+      this.CartProduct.Price=this.selectedProduct.price;
+      this.CartProduct.TotalPrice=this.CartProduct.Price*this.ProductQuantity;
+      this.CartProduct.Description=this.selectedProduct.description;
+      this.CartProduct.DescrptionAr=this.selectedProduct.descriptionAr;
+
 
       if (localStorage.getItem("LocalStorageProducts")) {
         this.LocalStorageProducts = JSON.parse(localStorage.getItem("LocalStorageProducts")!);
-        if (this.LocalStorageProducts.find((p) => p.ID == this.LSProduct.ID))
-          //this.LocalStorageProducts.find((p) => p.ProductId == this.LSProduct.ProductId)!.Quantity=this.LSProduct.Quantity;
+
+        if (this.LocalStorageProducts.find((p) => p.ID == this.CartProduct.ID))
           return;
-        this.LocalStorageProducts.push(this.LSProduct);
+
+        this.LocalStorageProducts.push(this.CartProduct);
         localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
       } else {
-        this.LocalStorageProducts.push(this.LSProduct);
+        this.LocalStorageProducts.push(this.CartProduct);
 
         localStorage.setItem('LocalStorageProducts', JSON.stringify(this.LocalStorageProducts));
-
-       
-
         localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
 
       }
@@ -187,27 +193,27 @@ isInwishlist!:boolean
   //#endregion
 
   AddToWishList(){
-    
+
     if (false) alert("There's  User NOt found");
 
     else {
-      
-     
+
+
       this.WishListProduct.productId=this.selectedProduct.id;
        this.WishListProduct.customerId="u2"
         console.log(  this.WishListProduct)
       if (localStorage.getItem('wishlist')) {
-     
+
         this.WishListProductLocalStorge = JSON.parse(localStorage.getItem('wishlist')!);
         if (this.WishListProductLocalStorge.find(p => p.productId == this.WishListProduct.productId))
               return;
-          
+
         this.WishListProductLocalStorge.push(this.WishListProduct);
         localStorage.setItem('wishlist', JSON.stringify(this.WishListProductLocalStorge));
         location.reload()
       } else
       {
-       
+
         this.WishListProductLocalStorge.push(this.WishListProduct);
         localStorage.setItem('wishlist', JSON.stringify(this.WishListProductLocalStorge));
       location.reload()
