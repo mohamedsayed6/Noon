@@ -22,6 +22,8 @@ export class HomeHeaderComponent implements OnInit {
   SubCategories!: ISubCategory[];
   token!: any;
 
+  userName!: string;
+
   constructor(
     private CategoriesService: CategoriesServiceService,
     private SubCategoriesService: SubCategoriesService,
@@ -43,14 +45,10 @@ export class HomeHeaderComponent implements OnInit {
     });
     //get token from localstorage
     this.token = localStorage.getItem("currentUser");
+    //get user name from token
+    this.userName = JSON.parse(this.token)["firstName"];
   }
 
-  // map(id: number) {
-  //   this.router.navigate([`Category`, id]);
-  // }
-  // showAllProduct() {
-  //   this.router.navigate(["/Noon/AllProducts"]);
-  // }
   loclaztion(st: string) {
     localStorage.setItem("lang", st);
     if (localStorage.getItem("ar") == "ar") {

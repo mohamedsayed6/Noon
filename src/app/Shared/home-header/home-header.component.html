@@ -48,11 +48,11 @@
 
         <li class="list-inline-item" *ngIf="token">
           <button mat-button [matMenuTriggerFor]="menu">
-            <div>
-              <small class="bg-transparent">ahlan ! Hady</small>
+            <div class="d-inline-block mx-2">
+              <small class="bg-transparent">ahlan ! {{userName}}</small>
               <div class="bg-transparent fw-bold">My Account</div>
             </div>
-            <span><i class="fa-solid fa-arrow-down"></i></span>
+            <span class="mb-2"><i class="fs-5 fa-solid fa-arrow-down"></i></span>
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item routerLink="/user/order">
