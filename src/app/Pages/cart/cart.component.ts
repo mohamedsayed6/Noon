@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ICartProduct } from "src/app/Core/Models/icart-product";
-import { IProduct } from "src/app/Core/Models/iproduct";
 import { CartService } from "src/app/Core/Services/cart.service";
 
 @Component({
