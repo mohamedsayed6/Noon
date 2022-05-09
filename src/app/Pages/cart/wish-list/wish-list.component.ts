@@ -25,11 +25,11 @@ lang:string
    if(localStorage.getItem("wishlist")){
      this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
 
-      this.prodService.GetAllProducts().subscribe(prods=>{
-      this.wishListProduct.forEach((value)=>{
-      this.ListProduct.push(prods.find(p=>p.id==value.productId)!)
-    })
-   })
+  //     // this.prodService.GetAllProducts().subscribe(prods=>{
+  //     // this.wishListProduct.forEach((value)=>{
+  //     // this.ListProduct.push(prods.find(p=>p.id==value.productId)!)
+  //   })
+  //  })
   }else{
         this.wishService.getWishListItems().subscribe(wishList=>{
         this.ListProduct=wishList.map(p=>p.product)
