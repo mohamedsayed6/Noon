@@ -1,9 +1,12 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
-import { environment } from "src/environments/environment.prod";
+import { environment } from "src/environments/environment";
 import { Iuser } from "../../Core/Models/iuser";
 import { IAddress } from "../Models/iaddress";
+
+import { UserAddress } from "../Models/user-address";
+
 
 @Injectable({
   providedIn: "root",
@@ -18,18 +21,28 @@ export class UserService {
 
  
  
- deleteAddress(address: IAddress){
-  return this.httpclient.post<IAddress>(`${environment.APIBaseURL}/users/DeleteAddress`, JSON.stringify(address));
+ deleteAddress(address: UserAddress){
+  return this.httpclient.post<UserAddress>(`${environment.APIBaseURL}/users/DeleteAddress`, JSON.stringify(address));
  }
   
-  addAddress(address: IAddress): Observable<IAddress> {
-    return this.httpclient.post<IAddress>(`${environment.APIBaseURL}/users/AddAddress`, JSON.stringify(address));
+  addAddress(address: UserAddress): Observable<UserAddress> {
+    return this.httpclient.post<UserAddress>(`${environment.APIBaseURL}/users/AddAddress`, JSON.stringify(address));
   }
-  UpdateAddress(address: IAddress): Observable<IAddress> {
-    return this.httpclient.put<IAddress>(`${environment.APIBaseURL}/users/UpdateAddress`, JSON.stringify(address));
+
+  UpdateAddress(address: UserAddress): Observable<UserAddress> {
+    return this.httpclient.put<UserAddress>(`${environment.APIBaseURL}/users/UpdateAddress`, JSON.stringify(address));
+
   }
-  ChangeAddress(address: IAddress[]): Observable<IAddress[]> {
-    return this.httpclient.put<IAddress[]>(`${environment.APIBaseURL}/users/ChangeAddress`, JSON.stringify(address));
+
+///Mohamed
+//Getting User Addresses from Api
+
+  GetAllAddress(): Observable<UserAddress[]> {
+    return this.httpclient.get<UserAddress[]>(`${environment.APIBaseURL}/api/User/Addresess`);
+
+  }
+  ChangeAddress(address: UserAddress[]): Observable<UserAddress[]> {
+    return this.httpclient.put<UserAddress[]>(`${environment.APIBaseURL}/users/ChangeAddress`, JSON.stringify(address));
   }
   obj:any={}
   updatePassword(old_Password:string,new_Password:string) {

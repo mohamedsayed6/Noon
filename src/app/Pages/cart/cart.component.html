@@ -16,16 +16,17 @@
             <div *ngFor="let product of LocalStorageProducts">
               <div class="row p-3">
                 <div class="col-lg-2">
-                  <img [src]="product.ImgURL" class="img-fluid">
+                  <img [src]="product.product.imageThumb" class="img-fluid">
                 </div>
-                <div class="col-lg-7">
-                  <p>{{lang=="en"?product.Name:product.NameAr}}</p>
-                  <p>{{lang=="en"?product.Description:product.DescrptionAr}}</p>
-                  <p>{{product.Quantity}}</p>
-                  <p>{{product.Price}}</p>
-                  <p>{{product.TotalPrice}}</p>
 
-                  <button (click)="Remove(product.ID)">{{'Cart.Remove'|translate}}</button>
+
+                <div class="col-lg-7">
+                  <p>{{lang=="en"?product.product.name:product.product.nameAr}}</p>
+                  <p>{{lang=="en"?product.product.description:product.product.descriptionAr}}</p>
+                  <p>{{product.quantity}}</p>
+                  <p>{{product.product.price}}</p>
+
+                  <button (click)="Remove(product.product.id)">{{'Cart.Remove'|translate}}</button>
 
                 </div>
 
@@ -53,7 +54,48 @@
 
 
       <div class="col-lg-4 col-md-4 mt-4 ">
-        <app-order-summry></app-order-summry>
+        <!-- <app-order-summry></app-order-summry> -->
+
+
+        <div class="rightside p-4">
+          <h5>Order Summary</h5>
+          <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="code cepon or Gift card" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="button">Apply</button>
+              </div>
+            </div>
+             <div class="row">
+                 <div class="col-8">
+                      <p class="mt-4">subtotal(1 item)</p>
+                      <p class="mt-4">Shipping <a href="#">Detials</a></p>
+                 </div>
+                 <div class="col-4">
+                  <p class="mt-4">Egy 56000,00</p>
+                  <p class="mt-4">Free</p>
+               </div>
+
+             </div>
+             <hr>
+             <div class="row">
+              <div class="col-8">
+                   <p class="mt-4">Total(inclusive of Vat)</p>
+              </div>
+              <div class="col-4">
+               <p class="mt-4">Egy 56000,00</p>
+              </div>
+              <div class="col-12 text-center">
+                    <img src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg">
+                    <p class="d-inline">Monthly payment plans from EGP 500</p>
+                   <button class="w-75 btn btn-primary" [disabled]="LocalStorageProducts.length==0" (click)="CheckOut()" >Check OUT</button>
+              </div>
+
+          </div>
+
+
+      </div>
+
+
       </div>
 
     </div>

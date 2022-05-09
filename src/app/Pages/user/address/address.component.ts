@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { IAddress } from "src/app/Core/Models/iaddress";
+import {UserAddress} from "src/app/Core/Models/user-address"
 import { Iuser } from "src/app/Core/Models/iuser";
 import { UserService } from "src/app/Core/Services/user.service";
 
@@ -11,7 +12,7 @@ import { UserService } from "src/app/Core/Services/user.service";
 })
 export class AddressComponent implements OnInit {
   user!: Iuser;
-Addresses!:IAddress[]
+Addresses!:UserAddress[]
 
   lang!:string
   constructor(private userservice: UserService, private route: Router) {
@@ -22,9 +23,10 @@ Addresses!:IAddress[]
     let  userid=JSON.parse(localStorage.getItem("currentUser")!)
     console.log(userid)
      
-    // this.userservice.GetAllUsers().subscribe((_user) => {
-    //   this.user = _user.find((i) => i.id == "u2")!;
-    // });
+  
+    this.userservice.GetAllAddress().subscribe((_address) => {
+      this.Addresses = _address;
+    });
   }
   showdivAdd() {
     let div = document.getElementById("AddAddress");
@@ -47,13 +49,11 @@ Addresses!:IAddress[]
     div?.classList.add("d-none");
     document.getElementById("pop")?.classList.remove("pop");
   }
-  address!:IAddress
-  addAddress( _city: any,street:any,def:any) {
+  address!:UserAddress
+  addAddress( _city: any,street:any,postal:any) {
     this.address.city=_city
     this.address.street=street
-    this.address.default=def
-    console.log(this.address)
-   this.user.Address.push(this.address);
+    this.address.postalCode=postal
     this.userservice.addAddress(this.address).subscribe({
       next: (pro) => {
         this.route.navigateByUrl("/Address");
@@ -63,8 +63,8 @@ Addresses!:IAddress[]
   change(def:boolean,id:number){
 
    
-      this.Addresses.filter(a=>a.id!=id).map(s=>s.default=false)
-      this.Addresses.find(a=>a.id==id)!.default= !def
+      this.Addresses.filter(a=>a.id!=id).map(s=>s.isPrimary=false)
+      this.Addresses.find(a=>a.id==id)!.isPrimary= !def
 
     
   
@@ -81,12 +81,12 @@ Addresses!:IAddress[]
     })
   }
 
-  updateAddrsess(id:any,_city:string,_street:string){
+  updateAddrsess(id:any,_city:string,_street:string,postal:string){
     this.address=this.Addresses.find(a=>a.id==id)!
 
     this.address.city=_city;
     this.address.street=_street;
-    this.userservice.(this.address).subscribe(next=>{
+    this.userservice.UpdateAddress(this.address).subscribe(next=>{
       this.route.navigateByUrl("/user/Address");
     })
   }
