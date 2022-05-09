@@ -7,26 +7,27 @@ import { UserService } from 'src/app/Core/Services/user.service';
 @Component({
   selector: 'app-address',
   templateUrl: './address.component.html',
-  styleUrls: ['./address.component.scss']
+  styleUrls: ['./address.component.scss'],
 })
-export class AddressComponent implements OnInit  {
-
-
+export class AddressComponent implements OnInit {
   constructor(private userservices: UserService, private route: Router) {
+    this.lang = localStorage.getItem('lang')!;
+  }
 
-    this.lang=localStorage.getItem("lang")!
-
-   }
-
-
-  user!:Iuser;
-  lang!:string;
-
-addresses:UserAddress[]=[]
-
+  user!: Iuser;
+  lang!: string;
+  addresses: UserAddress[] = [
+    {
+      city: '',
+      street: '',
+      postalCode: 0,
+      id: 0,
+      isPrimary: true,
+    },
+  ];
+  addressId: number = 0;
 
   ngOnInit(): void {
-
     // let  userid=JSON.parse(localStorage.getItem("currentUser")!)
     // console.log(userid)
 
@@ -35,12 +36,14 @@ addresses:UserAddress[]=[]
     //   console.log(this.user)
     // });
 
-this.userservices.GetAllAddress().subscribe(
+    this.userservices.GetAllAddress().subscribe((result) => {
+      this.addresses = result;
+      console.log(result);
+    });
+  }
 
-add=>{this.addresses!=add}
-
-)
-
-
+  getAddress(addressId: number) {
+    this.addressId = addressId;
+    this.route.navigateByUrl('egypt-en/cart/order/payment');
   }
 }
