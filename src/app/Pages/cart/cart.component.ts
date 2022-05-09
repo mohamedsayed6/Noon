@@ -24,7 +24,6 @@ export class CartComponent implements OnInit {
 
     if(localStorage.getItem("currentUser"))
     {
-
       this._cartService.getCartItems().subscribe(
         prod=>this.LocalStorageProducts=prod
       );
