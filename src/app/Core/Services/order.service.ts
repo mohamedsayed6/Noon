@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Iorder } from "../../Core/Models/iorder";
+import { environment } from "src/environments/environment";
+
 
 @Injectable({
   providedIn: "root",
@@ -29,4 +31,16 @@ export class OrderService {
       this.httpoption
     );
   }
+
+
+  PlaceOrder(payment:boolean,addressId:string)
+  {
+
+    return this.httpclient.post(`http://localhost:23146/api/Order/Add?payment=${payment}&addressId=${addressId}`,0);
+
+
+  }
+
+
+
 }

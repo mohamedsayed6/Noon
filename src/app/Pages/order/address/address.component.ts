@@ -44,6 +44,6 @@ export class AddressComponent implements OnInit {
 
   getAddress(addressId: number) {
     this.addressId = addressId;
-    this.route.navigateByUrl('egypt-en/cart/order/payment');
+    this.route.navigateByUrl(`egypt-en/cart/order/payment?addressId=${addressId}`);
   }
 }

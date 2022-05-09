@@ -1,6 +1,6 @@
 <div class="row">
   <ng-container *ngFor="let item of addresses ;let i=index">
-    <div class=" col-3 divAddress me-2" *ngIf="item.isPrimary">
+    <div class=" col-3 divAddress me-2" *ngIf="item.isPrimary" (click)="getAddress(item.id)">
 
       <div class="row headaddress">
         <div class="">
@@ -49,7 +49,7 @@
   </ng-container>
 
   <ng-container *ngFor="let item of addresses ;let i=index">
-    <div class=" col-3 divAddress me-2" *ngIf="!item.isPrimary">
+    <div class=" col-3 divAddress me-2" *ngIf="!item.isPrimary" (click)="getAddress(item.id)">
 
       <div class="row headaddress">
         <div class="">
@@ -151,9 +151,6 @@
   </div> -->
 
 
-  <div class="col-11 mt-5 mb-5">
-    <a routerLink="payment"><button class="btn btn-primary float-end " style="width: 200px;"> Continue</button></a>
 
-  </div>
 
 </div>
