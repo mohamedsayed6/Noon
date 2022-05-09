@@ -47,8 +47,8 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
   //Mohamed Changes=============================>
   //Array Of ProductsId Quantity
-  c!:Iuser
-  p!:IProduct
+  c!: Iuser;
+  p!: IProduct;
   LocalStorageProducts: ICartProduct[] = [];
   ProductQuantity: number = 1;
 
@@ -64,6 +64,7 @@ prod!:IProduct
     product:this.p
 
   }
+
 
 
 
@@ -180,25 +181,24 @@ prod!:IProduct
   //=============================================================Mohamed Changes=====================================================
   //Add Product To LocalStorage/Database
   AddToCart() {
-    // alert(this.selectedProduct.skuId);
-
     if (localStorage.getItem('currentUser')) {
-      console.log(this.ProductQuantity);
       this._cartService
         .addToCart(this.selectedProduct.id, this.ProductQuantity)
         .subscribe();
-    }
-
-    else {
+    } else {
       this.CartProduct.product = this.selectedProduct;
-      this.CartProduct.quantity=this.ProductQuantity;
+      this.CartProduct.quantity = this.ProductQuantity;
 
       if (localStorage.getItem('LocalStorageProducts')) {
         this.LocalStorageProducts = JSON.parse(
           localStorage.getItem('LocalStorageProducts')!
         );
 
-        if (this.LocalStorageProducts.find((p) => p.product.id == this.CartProduct.product.id))
+        if (
+          this.LocalStorageProducts.find(
+            (p) => p.product.id == this.CartProduct.product.id
+          )
+        )
           return;
 
         this.LocalStorageProducts.push(this.CartProduct);
