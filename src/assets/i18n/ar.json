@@ -18,6 +18,9 @@
         "password":"كلمة المرور",
         "save":"حفظ",
         "changepassword":"تغير كلمة المرور",
+        "cpassword":"كلمة المرور الحالية",
+        "npassword":"كلمة المرور الجديدة",
+        "update":"تعديل",
         "ar":"العربية",
         "en":"English"
 

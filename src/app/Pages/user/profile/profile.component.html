@@ -3,7 +3,7 @@
   
     <div id="updateAddress" class="d-none updateAddress"  >
         <div class="header">
-            <h1 class="">{{'userAddress.newAddress'|translate}}
+            <h1 class="">{{'userprofile.changepassword'|translate}}
                 <button class="float-end btn btn-defualt close" (click)="divhide()">X</button>
             </h1>
             
@@ -13,17 +13,17 @@
         <form method="put">
             <div class="row mt-5">
               <div class="col-lg-12 mt-5">
-                  <label>{{'userAddress.Address'|translate}}</label>
+                  <label>{{'userprofile.cpassword'|translate}}</label>
                   <input type="password" class="form-control" name="currentPassword" #cpass 
                 >
               </div>
               <div class="col-lg-12 mt-5">
-                <label>{{'userAddress.PhoneNumber'|translate}}</label>
+                <label>{{'userprofile.npassword'|translate}}</label>
                 <input type="password" class="form-control" name="newPassword" #npass >
             </div>
            
                <div class="col-lg-12 mt-5  text-center">
-                  <button class="btn btn-primary w-50" (click)="updatePassword(cpass.value,npass.value)" >{{'userAddress.new'|translate}}</button>
+                  <button class="btn btn-primary w-50" (click)="updatePassword(cpass.value,npass.value)" >{{'userprofile.update'|translate}}</button>
                </div>
              
             </div>
@@ -69,7 +69,7 @@
         </div>
         <div class="cart p-4">
              
-             <form>
+           
                     <div class="row">
                     <div class="col-lg-6">
                         <label>{{'userprofile.email' |translate}}</label>
@@ -82,7 +82,7 @@
                        (click)="showdiv()" >{{'userprofile.changepassword' |translate}}</button>
                   </div>
                 </div>
-           </form>
+          
                   
                
 

@@ -16,6 +16,9 @@
         "password":"Password",
         "save":"Save",
         "changepassword":"Change Password",
+        "cpassword":"Current Password",
+        "npassword":"New Password",
+        "update":"Update",
         "ar":"Arabic",
         "en":"English"
 

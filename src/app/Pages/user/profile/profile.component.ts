@@ -30,10 +30,7 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  UpdatePassword(password: any) {
-    
-
-  }
+ 
   showdiv() {
     let div = document.getElementById("updateAddress");
     div?.classList.remove("d-none");
