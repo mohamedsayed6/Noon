@@ -1,6 +1,7 @@
 export interface IAddress {
    
     id:number,
-    address:string,
+    city:string,
+    street:string,
     default:boolean
 }

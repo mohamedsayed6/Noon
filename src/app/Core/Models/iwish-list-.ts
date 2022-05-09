@@ -1,4 +1,7 @@
+import { IProduct } from "./iproduct";
+
 export interface IwishList {
-    customerId:string;
     productId:number;
+    count:number
+    product:IProduct
 }

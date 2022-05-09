@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
 import { environment } from "src/environments/environment.prod";
 import { Iuser } from "../../Core/Models/iuser";
+import { IAddress } from "../Models/iaddress";
 
 @Injectable({
   providedIn: "root",
@@ -15,20 +16,27 @@ export class UserService {
     };
   }
 
-  GetAllUsers(): Observable<Iuser[]> {
-    return this.httpclient.get<Iuser[]>(`${environment.APIBaseURL}/users`);
+ 
+ 
+ deleteAddress(address: IAddress){
+  return this.httpclient.post<IAddress>(`${environment.APIBaseURL}/users/DeleteAddress`, JSON.stringify(address));
+ }
+  
+  addAddress(address: IAddress): Observable<IAddress> {
+    return this.httpclient.post<IAddress>(`${environment.APIBaseURL}/users/AddAddress`, JSON.stringify(address));
   }
-  GetAllAddress(): Observable<Iuser[]> {
-    return this.httpclient.get<Iuser[]>(`${environment.APIBaseURL}/users`);
+  UpdateAddress(address: IAddress): Observable<IAddress> {
+    return this.httpclient.put<IAddress>(`${environment.APIBaseURL}/users/UpdateAddress`, JSON.stringify(address));
   }
-
-  GetUserById(uid: number): Observable<Iuser> {
-    return this.httpclient.get<Iuser>(`${environment.APIBaseURL}/users?id=${uid}`);
+  ChangeAddress(address: IAddress[]): Observable<IAddress[]> {
+    return this.httpclient.put<IAddress[]>(`${environment.APIBaseURL}/users/ChangeAddress`, JSON.stringify(address));
   }
-  adduser(user: Iuser): Observable<Iuser> {
-    return this.httpclient.post<Iuser>(`${environment.APIBaseURL}/users`, JSON.stringify(user), this.httpoption);
+  obj:any={}
+  updatePassword(old_Password:string,new_Password:string) {
+    this.obj={oldPassword:old_Password,newPassword:new_Password}
+    return this.httpclient.put(`${environment.APIBaseURL}/users/UpdatePassword`,this.obj);
   }
-  updateuser(user: Iuser): Observable<Iuser> {
-    return this.httpclient.put<Iuser>(`${environment.APIBaseURL}/users/${user.id}`, JSON.stringify(user), this.httpoption);
+  updateGeneralInfo(first: string,last:string) {
+    return this.httpclient.put(`${environment.APIBaseURL}/users/UpdateName?first=${first}&last=${last}`,null);
   }
 }

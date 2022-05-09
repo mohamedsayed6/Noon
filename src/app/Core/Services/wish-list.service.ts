@@ -17,7 +17,7 @@ export class WishListService {
 
   // Add to cart
   addToWishList(proId: number, count: number) {
-    return this._api.post(`${environment.APIBaseURL}` + `/api/Wishlist/Add?proId=${proId}`, count);
+    return this._api.post(`${environment.APIBaseURL}` + `/api/Wishlist/Add?proId=${proId}&${count}`, count);
   }
  
   //Remove from cart

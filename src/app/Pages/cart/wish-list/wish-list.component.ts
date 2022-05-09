@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IProduct } from 'src/app/Core/Models/iproduct';
 import { IwishList } from 'src/app/Core/Models/iwish-list-';
 import { ProductsService } from 'src/app/Core/Services/products.service';
+import { WishListService } from 'src/app/Core/Services/wish-list.service';
 @Component({
   selector: 'app-wish-list',
   templateUrl: './wish-list.component.html',
@@ -12,13 +13,15 @@ export class WishListComponent implements OnInit {
 
 lang:string
 
-  constructor(private prodService:ProductsService) {
+  constructor(private prodService:ProductsService,private wishService:WishListService) {
     this.lang=localStorage.getItem("lang")!
    }
      wishListProduct:IwishList[]=[]
      ListProduct:IProduct[]=[]
 
   ngOnInit(): void {
+
+
    if(localStorage.getItem("wishlist")){
      this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
 
@@ -27,6 +30,11 @@ lang:string
       this.ListProduct.push(prods.find(p=>p.id==value.productId)!)
     })
    })
+  }else{
+        this.wishService.getWishListItems().subscribe(wishList=>{
+        this.ListProduct=wishList.map(p=>p.product)
+          
+        })
   }
  
 }
@@ -35,6 +43,11 @@ deletewishlist(id:number){
     this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
       localStorage.setItem("wishlist",JSON.stringify(this.wishListProduct.filter(p=>p.productId != id)))
      location.reload()
+}
+if(localStorage.getItem("CurrentUser")){
+  this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
+  this.wishService.removeFromWishList(id).subscribe();
+ location.reload()
 }
 }
 }

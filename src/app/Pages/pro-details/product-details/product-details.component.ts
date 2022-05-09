@@ -6,6 +6,8 @@ import { Subscription } from "rxjs";
 import { ICategory } from "src/app/Core/Models/icategory";
 import { ICartProduct } from "src/app/Core/Models/icart-product";
 import { IwishList } from "src/app/Core/Models/iwish-list-";
+import { WishListService } from "src/app/Core/Services/wish-list.service";
+import { isNull } from "@angular/compiler/src/output/output_ast";
 
 @Component({
   selector: "app-product-details",
@@ -53,9 +55,9 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     Description: "",
     DescrptionAr: "",
   };
-
+prod!:IProduct 
   //Kero Changes================================>
-  WishListProduct: IwishList = { productId: 0, customerId: "" };
+  WishListProduct: IwishList  = { productId: 0, count: 0,product:this.prod };
   WishListProductLocalStorge: IwishList[] = [];
 
   //#endregion
@@ -64,7 +66,8 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   constructor(
     private _productService: ProductsService,
     private _activatedRoute: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private wishService:WishListService
   ) {
     this.isOverview = true;
   }
@@ -187,12 +190,20 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   }
 
   AddToWishList() {
-    if (false) alert("There's  User NOt found");
+    if (false) {
+      alert(localStorage.getItem("CurrentUser"))
+      
+     
+  this.wishService.addToWishList(this.selectedProduct.id,this.ProductQuantity).subscribe();
+
+    }
     else {
+    
       this.WishListProduct.productId = this.selectedProduct.id;
-      this.WishListProduct.customerId = "u2";
+      this.WishListProduct.count=this.ProductQuantity;
       console.log(this.WishListProduct);
       if (localStorage.getItem("wishlist")) {
+        alert("dddddddddddd")
         this.WishListProductLocalStorge = JSON.parse(localStorage.getItem("wishlist")!);
         if (this.WishListProductLocalStorge.find((p) => p.productId == this.WishListProduct.productId)) return;
 
@@ -200,6 +211,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
         localStorage.setItem("wishlist", JSON.stringify(this.WishListProductLocalStorge));
         location.reload();
       } else {
+        alert("dddddddddddd")
         this.WishListProductLocalStorge.push(this.WishListProduct);
         localStorage.setItem("wishlist", JSON.stringify(this.WishListProductLocalStorge));
         location.reload();

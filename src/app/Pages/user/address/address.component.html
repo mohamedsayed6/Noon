@@ -1,10 +1,10 @@
 <div id="pop">
  
   
-    <div id="updateAddress" class="d-none updateAddress"  >
+    <div id="addAddress" class="d-none updateAddress"  >
         <div class="header">
             <h1 class="">{{'userAddress.newAddress'|translate}}
-                <button class="float-end btn btn-defualt close" (click)="divhide()">X</button>
+                <button class="float-end btn btn-defualt close" (click)="divhideAdd()">X</button>
             </h1>
             
            
@@ -14,12 +14,12 @@
             <div class="row mt-5">
               <div class="col-lg-12 mt-5">
                   <label>{{'userAddress.Address'|translate}}</label>
-                  <input type="text" class="form-control" name="Address" #address 
+                  <input type="text" class="form-control" name="Address" #ctiy 
                 >
               </div>
               <div class="col-lg-12 mt-5">
                 <label>{{'userAddress.PhoneNumber'|translate}}</label>
-                <input type="text" class="form-control" name="phone" #phone >
+                <input type="text" class="form-control" name="phone" #street >
             </div>
             <div class="col-lg-12 mt-5">
               <div class="form-check form-switch col-4">
@@ -30,7 +30,7 @@
               </div>
           </div>
                <div class="col-lg-12 mt-5  text-center">
-                  <button class="btn btn-primary w-50" (click)="addAddress(address.value,def.value)" >{{'userAddress.new'|translate}}</button>
+                  <button class="btn btn-primary w-50" (click)="addAddress(ctiy.value,street.value,def.value)" >{{'userAddress.new'|translate}}</button>
                </div>
              
             </div>
@@ -39,7 +39,58 @@
   
         </form>
     </div>
-</div>  
+</div> 
+
+
+
+
+<!--showdiv Update-->
+<div id="pop">
+ 
+  
+  <div id="updateAddress" class="d-none updateAddress"  >
+      <div class="header">
+          <h1 class="">{{'userAddress.newAddress'|translate}}
+              <button class="float-end btn btn-defualt close" (click)="divhideupdate()">X</button>
+          </h1>
+          
+         
+        </div>
+      
+      <form method="put">
+          <div class="row mt-5">
+            <div class="col-lg-12 mt-5">
+              <input type="hidden" class="form-control" name="id" #id [value]="address.id"
+              >
+                <label>{{'userAddress.Address'|translate}}</label>
+                <input type="text" class="form-control" name="Address" #ctiy  [value]="address.city"
+              >
+            </div>
+            <div class="col-lg-12 mt-5">
+              <label>{{'userAddress.PhoneNumber'|translate}}</label>
+              <input type="text" class="form-control" name="phone" #street  [value]="address.street">
+          </div>
+          
+             <div class="col-lg-12 mt-5  text-center">
+                <button class="btn btn-primary w-50" (click)="updateAddrsess(id.value,ctiy.value,street.value)" >{{'userAddress.new'|translate}}</button>
+             </div>
+           
+          </div>
+          
+         
+
+      </form>
+  </div>
+</div> 
+
+
+
+
+
+
+
+
+
   <div class="container-pop">
     
   
@@ -50,15 +101,20 @@
   
               </div>
               <div class="col-lg-3">
-                  <button class="btn btn-primary" (click)="showdiv()">{{'userAddress.newAddress'|translate}}</button>
+                  <button class="btn btn-primary" (click)="showdivAdd()">{{'userAddress.newAddress'|translate}}</button>
   
               </div>
           </div>  
 
            <div class="row headaddress mt-4">
-                <div class="col-10">
+                <div class="col-5">
                   <h2>{{'userAddress.PrimaryAddress'|translate}}</h2>
+                 
                </div>
+               <div class="col-5">
+                <span (click)="deleteAddrsess(1)" class="me-4">Delete</span>
+                <span (click)="showdivupdate(1)" class="me-4">update</span>
+             </div>
                <div class="form-check form-switch col-2">
                  <label class="form-check-label" for="flexSwitchCheckChecked">{{'userAddress.default'|translate}}</label>
                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" 

@@ -1,4 +1,40 @@
+<div id="pop">
+ 
+  
+    <div id="updateAddress" class="d-none updateAddress"  >
+        <div class="header">
+            <h1 class="">{{'userAddress.newAddress'|translate}}
+                <button class="float-end btn btn-defualt close" (click)="divhide()">X</button>
+            </h1>
+            
+           
+          </div>
+        
+        <form method="put">
+            <div class="row mt-5">
+              <div class="col-lg-12 mt-5">
+                  <label>{{'userAddress.Address'|translate}}</label>
+                  <input type="password" class="form-control" name="currentPassword" #cpass 
+                >
+              </div>
+              <div class="col-lg-12 mt-5">
+                <label>{{'userAddress.PhoneNumber'|translate}}</label>
+                <input type="password" class="form-control" name="newPassword" #npass >
+            </div>
+           
+               <div class="col-lg-12 mt-5  text-center">
+                  <button class="btn btn-primary w-50" (click)="updatePassword(cpass.value,npass.value)" >{{'userAddress.new'|translate}}</button>
+               </div>
+             
+            </div>
+            
+           
+  
+        </form>
+    </div>
+</div> 
 
+<div class="container-pop">
     <div class="row">
         <div class="col-lg-12 col-md-12 headprofile mt-4">
             <h2>{{'userprofile.generalInfo' |translate}}</h2>
@@ -41,7 +77,7 @@
                     </div>
                     <div class="col-lg-6">
                       <label>{{'userprofile.password' |translate}}</label>
-                      <input type="password" name="password" class="form-control" #password value="{{user.password}}">
+                      <input type="password" name="password" class="form-control" #password value="********">
                       <button class="btn btn-outline-secondary w-50 mt-4 mb-4 float-end"
                        (click)="UpdatePassword(password.value)" >{{'userprofile.changepassword' |translate}}</button>
                   </div>
@@ -59,4 +95,7 @@
 
       
     </div>
+
+</div>
+    
 
