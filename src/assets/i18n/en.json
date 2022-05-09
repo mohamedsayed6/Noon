@@ -34,6 +34,8 @@
         "PhoneNumber":"Phone Number",
         "newAddress":"Add New Address",
         "new":"Add",
+        "updateAddress":"Update Address",
+        "update":"Update",
         "default":"Defualt Address"
     },
     "userReturn":{

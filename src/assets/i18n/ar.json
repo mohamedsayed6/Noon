@@ -36,6 +36,8 @@
         "PhoneNumber":"رقم الهاتف",
         "newAddress":" اضافة عنوان جديد",
         "new":"اضافة",
+        "updateAddress":" تعديل عنوان",
+        "update":"تعديل",
         "default":"العنوان الاساسي"
   },
   "userReturn":{
