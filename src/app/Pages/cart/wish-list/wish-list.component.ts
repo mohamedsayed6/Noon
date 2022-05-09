@@ -1,54 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { IProduct } from 'src/app/Core/Models/iproduct';
-import { IwishList } from 'src/app/Core/Models/iwish-list-';
-import { ProductsService } from 'src/app/Core/Services/products.service';
-import { WishListService } from 'src/app/Core/Services/wish-list.service';
+import { Component, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Router } from "@angular/router";
+import { IwishList } from "src/app/Core/Models/iwish-list-";
+import { ProductsService } from "src/app/Core/Services/products.service";
+import { WishListService } from "src/app/Core/Services/wish-list.service";
 @Component({
-  selector: 'app-wish-list',
-  templateUrl: './wish-list.component.html',
-  styleUrls: ['./wish-list.component.scss']
+  selector: "app-wish-list",
+  templateUrl: "./wish-list.component.html",
+  styleUrls: ["./wish-list.component.scss"],
 })
 export class WishListComponent implements OnInit {
+  lang: string;
 
-lang:string
-
-  constructor(private prodService:ProductsService,private wishService:WishListService) {
-    this.lang=localStorage.getItem("lang")!
-   }
-     wishListProduct:IwishList[]=[]
-     ListProduct:IProduct[]=[]
-
-  ngOnInit(): void {
-
-
-   if(localStorage.getItem("wishlist")){
-     this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
-
-  //     // this.prodService.GetAllProducts().subscribe(prods=>{
-  //     // this.wishListProduct.forEach((value)=>{
-  //     // this.ListProduct.push(prods.find(p=>p.id==value.productId)!)
-  //   })
-  //  })
-  }else{
-        this.wishService.getWishListItems().subscribe(wishList=>{
-        this.ListProduct=wishList.map(p=>p.product)
-          
-        })
+  constructor(private prodService: ProductsService, private wishService: WishListService, private _route: Router) {
+    this.lang = localStorage.getItem("lang")!;
   }
- 
+  ListProduct!: IwishList[];
+  ngOnInit(): void {
+    if (localStorage.getItem("currentUser")) {
+      this.wishService.getWishListItems().subscribe((Wishlistproducts) => {
+        this.ListProduct = Wishlistproducts;
+        console.log(this.ListProduct);
+      });
+    }
+  }
+  deletewishlist(id: number) {
+    if (localStorage.getItem("currentUser")) {
+      this.wishService.removeFromWishList(id).subscribe(() => {
+        this.wishService.getWishListItems().subscribe((Wishlistproducts) => {
+          this.ListProduct = Wishlistproducts;
+          this._route.navigate(["/egypt-en"]);
+          this._route.navigate(["/egypt-en/cart"]);
+        });
+        location.reload();
+      });
+    }
+  }
 }
-deletewishlist(id:number){
-  if(localStorage.getItem("wishlist")){
-    this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
-      localStorage.setItem("wishlist",JSON.stringify(this.wishListProduct.filter(p=>p.productId != id)))
-     location.reload()
-}
-if(localStorage.getItem("CurrentUser")){
-  this.wishListProduct=JSON.parse(localStorage.getItem("wishlist")!)
-  this.wishService.removeFromWishList(id).subscribe();
- location.reload()
-}
-}
-}
-
