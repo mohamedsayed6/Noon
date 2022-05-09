@@ -1,16 +1,26 @@
-import { ActivatedRoute, Router } from "@angular/router";
-import { ProductsService } from "src/app/Core/Services/products.service";
-import { IProduct } from "src/app/Core/Models/iproduct";
-import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from "@angular/core";
-import { Subscription } from "rxjs";
-import { ICategory } from "src/app/Core/Models/icategory";
-import { ICartProduct } from "src/app/Core/Models/icart-product";
-import { IwishList } from "src/app/Core/Models/iwish-list-";
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsService } from 'src/app/Core/Services/products.service';
+import { IProduct } from 'src/app/Core/Models/iproduct';
+import {
+  Component,
+  EventEmitter,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ICategory } from 'src/app/Core/Models/icategory';
+import { ICartProduct } from 'src/app/Core/Models/icart-product';
+import { IwishList } from 'src/app/Core/Models/iwish-list-';
+import { CartService } from 'src/app/Core/Services/cart.service';
+import { Iuser } from 'src/app/Core/Models/iuser';
 
 @Component({
-  selector: "app-product-details",
-  templateUrl: "./product-details.component.html",
-  styleUrls: ["./product-details.component.scss"],
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit, OnChanges {
   //=============================================================Properties =================================================
@@ -40,22 +50,22 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
 
   //Mohamed Changes=============================>
   //Array Of ProductsId Quantity
+  c!:Iuser
+  p!:IProduct
   LocalStorageProducts: ICartProduct[] = [];
   ProductQuantity: number = 1;
-  CartProduct: ICartProduct = {
-    ID: 0,
-    Quantity: 0,
-    Name: "",
-    NameAr: "",
-    ImgURL: "",
-    Price: 0,
-    TotalPrice: 0,
-    Description: "",
-    DescrptionAr: "",
-  };
+  CartProduct: ICartProduct={
+
+
+    quantity:0,
+    customer:this.c,
+    product:this.p
+
+  }
+
 
   //Kero Changes================================>
-  WishListProduct: IwishList = { productId: 0, customerId: "" };
+  WishListProduct: IwishList = { productId: 0, customerId: '' };
   WishListProductLocalStorge: IwishList[] = [];
 
   //#endregion
@@ -64,6 +74,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   constructor(
     private _productService: ProductsService,
     private _activatedRoute: ActivatedRoute,
+    private _cartService: CartService,
     private _router: Router
   ) {
     this.isOverview = true;
@@ -79,40 +90,50 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     this._activatedRoute.paramMap.subscribe((params) => {
       //fetch product id from url
       // let proId = params.get("pid");
-      let proId = params.get("pid");
+      let proId = params.get('pid');
       if (proId != null) {
         this.selectedProductID = +proId;
       }
-      this._productService.GetProductById(this.selectedProductID).subscribe((data) => {
-        this.selectedProduct = data;
-        this.productId = data.id;
-        //set main product image
-        this.mainProImg = this.selectedProduct.imageThumb;
-        //push imageThum + all imageName of product image gallery to this.proImgs
-        this.proImgs.push(this.selectedProduct.imageThumb);
-        this.selectedProduct.imagesGallery.forEach((item) => {
-          this.proImgs.push(item.imageName);
+      this._productService
+        .GetProductById(this.selectedProductID)
+        .subscribe((data) => {
+          this.selectedProduct = data;
+          this.productId = data.id;
+          //set main product image
+          this.mainProImg = this.selectedProduct.imageThumb;
+          //push imageThum + all imageName of product image gallery to this.proImgs
+          this.proImgs.push(this.selectedProduct.imageThumb);
+          this.selectedProduct.imagesGallery.forEach((item) => {
+            this.proImgs.push(item.imageName);
+          });
+          // maxCountArr == maxQuantityPerOrder
+          for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
+            this.maxCountArr.push(i);
+          }
+          //get product categories
+          this.productCategories = [...this.selectedProduct.parentsCategories]; //clone array
+          // remove last element from array
+          this.productCategories.pop();
+          // last Catetory
+          this.lastCat =
+            this.selectedProduct.parentsCategories[
+              this.selectedProduct.parentsCategories.length - 1
+            ];
+          //==============================================================
+          //Mohamed Changes
+          //product img
+          this.proImg = this.selectedProduct.imageThumb;
+          if (localStorage.getItem('wishlist')) {
+            this.WishListProductLocalStorge = JSON.parse(
+              localStorage.getItem('wishlist')!
+            );
+            this.isInwishlist =
+              this.WishListProductLocalStorge.find(
+                (p) => p.productId == this.productId
+              ) != null;
+            console.log(this.isInwishlist);
+          }
         });
-        // maxCountArr == maxQuantityPerOrder
-        for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
-          this.maxCountArr.push(i);
-        }
-        //get product categories
-        this.productCategories = [...this.selectedProduct.parentsCategories]; //clone array
-        // remove last element from array
-        this.productCategories.pop();
-        // last Catetory
-        this.lastCat = this.selectedProduct.parentsCategories[this.selectedProduct.parentsCategories.length - 1];
-        //==============================================================
-        //Mohamed Changes
-        //product img
-        this.proImg = this.selectedProduct.imageThumb;
-        if (localStorage.getItem("wishlist")) {
-          this.WishListProductLocalStorge = JSON.parse(localStorage.getItem("wishlist")!);
-          this.isInwishlist = this.WishListProductLocalStorge.find((p) => p.productId == this.productId) != null;
-          console.log(this.isInwishlist)
-        }
-      });
     });
   }
   isInwishlist!: boolean;
@@ -120,21 +141,21 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //=============================================================Methods=====================================================
   //#region Methods
   goCatProducts(id: number) {
-    this._router.navigate(["/egypt-en/Category", id]);
+    this._router.navigate(['/egypt-en/Category', id]);
   }
 
   showProInfo(ele: any) {
-    if (ele.id === "overview") {
+    if (ele.id === 'overview') {
       this.isOverview = true;
       this.isSpec = false;
       this.isReview = false;
     }
-    if (ele.id === "spec") {
+    if (ele.id === 'spec') {
       this.isOverview = false;
       this.isSpec = true;
       this.isReview = false;
     }
-    if (ele.id === "review") {
+    if (ele.id === 'review') {
       this.isOverview = false;
       this.isSpec = false;
       this.isReview = true;
@@ -156,32 +177,46 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   AddToCart() {
     // alert(this.selectedProduct.skuId);
 
-    if (localStorage.getItem("currentUser")) alert("There's User");
+    if (localStorage.getItem('currentUser')) {
+      console.log(this.ProductQuantity);
+      this._cartService
+        .addToCart(this.selectedProduct.id, this.ProductQuantity)
+        .subscribe();
+    }
+
     else {
-      this.CartProduct.ID = this.selectedProduct.id;
-      this.CartProduct.Quantity = this.ProductQuantity;
-      this.CartProduct.Name = this.selectedProduct.name;
-      this.CartProduct.NameAr = this.selectedProduct.nameAr;
-      this.CartProduct.ImgURL = this.selectedProduct.imageThumb;
-      this.CartProduct.Price = this.selectedProduct.price;
-      this.CartProduct.TotalPrice = this.CartProduct.Price * this.ProductQuantity;
-      this.CartProduct.Description = this.selectedProduct.description;
-      this.CartProduct.DescrptionAr = this.selectedProduct.descriptionAr;
+      this.CartProduct.product = this.selectedProduct;
+      this.CartProduct.quantity=this.ProductQuantity;
 
-      if (localStorage.getItem("LocalStorageProducts")) {
-        this.LocalStorageProducts = JSON.parse(localStorage.getItem("LocalStorageProducts")!);
+      if (localStorage.getItem('LocalStorageProducts')) {
+        this.LocalStorageProducts = JSON.parse(
+          localStorage.getItem('LocalStorageProducts')!
+        );
 
-        if (this.LocalStorageProducts.find((p) => p.ID == this.CartProduct.ID)) return;
+        if (this.LocalStorageProducts.find((p) => p.product.id == this.CartProduct.product.id))
+          return;
 
         this.LocalStorageProducts.push(this.CartProduct);
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
       } else {
         this.LocalStorageProducts.push(this.CartProduct);
 
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
 
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
       }
     }
   }
@@ -190,18 +225,31 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
     if (false) alert("There's  User NOt found");
     else {
       this.WishListProduct.productId = this.selectedProduct.id;
-      this.WishListProduct.customerId = "u2";
+      this.WishListProduct.customerId = 'u2';
       console.log(this.WishListProduct);
-      if (localStorage.getItem("wishlist")) {
-        this.WishListProductLocalStorge = JSON.parse(localStorage.getItem("wishlist")!);
-        if (this.WishListProductLocalStorge.find((p) => p.productId == this.WishListProduct.productId)) return;
+      if (localStorage.getItem('wishlist')) {
+        this.WishListProductLocalStorge = JSON.parse(
+          localStorage.getItem('wishlist')!
+        );
+        if (
+          this.WishListProductLocalStorge.find(
+            (p) => p.productId == this.WishListProduct.productId
+          )
+        )
+          return;
 
         this.WishListProductLocalStorge.push(this.WishListProduct);
-        localStorage.setItem("wishlist", JSON.stringify(this.WishListProductLocalStorge));
+        localStorage.setItem(
+          'wishlist',
+          JSON.stringify(this.WishListProductLocalStorge)
+        );
         location.reload();
       } else {
         this.WishListProductLocalStorge.push(this.WishListProduct);
-        localStorage.setItem("wishlist", JSON.stringify(this.WishListProductLocalStorge));
+        localStorage.setItem(
+          'wishlist',
+          JSON.stringify(this.WishListProductLocalStorge)
+        );
         location.reload();
       }
     }
