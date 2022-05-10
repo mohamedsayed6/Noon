@@ -12,6 +12,7 @@ export class AllProductsComponent implements OnInit, OnChanges {
   Products!: IProduct[];
   page: number = 1;
   count: number = 0;
+  isspener:boolean=true
   productSize: number = 20;
   productSizes: any = [5, 10, 15, 20];
   localstorge: string = "en";
@@ -25,7 +26,19 @@ export class AllProductsComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this.productsService.GetAllProducts().subscribe((productlist) => {
       this.Products = productlist;
-    });
+      if(this.Products !=null){
+        this.isspener=true
+        document.getElementById("popo")!.style.display ="none";
+      }
+    },
+
+    );
+
+   var thiss=this;
+   setInterval(function(){
+     thiss.isspener=false
+     document.getElementById("pop")!.style.display ="none";
+   },4000)
   }
 
   onDataChange(event: any) {

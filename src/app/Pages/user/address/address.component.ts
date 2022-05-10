@@ -13,7 +13,7 @@ export class AddressComponent implements OnInit {
   user!: Iuser;
   address: UserAddress = { id: 0, city: "", street: "", postalCode: 0, isPrimary: false, addressPhone: "" };
   Addresses!: UserAddress[];
-
+isspener:boolean=false
   lang!: string;
   constructor(private userservice: UserService, private route: Router) {
     this.lang = localStorage.getItem("lang")!;
@@ -27,6 +27,9 @@ export class AddressComponent implements OnInit {
     });
   }
   showdivAdd() {
+   
+    
+    
     
     let div = document.getElementById("addAddress");
     div?.classList.remove("d-none");

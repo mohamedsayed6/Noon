@@ -68,20 +68,21 @@
   </div>
 </div>
 
-
+>
 <div class="container-pop">
- 
+  
+  <div class="col-lg-9">
+    <h1>{{'userAddress.Addresses'|translate}}</h1>
+    <p>{{'userAddress.descrip'|translate}}</p>
+  </div>
+  <div class="col-lg-3">
+    <button class="btn btn-primary" (click)="showdivAdd()">{{'userAddress.newAddress'|translate}}</button>
+  </div>
   <ng-container  *ngFor="let item of Addresses ;let i=index">
     <div  *ngIf="item.isPrimary">
      
         <div class="row">
-          <div class="col-lg-9">
-            <h1>{{'userAddress.Addresses'|translate}}</h1>
-            <p>{{'userAddress.descrip'|translate}}</p>
-          </div>
-          <div class="col-lg-3">
-            <button class="btn btn-primary" (click)="showdivAdd()">{{'userAddress.newAddress'|translate}}</button>
-          </div>
+        
         </div>
         <div class="row headaddress mt-4">
           <div class="col-10">
