@@ -3,7 +3,7 @@
   
     <div id="addAddress" class="d-none updateAddress"  >
         <div class="header">
-            <h1 class="">{{'userAddress.newAddress'|translate}}
+            <h1 class="">{{'userAddress.newsAddress'|translate}}
                 <button class="float-end btn btn-defualt close" (click)="divhideAdd()">X</button>
             </h1>
             
@@ -92,6 +92,12 @@
 
 
   <div class="container-pop">
+    <div class="col-lg-3">
+      <button class="btn btn-primary" (click)="showdivAdd()">
+       {{'userAddress.newsAddress'|translate}}
+       </button> 
+
+  </div>
     
    <div  *ngFor="let item of Addresses">
      <ng-component *ngIf="item.isPrimary">
@@ -101,10 +107,7 @@
           <p>{{'userAddress.descrip'|translate}}</p>
   
         </div>
-        <div class="col-lg-3">
-            <button class="btn btn-primary" (click)="showdivAdd()">{{'userAddress.newAddress'|translate}}</button>
-  
-        </div>
+        
     </div>  
     <div class="row headaddress mt-4">
       <div class="col-5">

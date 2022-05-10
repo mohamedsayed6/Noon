@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { IAddress } from "src/app/Core/Models/iaddress";
 import {UserAddress} from "src/app/Core/Models/user-address"
 import { Iuser } from "src/app/Core/Models/iuser";
 import { UserService } from "src/app/Core/Services/user.service";
@@ -29,7 +28,7 @@ Addresses!:UserAddress[]
     });
   }
   showdivAdd() {
-    let div = document.getElementById("AddAddress");
+    let div = document.getElementById("addAddress");
     div?.classList.remove("d-none");
     document.getElementById("pop")?.classList.add("pop");
   }
@@ -40,7 +39,7 @@ Addresses!:UserAddress[]
     document.getElementById("pop")?.classList.add("pop");
   }
   divhideAdd() {
-    let div = document.getElementById("AddAddress");
+    let div = document.getElementById("addAddress");
     div?.classList.add("d-none");
     document.getElementById("pop")?.classList.remove("pop");
   }
