@@ -113,6 +113,15 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
         this.proImg = this.selectedProduct.imageThumb;
       });
     });
+
+    if (localStorage.getItem("currentUser")) {
+      this.wishService.getWishListItems().subscribe((Wishlistproducts) => {
+       if(Wishlistproducts.find(w=>w.product.id==this.productId)){
+         this.isInwishlist=true
+       }
+       
+      });
+    }
   }
   isInwishlist!: boolean;
   //#endregion
@@ -198,9 +207,22 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   AddToWishList() {
     console.log("add to wishlist");
     if (localStorage.getItem("currentUser")) {
-      this.wishService.addToWishList(this.selectedProduct.id).subscribe();
-      console.log("add to wishlist");
-      console.log(this.selectedProduct.id);
+      this.wishService.addToWishList(this.selectedProduct.id).subscribe(
+        (next) => {},
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          Swal.fire(
+            'Product added to your Wish List',
+            'Click the button to see you cart',
+            'success'
+          ).then(()=>{
+            this._router.navigateByUrl("/egypt-en/cart");
+            this.ngOnInit(); // i love you
+          })}
+      );
+     
     }
   }
   //#endregion

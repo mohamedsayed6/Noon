@@ -20,7 +20,7 @@ export class WishListComponent implements OnInit {
     if (localStorage.getItem("currentUser")) {
       this.wishService.getWishListItems().subscribe((Wishlistproducts) => {
         this.ListProduct = Wishlistproducts;
-        console.log(this.ListProduct);
+       
       });
     }
   }
