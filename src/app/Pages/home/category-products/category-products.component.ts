@@ -9,28 +9,24 @@ import { ProductsService } from "src/app/Core/Services/products.service";
   styleUrls: ["./category-products.component.scss"],
 })
 export class CategoryProductsComponent implements OnInit {
-  currentCID: number = 0;
+  selectedCatCode!: string;
   Products: IProduct[] = [];
   page: number = 1;
   count: number = 0;
   productSize: number = 20;
   productSizes: any = [5, 10, 15, 20];
-  localstorge:string="en";
+  localstorge: string = "en";
 
   constructor(private activeRout: ActivatedRoute, private productsService: ProductsService) {
-
-
-    if(localStorage.getItem("lang"))
-       this.localstorge = localStorage.getItem("lang")!;
-
+    if (localStorage.getItem("lang")) this.localstorge = localStorage.getItem("lang")!;
   }
 
   ngOnInit(): void {
     this.activeRout.paramMap.subscribe((paramMap) => {
-      this.currentCID = Number(paramMap.get("cid"));
+      this.selectedCatCode = paramMap.get("cCode")!; //must be returned
 
       this.productsService
-        .GetProductsByCategoryId(this.currentCID)
+        .GetProductsByCatCode(this.selectedCatCode)
         .subscribe((productlist) => (this.Products = productlist));
     });
   }
@@ -43,31 +39,22 @@ export class CategoryProductsComponent implements OnInit {
     this.productSize = event.target.value;
     this.page = 1;
   }
-  SreachText:string="";
+  SreachText: string = "";
 
-  onSearchTextEnterd(searchvalue:string){
-    this.SreachText=searchvalue;
+  onSearchTextEnterd(searchvalue: string) {
+    this.SreachText = searchvalue;
 
-    console.log(this.SreachText)
+    console.log(this.SreachText);
 
-      if(this.SreachText !==""){
-
-        console.log(this.SreachText)
-        this.Products = this.Products.filter(p=>p.name?.toLowerCase().includes(this.SreachText))
-      ||this.Products.filter(p=>p.description?.toLowerCase().includes(this.SreachText))
-
-
-
-      }else{
-        this.productsService.GetAllProducts().subscribe((productlist) => {
-          this.Products = productlist
+    if (this.SreachText !== "") {
+      console.log(this.SreachText);
+      this.Products =
+        this.Products.filter((p) => p.name?.toLowerCase().includes(this.SreachText)) ||
+        this.Products.filter((p) => p.description?.toLowerCase().includes(this.SreachText));
+    } else {
+      this.productsService.GetAllProducts().subscribe((productlist) => {
+        this.Products = productlist;
+      });
     }
-    );
-      }
-
-
-
-
-    }
-
+  }
 }

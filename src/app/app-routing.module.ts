@@ -25,7 +25,7 @@ const routes: Routes = [
   { path: "egypt-en/cart/order", component: OrderComponent },
   { path: "egypt-en/cart/order/payment", component: PaymentComponent },
   { path: "egypt-en/cart", component: CartComponent },
-  { path: "Category/:cid", component: CategoryProductsComponent },
+  { path: "egypt-en/:cCode", component: CategoryProductsComponent },
   { path: "**", component: NotFoundComponent },
 ];
 
