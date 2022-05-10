@@ -40,11 +40,11 @@ export class CartComponent implements OnInit {
         },
         () => {
           Swal.fire(
-            'Deleting this item succesfully from Cart!',
-            'You clicked the button!',
+            'Product deleted from your cart!',
+            'Click the button to continue',
             'success'
           ).then(()=>{
-            this.route.navigateByUrl("/egypet-en/cart");
+            this.route.navigateByUrl("/egypt-en/cart");
           this.ngOnInit(); // i love you
           })
         }
@@ -55,11 +55,11 @@ export class CartComponent implements OnInit {
         JSON.stringify(this.LocalStorageProducts.filter((p) => p.product.id != ProductID))
       );
     }
-    window.location.reload();
+
   }
 
   CheckOut() {
-    console.log("Hamada");
+
     this.route.navigateByUrl("egypt-en/cart/order");
   }
 }
