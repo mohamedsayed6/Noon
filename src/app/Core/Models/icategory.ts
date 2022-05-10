@@ -1,7 +1,12 @@
+import { IBrand } from "./ibrand";
+
 export interface ICategory {
   id: number;
-  name: string;
   code: string;
-  cartParentId: string;
+  name: string;
   nameAr: string;
+  isTop: boolean;
+  parentId?: number;
+  brands?: IBrand[];
+  childrens?: ICategory[];
 }
