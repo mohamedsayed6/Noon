@@ -4,6 +4,7 @@ import { Observable } from "rxjs";
 import { Iorder } from "../../Core/Models/iorder";
 import { environment } from "src/environments/environment";
 import { PaymentMethod } from "../Enums/payment-method";
+import { OrderVM } from "../Models/view models/OrderVM/order-vm";
 
 
 @Injectable({
@@ -42,6 +43,11 @@ export class OrderService {
     return this.httpclient.post(`${environment.APIBaseURL}/api/Order/Add?PaymentMethod=${payment}&addressId=${addressId}`,addressId);
 
 
+  }
+
+  GetAll():Observable<OrderVM[]>
+  {
+    return this.httpclient.get<OrderVM[]>(`${environment.APIBaseURL}/api/Order/GetAll`);
   }
 
 

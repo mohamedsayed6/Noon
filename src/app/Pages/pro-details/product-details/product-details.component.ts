@@ -153,8 +153,8 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //=============================================================Mohamed Changes=====================================================
   //Add Product To LocalStorage/Database
   AddToCart() {
-    if (localStorage.getItem("currentUser")) {
-      this._cartService.addToCart(this.selectedProduct.id, this.ProductQuantity).subscribe(
+      if (localStorage.getItem("currentUser")) {
+        this._cartService.addToCart(this.selectedProduct.id, this.ProductQuantity).subscribe(
 
         (next) => {},
         (err) => {
@@ -171,11 +171,10 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
           })}
 
 
-      );
+        );}
 
 
-
-    } else {
+      else {
       this.CartProduct.product = this.selectedProduct;
       this.CartProduct.quantity = this.ProductQuantity;
 
@@ -193,7 +192,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
         localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
         localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
       }
-    }
+      }
   }
 
   AddToWishList() {

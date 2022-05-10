@@ -27,18 +27,14 @@ export class AllProductsComponent implements OnInit, OnChanges {
     this.productsService.GetAllProducts().subscribe((productlist) => {
       this.Products = productlist;
       if(this.Products !=null){
-        this.isspener=true
-        document.getElementById("popo")!.style.display ="none";
+        this.isspener=false
+        document.getElementById("pop")!.style.display ="none";
       }
-    },
+    }
 
     );
 
-   var thiss=this;
-   setInterval(function(){
-     thiss.isspener=false
-     document.getElementById("pop")!.style.display ="none";
-   },4000)
+
   }
 
   onDataChange(event: any) {
@@ -60,7 +56,7 @@ export class AllProductsComponent implements OnInit, OnChanges {
       this.Products =
         this.Products.filter((p) => p.name?.toLowerCase().includes(this.SreachText)) ||
         this.Products.filter((p) => p.description?.toLowerCase().includes(this.SreachText))
-       
+
 
       console.log(this.Products);
     } else {
