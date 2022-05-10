@@ -2,11 +2,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
 import { environment } from "src/environments/environment";
-import { Iuser } from "../../Core/Models/iuser";
-import { IAddress } from "../Models/iaddress";
 
 import { UserAddress } from "../Models/user-address";
-
 
 @Injectable({
   providedIn: "root",
@@ -19,37 +16,37 @@ export class UserService {
     };
   }
 
- 
- 
- deleteAddress(address: UserAddress){
-  return this.httpclient.post<UserAddress>(`${environment.APIBaseURL}/users/DeleteAddress`, JSON.stringify(address));
- }
-  
+  ///Mohamed
+  //Addresses Methods
+
+  GetAllAddress(): Observable<UserAddress[]> {
+    return this.httpclient.get<UserAddress[]>(`${environment.APIBaseURL}/api/User/Addresses`);
+  }
+
   addAddress(address: UserAddress): Observable<UserAddress> {
-    return this.httpclient.post<UserAddress>(`${environment.APIBaseURL}/users/AddAddress`, JSON.stringify(address));
+    return this.httpclient.post<UserAddress>(`${environment.APIBaseURL}/api/User/AddAddress`, address, this.httpoption);
   }
 
   UpdateAddress(address: UserAddress): Observable<UserAddress> {
-    return this.httpclient.put<UserAddress>(`${environment.APIBaseURL}/users/UpdateAddress`, JSON.stringify(address));
-
+    return this.httpclient.put<UserAddress>(`${environment.APIBaseURL}/api/User/UpdateAddress`, address);
   }
 
-///Mohamed
-//Getting User Addresses from Api
+  // setPrimaryAddress(addressId: number): void {
+  //   this.httpclient.put(`${environment.APIBaseURL}/users/ChangeAddress?addId=${addressId}`, null);
+  // }
 
-  GetAllAddress(): Observable<UserAddress[]> {
-    return this.httpclient.get<UserAddress[]>(`${environment.APIBaseURL}/api/User/Addresess`);
-
+  deleteAddress(addressId: number) {
+    return this.httpclient.delete<UserAddress>(
+      `${environment.APIBaseURL}/api/User/DeleteAddress?addressId=${addressId}`
+    );
   }
-  ChangeAddress(address: UserAddress[]): Observable<UserAddress[]> {
-    return this.httpclient.put<UserAddress[]>(`${environment.APIBaseURL}/users/ChangeAddress`, JSON.stringify(address));
+  //Password Methods
+  updatePassword(old_Password: string, new_Password: string) {
+    let passObj = { oldPassword: old_Password, newPassword: new_Password };
+    return this.httpclient.put(`${environment.APIBaseURL}/api/User/UpdatePassword`, passObj);
   }
-  obj:any={}
-  updatePassword(old_Password:string,new_Password:string) {
-    this.obj={oldPassword:old_Password,newPassword:new_Password}
-    return this.httpclient.put(`${environment.APIBaseURL}/users/UpdatePassword`,this.obj);
-  }
-  updateGeneralInfo(first: string,last:string) {
-    return this.httpclient.put(`${environment.APIBaseURL}/users/UpdateName?first=${first}&last=${last}`,null);
+  //General Methods
+  updateGeneralInfo(first: string, last: string) {
+    return this.httpclient.put(`${environment.APIBaseURL}/api/User/UpdateUserName?first=${first}&last=${last}`, null);
   }
 }

@@ -1,10 +1,8 @@
-import { Iorder } from './iorder';
-import { Iuser } from './iuser';
-
 export interface UserAddress {
-  id: number;
-  street: string;
   city: string;
+  street: string;
   postalCode: number;
+  id: number;
   isPrimary: boolean;
+  addressPhone: string;
 }

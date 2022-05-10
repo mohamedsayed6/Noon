@@ -1,14 +1,14 @@
-import { IAddress } from "./iaddress";
+import { UserAddress } from "src/app/Core/Models/user-address";
 
 export interface Iuser {
-    id:string,
-    FirstName:string,
-    LastName:string,
-    email:string,
-    password:string;
-    IsActive:boolean,
-    Balance:number,
-    role:string,
-    phone:string,
-    Address:IAddress[]
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  isActive: boolean;
+  balance: number;
+  role: string;
+  phone: string;
+  addresses: UserAddress[];
 }

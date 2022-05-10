@@ -1,28 +1,29 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
-import { Iuser } from 'src/app/Core/Models/iuser';
-import { UserAddress } from 'src/app/Core/Models/user-address';
-import { UserService } from 'src/app/Core/Services/user.service';
+import { Component, OnChanges, OnInit, SimpleChanges } from "@angular/core";
+import { Router } from "@angular/router";
+import { Iuser } from "src/app/Core/Models/iuser";
+import { UserAddress } from "src/app/Core/Models/user-address";
+import { UserService } from "src/app/Core/Services/user.service";
 
 @Component({
-  selector: 'app-address',
-  templateUrl: './address.component.html',
-  styleUrls: ['./address.component.scss'],
+  selector: "app-address",
+  templateUrl: "./address.component.html",
+  styleUrls: ["./address.component.scss"],
 })
 export class AddressComponent implements OnInit {
   constructor(private userservices: UserService, private route: Router) {
-    this.lang = localStorage.getItem('lang')!;
+    this.lang = localStorage.getItem("lang")!;
   }
 
   user!: Iuser;
   lang!: string;
   addresses: UserAddress[] = [
     {
-      city: '',
-      street: '',
+      city: "",
+      street: "",
       postalCode: 0,
       id: 0,
       isPrimary: true,
+      addressPhone: "",
     },
   ];
   addressId: number = 0;
@@ -44,6 +45,6 @@ export class AddressComponent implements OnInit {
 
   getAddress(addressId: number) {
     this.addressId = addressId;
-    this.route.navigateByUrl('egypt-en/cart/order/payment');
+    this.route.navigateByUrl(`egypt-en/cart/order/payment?addressId=${addressId}`);
   }
 }

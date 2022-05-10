@@ -1,102 +1,89 @@
 <app-home-header></app-home-header>
 
-<div class="container-fluid overflow-hidden ">
+<div class="container-fluid overflow-hidden">
   <div class="cartdiv">
-
-    <div class="row ">
-      <div class="col-lg-7 col-md-7  mt-4" style="margin-left: 50px;">
-
+    <div class="row">
+      <div class="col-lg-7 col-md-7 mt-4" style="margin-left: 50px;">
+        <!-- Cart -->
         <div id="cart">
-
           <div class="cart">
             <div class="header p-1" id="headercart">
               <h4>Cart</h4>
             </div>
 
-            <div *ngFor="let product of LocalStorageProducts">
-              <div class="row p-3">
-                <div class="col-lg-2">
-                  <img [src]="product.product.imageThumb" class="img-fluid">
+            <ng-container *ngIf="LocalStorageProducts != null">
+              <div *ngFor="let product of LocalStorageProducts">
+                <div class="row p-3">
+                  <div class="col-lg-2">
+                    <img [src]="product.product.imageThumb" class="img-fluid" />
+                  </div>
+
+                  <div class="col-lg-7">
+                    <p>{{lang=="en"?product.product.name:product.product.nameAr}}</p>
+                    <p>{{lang=="en"?product.product.description:product.product.descriptionAr}}</p>
+                    <p>{{product.quantity}}</p>
+                    <p>{{product.product.price}}</p>
+
+                    <button (click)="Remove(product.product.id)">{{'Cart.Remove'|translate}}</button>
+                  </div>
                 </div>
-
-
-                <div class="col-lg-7">
-                  <p>{{lang=="en"?product.product.name:product.product.nameAr}}</p>
-                  <p>{{lang=="en"?product.product.description:product.product.descriptionAr}}</p>
-                  <p>{{product.quantity}}</p>
-                  <p>{{product.product.price}}</p>
-
-                  <button (click)="Remove(product.product.id)">{{'Cart.Remove'|translate}}</button>
-
-                </div>
-
-
-
               </div>
-
-
-            </div>
+            </ng-container>
           </div>
-
         </div>
-
-       <a routerLink="/">
+        <!-- Router -->
+        <a routerLink="/">
           <button class="btn btn-outline-primary mt-4 mb-4">
             {{'Cart.ContinueShopping'|translate}}
           </button>
         </a>
-
-
-
-        <app-wish-list></app-wish-list>
+        <!-- Wishlist -->
+        <app-wish-list *ngIf="isLogged"></app-wish-list>
       </div>
-
-
-
-      <div class="col-lg-4 col-md-4 mt-4 ">
-        <!-- <app-order-summry></app-order-summry> -->
-
-
+      <div class="col-lg-4 col-md-4 mt-4">
         <div class="rightside p-4">
           <h5>Order Summary</h5>
           <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="code cepon or Gift card" aria-label="Recipient's username" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">Apply</button>
-              </div>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="code cepon or Gift card"
+              aria-label="Recipient's username"
+              aria-describedby="basic-addon2"
+            />
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="button">Apply</button>
             </div>
-             <div class="row">
-                 <div class="col-8">
-                      <p class="mt-4">subtotal(1 item)</p>
-                      <p class="mt-4">Shipping <a href="#">Detials</a></p>
-                 </div>
-                 <div class="col-4">
-                  <p class="mt-4">Egy 56000,00</p>
-                  <p class="mt-4">Free</p>
-               </div>
-
-             </div>
-             <hr>
-             <div class="row">
-              <div class="col-8">
-                   <p class="mt-4">Total(inclusive of Vat)</p>
-              </div>
-              <div class="col-4">
-               <p class="mt-4">Egy 56000,00</p>
-              </div>
-              <div class="col-12 text-center">
-                    <img src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg">
-                    <p class="d-inline">Monthly payment plans from EGP 500</p>
-                   <button class="w-75 btn btn-primary" [disabled]="LocalStorageProducts.length==0" (click)="CheckOut()" >Check OUT</button>
-              </div>
-
           </div>
+          <div class="row">
+            <div class="col-8">
+              <p class="mt-4">subtotal(1 item)</p>
+              <p class="mt-4">Shipping <a href="#">Detials</a></p>
+            </div>
+            <div class="col-4">
+              <p class="mt-4">Egy 56000,00</p>
+              <p class="mt-4">Free</p>
+            </div>
+          </div>
+          <hr />
 
-
+          <div class="row">
+            <div class="col-8">
+              <p class="mt-4">Total(inclusive of Vat)</p>
+            </div>
+            <div class="col-4">
+              <p class="mt-4">Egy 56000,00</p>
+            </div>
+            <div class="col-12 text-center">
+              <img src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg" />
+              <p class="d-inline">Monthly payment plans from EGP 500</p>
+              <button class="w-75 btn btn-primary" [disabled]="LocalStorageProducts.length==0" (click)="CheckOut()">
+                Check OUT
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-
-      </div>
-
     </div>
   </div>
+</div>
