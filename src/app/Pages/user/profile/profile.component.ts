@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Iuser } from "src/app/Core/Models/iuser";
 import { UserService } from "src/app/Core/Services/user.service";
-
+import Swal from 'sweetalert2'
 @Component({
   selector: "app-profile",
   templateUrl: "./profile.component.html",
@@ -29,8 +29,15 @@ export class ProfileComponent implements OnInit {
         console.log(err);
       },
       complete: () => {
-        this.route.navigateByUrl("/user/profile");
-        this.ngOnInit(); // i love you
+        Swal.fire(
+          'update General Information succesfully!',
+          'You clicked the button!',
+          'success'
+        ).then(()=>{
+          this.route.navigateByUrl("/user/profile");
+          this.ngOnInit(); // i love you
+        })
+      
       },
     });
   }
@@ -53,9 +60,16 @@ export class ProfileComponent implements OnInit {
         console.log(err);
       },
       complete: () => {
-        this.divhide();
+        Swal.fire(
+          'change Password succesfully!',
+          'You clicked the button!',
+          'success'
+        ).then(()=>{
+          this.divhide();
         this.route.navigateByUrl("/user/profile");
         this.ngOnInit(); // i love you
+        })
+       
       },
     });
   }

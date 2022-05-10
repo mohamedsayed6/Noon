@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { IwishList } from "src/app/Core/Models/iwish-list-";
 import { ProductsService } from "src/app/Core/Services/products.service";
 import { WishListService } from "src/app/Core/Services/wish-list.service";
+import Swal from "sweetalert2";
 @Component({
   selector: "app-wish-list",
   templateUrl: "./wish-list.component.html",
@@ -32,8 +33,15 @@ export class WishListComponent implements OnInit {
         },
         () => {
           
-          this._route.navigateByUrl("/egypet-en/cart");
+          Swal.fire(
+            'Deleting this item succesfully from wishList!',
+            'You clicked the button!',
+            'success'
+          ).then(()=>{
+            this._route.navigateByUrl("/egypet-en/cart");
           this.ngOnInit(); // i love you
+          })
+        
         }
        
       );

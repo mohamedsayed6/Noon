@@ -35,6 +35,7 @@ export function userHttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: "en",
     }),
+    
   ],
 })
 export class UserRoutingModule {}

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { ICartProduct } from "src/app/Core/Models/icart-product";
 import { CartService } from "src/app/Core/Services/cart.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-cart",
@@ -38,9 +39,14 @@ export class CartComponent implements OnInit {
           console.log(err);
         },
         () => {
-          
-          this.route.navigateByUrl("/egypet-en/cart");
+          Swal.fire(
+            'Deleting this item succesfully from Cart!',
+            'You clicked the button!',
+            'success'
+          ).then(()=>{
+            this.route.navigateByUrl("/egypet-en/cart");
           this.ngOnInit(); // i love you
+          })
         }
       );
     } else {

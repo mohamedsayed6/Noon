@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import {UserAddress} from "src/app/Core/Models/user-address"
 import { Iuser } from "src/app/Core/Models/iuser";
 import { UserService } from "src/app/Core/Services/user.service";
-
+import Swal from 'sweetalert2'
 @Component({
   selector: "app-address",
   templateUrl: "./address.component.html",
@@ -27,6 +27,7 @@ export class AddressComponent implements OnInit {
     });
   }
   showdivAdd() {
+    
     let div = document.getElementById("addAddress");
     div?.classList.remove("d-none");
     document.getElementById("pop")?.classList.add("pop");
@@ -43,6 +44,7 @@ export class AddressComponent implements OnInit {
     document.getElementById("pop")?.classList.add("pop");
   }
   divhideAdd() {
+   
     let div = document.getElementById("addAddress");
     div?.classList.add("d-none");
     document.getElementById("pop")?.classList.remove("pop");
@@ -66,9 +68,16 @@ export class AddressComponent implements OnInit {
         console.log(err);
       },
       complete: () => {
-        this.divhideAdd();
+        Swal.fire(
+          'add successfuuly!',
+          'You clicked the button!',
+          'success'
+        ).then(()=>{
+          this.divhideAdd();
         this.route.navigateByUrl("/user/Address");
         this.ngOnInit(); // i love you
+        })
+        
       },
     });
   }
@@ -83,9 +92,16 @@ export class AddressComponent implements OnInit {
         console.log(err);
       },
       () => {
-        this.divhideupdate();
-        this.route.navigateByUrl("/user/Address");
-        this.ngOnInit(); // i love you
+        Swal.fire(
+          'update Primary Address succesfully!',
+          'You clicked the button!',
+          'success'
+        ).then(()=>{
+          this.divhideupdate();
+          this.route.navigateByUrl("/user/Address");
+          this.ngOnInit(); // i love you
+        })
+      
       }
     );
   }
@@ -97,8 +113,15 @@ export class AddressComponent implements OnInit {
         console.log(err);
       },
       () => {
-        this.route.navigateByUrl("/user/Address");
-        this.ngOnInit(); // i love you
+        Swal.fire(
+          'Deleteing successfuuly!',
+          'You clicked the button!',
+          'success'
+        ).then(()=>{
+          this.route.navigateByUrl("/user/Address");
+          this.ngOnInit(); // i love you
+        })
+     
       }
     );
   }
@@ -113,9 +136,16 @@ export class AddressComponent implements OnInit {
         console.log(err);
       },
       () => {
-        this.divhideupdate();
-        this.route.navigateByUrl("/user/Address");
-        this.ngOnInit(); // i love you
+        Swal.fire(
+          'Updating successfuuly!',
+          'You clicked the button!',
+          'success'
+        ).then(()=>{
+          this.divhideupdate();
+          this.route.navigateByUrl("/user/Address");
+          this.ngOnInit(); // i love you
+        })
+       
       }
     );
   }
