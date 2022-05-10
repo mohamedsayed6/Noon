@@ -14,12 +14,13 @@ import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { TranslateModule } from "@ngx-translate/core";
 import { StringLengthPipe } from "src/app/Core/Pipes/string-length.pipe";
 import { NameStringLengthPipe } from "src/app/Core/Pipes/name-string-length.pipe";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 export function userHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 @NgModule({
   declarations: [HomeComponent, CategoryProductsComponent, AllProductsComponent, AfterDiscountPricePipe,StringLengthPipe,NameStringLengthPipe],
-  imports: [CommonModule, HomeRoutingModule, SharedModule, RouterModule, NgxPaginationModule,
+  imports: [CommonModule, HomeRoutingModule, SharedModule, RouterModule, NgxPaginationModule,MatProgressSpinnerModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateModule,

@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Iorder } from "../../Core/Models/iorder";
 import { environment } from "src/environments/environment";
+import { PaymentMethod } from "../Enums/payment-method";
 
 
 @Injectable({
@@ -33,13 +34,16 @@ export class OrderService {
   }
 
 
-  PlaceOrder(payment:boolean,addressId:string)
+
+
+  PlaceOrder(payment:PaymentMethod,addressId:string)
   {
 
-    return this.httpclient.post(`http://localhost:23146/api/Order/Add?payment=${payment}&addressId=${addressId}`,0);
+    return this.httpclient.post(`${environment.APIBaseURL}/api/Order/Add?PaymentMethod=${payment}&addressId=${addressId}`,addressId);
 
 
   }
+
 
 
 

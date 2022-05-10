@@ -16,6 +16,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { UserFooterComponent } from "../user-footer/user-footer.component";
 import { UserHearderComponent } from "../user-hearder/user-hearder.component";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 export function userHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -27,6 +28,7 @@ export function userHttpLoaderFactory(http: HttpClient) {
   imports: [
     CommonModule,
     UserRoutingRoutingModule,
+    MatProgressSpinnerModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateModule,
@@ -37,5 +39,6 @@ export function userHttpLoaderFactory(http: HttpClient) {
     }),
     
   ],
+  exports:[MatProgressSpinnerModule]
 })
 export class UserRoutingModule {}

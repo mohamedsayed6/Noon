@@ -10,6 +10,7 @@ import { WishListService } from "src/app/Core/Services/wish-list.service";
 import { isNull } from "@angular/compiler/src/output/output_ast";
 import { CartService } from "src/app/Core/Services/cart.service";
 import { Iuser } from "src/app/Core/Models/iuser";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-product-details",
@@ -153,7 +154,27 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //Add Product To LocalStorage/Database
   AddToCart() {
     if (localStorage.getItem("currentUser")) {
-      this._cartService.addToCart(this.selectedProduct.id, this.ProductQuantity).subscribe();
+      this._cartService.addToCart(this.selectedProduct.id, this.ProductQuantity).subscribe(
+
+        (next) => {},
+        (err) => {
+          console.log(err);
+        },
+        () => {
+          Swal.fire(
+            'Product added to your cart',
+            'Click the button to see you cart',
+            'success'
+          ).then(()=>{
+            this._router.navigateByUrl("/egypt-en/cart");
+            this.ngOnInit(); // i love you
+          })}
+
+
+      );
+
+
+
     } else {
       this.CartProduct.product = this.selectedProduct;
       this.CartProduct.quantity = this.ProductQuantity;

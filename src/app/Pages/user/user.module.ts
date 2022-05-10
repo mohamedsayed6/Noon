@@ -13,12 +13,14 @@ import { HttpClient } from "@angular/common/http";
 import { UserHearderComponent } from './user-hearder/user-hearder.component';
 import { UserFooterComponent } from './user-footer/user-footer.component';
 import { PaymentComponent } from './payment/payment.component';
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 
 export function userHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
 
 @NgModule({
+
   declarations: [
   
   
@@ -29,6 +31,7 @@ export function userHttpLoaderFactory(http: HttpClient) {
     RouterModule,
     FormsModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateModule,
@@ -38,6 +41,6 @@ export function userHttpLoaderFactory(http: HttpClient) {
       defaultLanguage: "ar",
     }),
   ],
-  exports: [RouterModule],
+  exports: [RouterModule,MatProgressSpinnerModule],
 })
 export class UserModule {}
