@@ -18,12 +18,19 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem("currentUser")!);
   }
-  UpdateGenral(first: any, last: any) {
-    this.user.firstName = first;
-    this.user.lastName = last;
+  UpdateGenral(first: string, last: string) {
     this.userservice.updateGeneralInfo(first, last).subscribe({
-      next: (pro) => {
-        this.route.navigateByUrl("/profile");
+      next: () => {
+        this.user.firstName = first;
+        this.user.lastName = last;
+        localStorage.setItem("currentUser", JSON.stringify(this.user));
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.route.navigateByUrl("/user/profile");
+        this.ngOnInit(); // i love you
       },
     });
   }
@@ -41,8 +48,14 @@ export class ProfileComponent implements OnInit {
   }
   updatePassword(cpass: any, newpass: any) {
     this.userservice.updatePassword(cpass, newpass).subscribe({
-      next: (pro) => {
-        this.route.navigateByUrl("/profile");
+      next: () => {},
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.divhide();
+        this.route.navigateByUrl("/user/profile");
+        this.ngOnInit(); // i love you
       },
     });
   }

@@ -11,6 +11,7 @@ import { UserService } from "src/app/Core/Services/user.service";
 })
 export class AddressComponent implements OnInit {
   user!: Iuser;
+  address: UserAddress = { id: 0, city: "", street: "", postalCode: 0, isPrimary: false, addressPhone: "" };
   Addresses!: UserAddress[];
 
   lang!: string;
@@ -19,11 +20,10 @@ export class AddressComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let userid = JSON.parse(localStorage.getItem("currentUser")!);
-    console.log(userid);
-
     this.userservice.GetAllAddress().subscribe((_address) => {
+      this.user = JSON.parse(localStorage.getItem("currentUser")!);
       this.Addresses = _address;
+      console.log(this.Addresses);
     });
   }
   showdivAdd() {
@@ -32,7 +32,12 @@ export class AddressComponent implements OnInit {
     document.getElementById("pop")?.classList.add("pop");
   }
   showdivupdate(id: number) {
-    this.address = this.Addresses.find((a) => (a.id = id))!;
+    let add = this.Addresses.find((a) => a.id == id);
+    if (add != null) {
+      this.address = add;
+    }
+    console.log(this.Addresses);
+    console.log(id);
     let div = document.getElementById("updateAddress");
     div?.classList.remove("d-none");
     document.getElementById("pop")?.classList.add("pop");
@@ -47,40 +52,71 @@ export class AddressComponent implements OnInit {
     div?.classList.add("d-none");
     document.getElementById("pop")?.classList.remove("pop");
   }
-  address!: UserAddress;
-  addAddress(_city: any, street: any, postal: any) {
+  addAddress(_city: any, street: any, postal: any, phone: any) {
     this.address.city = _city;
     this.address.street = street;
     this.address.postalCode = postal;
+    this.address.addressPhone = phone;
     this.userservice.addAddress(this.address).subscribe({
-      next: (pro) => {
-        this.route.navigateByUrl("/Address");
+      next: () => {
+        console.log("inside next");
+      },
+      error: (err) => {
+        console.log("inside error");
+        console.log(err);
+      },
+      complete: () => {
+        this.divhideAdd();
+        this.route.navigateByUrl("/user/Address");
+        this.ngOnInit(); // i love you
       },
     });
   }
-  change(def: boolean) {
+  change(def: boolean, id: number) {
     // this.Addresses.filter((a) => a.id != id).map((s) => (s.isPrimary = false));
     // this.Addresses.find((a) => a.id == id)!.isPrimary = !def;
-    this.address.isPrimary = def;
-    this.userservice.UpdateAddress(this.address).subscribe({
-      next: (pro) => {
-        this.route.navigateByUrl("/user/Address");
+    this.address = this.Addresses.find((a) => a.id == id)!;
+    this.address.isPrimary = true;
+    this.userservice.UpdateAddress(this.address).subscribe(
+      (next) => {},
+      (err) => {
+        console.log(err);
       },
-    });
+      () => {
+        this.divhideupdate();
+        this.route.navigateByUrl("/user/Address");
+        this.ngOnInit(); // i love you
+      }
+    );
   }
   deleteAddrsess(id: number) {
-    this.userservice.deleteAddress(id).subscribe((next) => {
-      this.route.navigateByUrl("/user/Address");
-    });
+    console.log(id);
+    this.userservice.deleteAddress(id).subscribe(
+      (next) => {},
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        this.route.navigateByUrl("/user/Address");
+        this.ngOnInit(); // i love you
+      }
+    );
   }
 
   updateAddrsess(id: any, _city: string, _street: string, postal: string) {
     this.address = this.Addresses.find((a) => a.id == id)!;
-
     this.address.city = _city;
     this.address.street = _street;
-    this.userservice.UpdateAddress(this.address).subscribe((next) => {
-      this.route.navigateByUrl("/user/Address");
-    });
+    this.userservice.UpdateAddress(this.address).subscribe(
+      (next) => {},
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        this.divhideupdate();
+        this.route.navigateByUrl("/user/Address");
+        this.ngOnInit(); // i love you
+      }
+    );
   }
 }
