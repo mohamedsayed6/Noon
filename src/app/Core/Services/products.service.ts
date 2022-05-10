@@ -19,10 +19,11 @@ export class ProductsService {
     return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?categoryId=${catid}`);
   }
 
-  GetProductById(pid: number): Observable<IProduct> {
-    return this.httpclient.get<IProduct>(`${environment.APIBaseURL}` + "/api/Products/" + pid);
+  GetProductById(id: number): Observable<IProduct> {
+    //return this.httpclient.get<IProduct>(`${environment.APIBaseURL}` + "/api/Products/" + id);
     // return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products/?id=${pid}`); //<== Query Parameter
-    // return this.httpclient.get<IProduct>(`http://localhost:3000/Products/${pid}`); //<== URL Parameter Not Query Parameter
+
+    return this.httpclient.get<IProduct>(`${environment.APIBaseURL}/api/Products/GetProductById?id=${id}`); //<== URL Parameter Not Query Parameter
   }
 //
 }

@@ -1,36 +1,72 @@
-     <div class="row">
-       
-            <div class="order p-4" id="order">
-                <h1>{{'userorder.order'|translate}}</h1>
-                <p>{{'userorder.descrip'|translate}}</p>
 
-                <div class="cart mt-4 p-4"  *ngFor="let item of orderList">
-                    <div>
-                        <div class="row">
-                            <p>{{item.id}} <time>{{item.date}}</time></p>
-                            <div class="col-lg-2 col-md-2" col-sm-2>
-                             <img src="{{item.image}}" class="img-fluid">
-                               
-                            </div>
-                            <div class="col-lg-9 col-md-9 col-sm-9">
-                                <p>{{lang=="en"? item.name:item.nameAr}}</p>
-                                <p style="color:green;">{{'userorder.Dileveried'|translate}}</p>
-                               
-                            </div>
-                           <a [routerLink]="['/egypt-en','p',item?.productId]"><button class="btn btn-outline-primary mt-4 mb-4" style="width:250px;">{{'userorder.Review'|translate}}</button></a> 
+<div class="container">
+  <div *ngFor="let item of OLs">
+<a href="" class="mb-2">
+    <div id="order">
+    <p>Order Id:   {{item.orderId}} </p>
+    <p>Order Status:
 
-                        </div>
-                      
-                        
-                    </div>
-                    
-                </div>
-            
-                
-            </div>
+      <ng-container [ngSwitch]="item.deliveryStatus">
 
-      
-     </div>
-            
+        <span *ngSwitchCase="0">Processing</span>
+        <span *ngSwitchCase="1">Shipped</span>
+        <span *ngSwitchCase="2">Delivered</span>
+        <span *ngSwitchCase="3">Cancelled</span>
+        <span *ngSwitchCase="4">Returned</span>
 
-        
+      </ng-container>
+
+      </p>
+    <p>Total Price: {{item.totalPrice}}</p>
+  </div>
+  <hr>
+</a>
+
+   </div>
+</div>
+
+
+
+
+
+<!-- <div class="pop" id="pop"> -->
+  <!-- <mat-spinner *ngIf="isspener"></mat-spinner> -->
+<!-- </div> -->
+
+<!-- <div class="row"> -->
+
+  <!-- <div class="order p-4" id="order"> -->
+    <!-- <h1>{{'userorder.order'|translate}}</h1> -->
+    <!-- <p>{{'userorder.descrip'|translate}}</p> -->
+
+
+
+
+
+    <!-- <!~~ <div class="cart mt-4 p-4"  *ngFor="let item of orderList"> ~~> -->
+    <!-- <!~~ <div> ~~> -->
+    <!-- <!~~ <div class="row"> ~~> -->
+    <!-- <!~~ <p>{{item.id}} <time>{{item.date}}</time></p> ~~> -->
+    <!-- <!~~ <div class="col-lg-2 col-md-2" col-sm-2> ~~> -->
+    <!-- <!~~ <img src="{{item.image}}" class="img-fluid"> ~~> -->
+
+    <!-- <!~~ </div> ~~> -->
+    <!-- <!~~ <div class="col-lg-9 col-md-9 col-sm-9"> ~~> -->
+    <!-- <!~~ <p>{{lang=="en"? item.name:item.nameAr}}</p> ~~> -->
+    <!-- <!~~ <p style="color:green;">{{'userorder.Dileveried'|translate}}</p> ~~> -->
+
+    <!-- <!~~ </div> ~~> -->
+    <!-- <!~~ <a [routerLink]="['/egypt-en','p',item?.productId]"><button class="btn btn-outline-primary mt-4 mb-4" style="width:250px;">{{'userorder.Review'|translate}}</button></a>  ~~> -->
+
+    <!-- <!~~ </div> ~~> -->
+
+
+    <!-- <!~~ </div> ~~> -->
+
+    <!-- <!~~ </div> ~~> -->
+
+
+  <!-- </div> -->
+
+
+<!-- </div> -->
