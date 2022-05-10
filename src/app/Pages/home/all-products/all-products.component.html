@@ -3,11 +3,9 @@
 <div class="container-fluid">
   <div class="container-fluid overflow-hidden" id="ProductList">
     <div class="row">
-      <a
-        class="product-card ms-4"
+      <a class="product-card ms-3"
         *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-        [routerLink]="['/egypt-en','p',prd?.id]"
-      >
+        [routerLink]="['/egypt-en','p',prd?.id]">
         <div>
           <div class="product-tumb">
             <img src="{{prd?.imageThumb}}" />
@@ -32,9 +30,12 @@
                     {{prd.price | afterDiscountPrice:prd.discount |currency: "EGP ":"symbol"}}
                   </span>
 
-                  <span class="text-success"> {{prd.discount*100}}% Off </span>
+
                   <br />
-                  <span class="text-decoration-line-through fw-light"> {{prd.price|currency: "EGP ":"symbol"}} </span>
+                  <span class="text-decoration-line-through fw-light" style="color: #7E859B;">
+                    {{prd.price|currency:"EGP":"symbol"}}</span>
+                  <span style="color: #5DBD32; font-weight: bold;"> {{prd.discount*100}}% OFF
+                  </span>
                 </ng-template>
 
 
@@ -48,11 +49,8 @@
     </div>
 
     <div class="page d-flex flex-row justify-content-center align-content-center">
-      <pagination-controls
-        previousLabel="{{'Pagination.Previous'|translate}}"
-        nextLabel="{{'Pagination.Next'|translate}}"
-        (pageChange)="onDataChange($event)"
-      >
+      <pagination-controls previousLabel="{{'Pagination.Previous'|translate}}"
+        nextLabel="{{'Pagination.Next'|translate}}" (pageChange)="onDataChange($event)">
       </pagination-controls>
     </div>
   </div>
