@@ -60,8 +60,14 @@ export class AllProductsComponent implements OnInit, OnChanges {
 
       console.log(this.Products);
     } else {
+      this.isspener=true
+      document.getElementById("pop")!.style.display ="block";
       this.productsService.GetAllProducts().subscribe((productlist) => {
         this.Products = productlist;
+        if(this.Products !=null){
+          this.isspener=false
+          document.getElementById("pop")!.style.display ="none";
+        }
       });
     }
   }
