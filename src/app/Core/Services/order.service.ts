@@ -18,21 +18,21 @@ export class OrderService {
     };
   }
 
-  // GetAllorders(): Observable<Iorder[]> {
-  //   return this.httpclient.get<Iorder[]>("http://localhost:3000/orders");
-  // }
+  GetAllorders(): Observable<Iorder[]> {
+    return this.httpclient.get<Iorder[]>("http://localhost:3000/orders");
+  }
 
-  // GetorderById(oid: number): Observable<Iorder> {
-  //   return this.httpclient.get<Iorder>(`http://localhost:3000/orders?id=${oid}`);
-  // }
+  GetorderById(oid: number): Observable<Iorder> {
+    return this.httpclient.get<Iorder>(`http://localhost:3000/orders?id=${oid}`);
+  }
 
-  // updateorder(order: Iorder): Observable<Iorder> {
-  //   return this.httpclient.put<Iorder>(
-  //     `http://localhost:3000/orders/${order.id}`,
-  //     JSON.stringify(order),
-  //     this.httpoption
-  //   );
-  // }
+  updateorder(order: Iorder): Observable<Iorder> {
+    return this.httpclient.put<Iorder>(
+      `http://localhost:3000/orders/${order.id}`,
+      JSON.stringify(order),
+      this.httpoption
+    );
+  }
 
   PlaceOrder(payment: PaymentMethod, addressId: string) {
     return this.httpclient.post(
