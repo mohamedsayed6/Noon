@@ -28,8 +28,8 @@ export class ProductsService {
   //#endregion
 
   //#region [Category Services]
-  GetAllCategoriesJson(): Observable<ICategory[]> {
-    return this.httpclient.get<ICategory[]>(`${environment.APIBaseURL}` + "/api/Products/GetAllCategoriesJson");
+  getTreeCategories(): Observable<ICategory[]> {
+    return this.httpclient.get<ICategory[]>(`${environment.APIBaseURL}` + "/api/Products/GetTreeCategories");
   }
 
   GetCategoryPath(catId: number): Observable<ICategory[]> {

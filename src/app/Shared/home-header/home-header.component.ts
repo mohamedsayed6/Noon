@@ -25,24 +25,24 @@ export class HomeHeaderComponent implements OnInit {
   userName!: string;
 
   constructor(
-    private CategoriesService: CategoriesServiceService,
-    private SubCategoriesService: SubCategoriesService,
+    // private CategoriesService: CategoriesServiceService,
+    // private SubCategoriesService: SubCategoriesService,
     private router: Router,
     private _dialog: MatDialog,
-    private _auth: AuthService,
-    private _cartService: CartService
-  ) {
+    private _auth: AuthService
+  ) // private _cartService: CartService
+  {
     this.localstorge = localStorage.getItem("lang")!;
   }
 
   ngOnInit(): void {
-    this.CategoriesService.GetAllCategories().subscribe((_categories) => {
-      this.Categories = _categories;
-    });
+    // this.CategoriesService.GetAllCategories().subscribe((_categories) => {
+    //   this.Categories = _categories;
+    // });
 
-    this.SubCategoriesService.GetAllSubCategories().subscribe((subcategories) => {
-      this.SubCategories = subcategories;
-    });
+    // this.SubCategoriesService.GetAllSubCategories().subscribe((subcategories) => {
+    //   this.SubCategories = subcategories;
+    // });
     //get token from localstorage
     this.token = localStorage.getItem("currentUser");
     //get user name from token
@@ -67,57 +67,6 @@ export class HomeHeaderComponent implements OnInit {
     this.router.navigate(["/"]);
     window.location.reload();
   }
-  // test Cart
-  TTest() {
-    // this._cartService.addToCart(2, 3).subscribe(
-    //   () => {
-    //     console.log("test");
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   },
-    //   () => {
-    //     console.log("test complete");
-    //   }
-    // );
-
-    // this._cartService.removeFromCart(2).subscribe(
-    //   () => {
-    //     console.log("test");
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   },
-    //   () => {
-    //     console.log("test complete");
-    //   }
-    // );
-
-    // this._cartService.updateQuantity(2, 1).subscribe(
-    //   () => {
-    //     console.log("test");
-    //   },
-    //   (err) => {
-    //     console.log(err);
-    //   },
-    //   () => {
-    //     console.log("test complete");
-    //   }
-    // );
-
-    this._cartService.getCartItems().subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        console.log("test complete");
-      }
-    );
-  }
-
   searchtext: string = "";
   @Output()
   SearchTextCganged: EventEmitter<string> = new EventEmitter<string>();

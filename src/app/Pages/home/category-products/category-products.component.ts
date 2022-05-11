@@ -16,7 +16,7 @@ export class CategoryProductsComponent implements OnInit {
   productSize: number = 20;
   productSizes: any = [5, 10, 15, 20];
   localstorge: string = "en";
-
+  categoriesJson: any = [];
   constructor(private activeRout: ActivatedRoute, private productsService: ProductsService) {
     if (localStorage.getItem("lang")) this.localstorge = localStorage.getItem("lang")!;
   }
@@ -24,7 +24,6 @@ export class CategoryProductsComponent implements OnInit {
   ngOnInit(): void {
     this.activeRout.paramMap.subscribe((paramMap) => {
       this.selectedCatCode = paramMap.get("cCode")!; //must be returned
-
       this.productsService
         .GetProductsByCatCode(this.selectedCatCode)
         .subscribe((productlist) => (this.Products = productlist));

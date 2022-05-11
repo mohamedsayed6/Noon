@@ -10,16 +10,18 @@
           <div class="col-12 ps-4">
             <ol class="list-unstyled">
               <ng-container *ngIf="productCategories.length >1">
-                <ng-container *ngFor="let cat of productCategories">
+                <ng-container *ngFor="let cat of productCategories ; let i = index ">
                   <li class="list-unstyled d-inline-block">
-                    <span class="btn text-muted px-1" (click)="goCatProducts(cat.id)">{{cat?.name}}</span
-                    ><img class="arrowCat" src="https://z.nooncdn.com/s/app/com/noon/icons/right-chevron.svg" />
+                    <span class="btn text-muted px-1" (click)="goCatProducts(cat.code)">{{cat?.name}}</span>
+                    <ng-container *ngIf="i+1< productCategories.length">
+                      <img class="arrowCat" src="https://z.nooncdn.com/s/app/com/noon/icons/right-chevron.svg" />
+                    </ng-container>
                   </li>
                 </ng-container>
               </ng-container>
-              <li class="list-unstyled d-inline-block">
+              <!-- <li class="list-unstyled d-inline-block">
                 <span class="btn text-muted px-1" (click)="goCatProducts(lastCat.id)">{{lastCat?.name}}</span>
-              </li>
+              </li> -->
             </ol>
           </div>
           <!-- Images+Product Data -->
