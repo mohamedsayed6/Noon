@@ -17,8 +17,9 @@ const routes: Routes = [
       { path: "Address", component: AddressComponent },
       { path: "profile", component: ProfileComponent },
       { path: "return", component: ReturnComponent },
-      { path: "payment", component:PaymentComponent },
+      { path: "payment", component: PaymentComponent },
     ],
+    canActivate: [AuthGuard],
   },
 ];
 
