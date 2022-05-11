@@ -9,7 +9,7 @@ export interface IProduct {
   // skuString: "";
   modelNumber: string;
   name: string;
-  nameAr: string;
+  nameArabic: string;
   price: number;
   quantity: number;
   discount: number;
