@@ -78,9 +78,9 @@
                       <span>Model Number : {{selectedProduct?.modelNumber}}</span>
                     </ng-container>
                     <span class="badge bg-success mx-1"
-                      >{{selectedProduct?.overallRating}} <i class="fa fa-star text-light"></i>
+                      >{{totalProductReviewRating}} <i class="fa fa-star text-light"></i>
                     </span>
-                    <a class="noonLink" href="#">{{selectedProduct?.reviews?.length}} Rating</a>
+                    <a class="noonLink" href="#">{{totalProductReviewCount}} Rating</a>
                   </div>
                   <!-- Was Price -->
                   <ng-container *ngIf="selectedProduct.discount<1 && selectedProduct.discount>0">
@@ -180,12 +180,11 @@
             <!-- Seller Review -->
             <div>
               <span class="me-3">Seller Reviews</span>
-              <span
-                ><i class="fa fa-star text-warning mx-1"></i><i class="fa fa-star text-warning mx-1"></i
-                ><i class="fa fa-star text-warning mx-1"></i><i class="fa fa-star text-warning mx-1"></i>
-                <i class="fa fa-star text-warning mx-1"></i> (4.5)</span
-              >
-              <span id="productCountReview" class="ms-5 fw-bold">96</span><br /><span class="text-muted"
+              <span class="badge bg-success mx-1"
+                >{{totalSellerReviewRating}} <i class="fa fa-star text-light"></i>
+              </span>
+              <span id="productCountReview" class="ms-5 fw-bold">{{totalSellerReviewCount}}</span><br /><span
+                class="text-muted"
                 >How are these calculated?
                 <img class="icon" src="https://z.nooncdn.com/s/app/com/noon/icons/help_v2.svg"
               /></span>
@@ -246,7 +245,7 @@
               >Specifications</span
             >
           </ng-container>
-          <ng-container *ngIf="selectedProduct.reviews&&selectedProduct.specifications.length >8">
+          <ng-container *ngIf="productReviews">
             <span #review id="review" class="btn fs-4" [ngClass]="{'infoLink':isReview}" (click)="showProInfo(review)"
               >Review</span
             >

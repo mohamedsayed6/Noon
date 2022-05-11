@@ -17,7 +17,7 @@ export class ReviewsComponent implements OnInit {
   constructor(private _proService: ProductsService) {}
 
   ngOnInit(): void {
-    this._proService.GetAllProductReviews(1).subscribe((data) => {
+    this._proService.GetAllProductReviews(this.chSelectedProduct.id).subscribe((data) => {
       this.productReviews = data;
       console.log(this.productReviews);
     });

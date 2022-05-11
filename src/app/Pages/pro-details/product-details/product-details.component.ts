@@ -1,3 +1,4 @@
+import { Rate } from "./../../../Core/Models/rate.enum";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProductsService } from "src/app/Core/Services/products.service";
 import { IProduct } from "src/app/Core/Models/iproduct";
@@ -7,10 +8,10 @@ import { ICategory } from "src/app/Core/Models/icategory";
 import { ICartProduct } from "src/app/Core/Models/icart-product";
 import { IwishList } from "src/app/Core/Models/iwish-list-";
 import { WishListService } from "src/app/Core/Services/wish-list.service";
-import { isNull } from "@angular/compiler/src/output/output_ast";
 import { CartService } from "src/app/Core/Services/cart.service";
 import { Iuser } from "src/app/Core/Models/iuser";
 import Swal from "sweetalert2";
+import { Ireview } from "src/app/Core/Models/ireview";
 
 @Component({
   selector: "app-product-details",
@@ -25,6 +26,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   selectedProductID!: number;
   //selected Prodeuct
   selectedProduct!: IProduct;
+  productReviews!: Ireview[];
   maxCountArr: number[] = [];
   //main product image
   mainProImg!: string;
@@ -40,6 +42,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   isOverview!: boolean;
   isSpec!: boolean;
   isReview!: boolean;
+  //Product Rating
+  totalProductReviewRating!: number;
+  totalProductReviewCount!: number;
+  //Product Rating
+  totalSellerReviewRating!: number;
+  totalSellerReviewCount!: number;
   //destroy subscription
   sub!: Subscription[];
 
@@ -91,8 +99,18 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
         this.selectedProduct = data;
 
         this._productService.GetAllProductReviews(this.selectedProduct.id).subscribe((data) => {
-          this.selectedProduct.reviews = data;
-          console.log(this.selectedProduct.reviews);
+          this.productReviews = data;
+          this.totalProductReviewCount = this.productReviews.length;
+          this.totalSellerReviewCount = this.productReviews.length;
+          let _totalProductReviewRating = 0;
+          let _totalSellerReviewRating = 0;
+          //calculate total rating of product floor to 5
+          for (let i = 0; i < this.productReviews.length; i++) {
+            _totalProductReviewRating += (this.productReviews[i].productRating + 5) / 5;
+            _totalSellerReviewRating += (this.productReviews[i].productRating + 5) / 5;
+          }
+          this.totalProductReviewRating = _totalProductReviewRating;
+          this.totalSellerReviewRating = _totalSellerReviewRating;
         });
 
         this.productId = data.id;
