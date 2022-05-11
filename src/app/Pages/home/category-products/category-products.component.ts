@@ -17,6 +17,7 @@ export class CategoryProductsComponent implements OnInit {
   productSizes: any = [5, 10, 15, 20];
   localstorge: string = "en";
   categoriesJson: any = [];
+  isspener:boolean=true
   constructor(private activeRout: ActivatedRoute, private productsService: ProductsService) {
     if (localStorage.getItem("lang")) this.localstorge = localStorage.getItem("lang")!;
   }
@@ -26,7 +27,13 @@ export class CategoryProductsComponent implements OnInit {
       this.selectedCatCode = paramMap.get("cCode")!; //must be returned
       this.productsService
         .GetProductsByCatCode(this.selectedCatCode)
-        .subscribe((productlist) => (this.Products = productlist));
+        .subscribe((productlist) =>{
+           (this.Products = productlist)
+           if(this.Products !=null){
+            this.isspener=false
+            document.getElementById("pop")!.style.display ="none";
+          }
+          });
     });
   }
 
