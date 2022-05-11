@@ -29,12 +29,14 @@ export class HomeHeaderComponent implements OnInit {
     // private SubCategoriesService: SubCategoriesService,
     private router: Router,
     private _dialog: MatDialog,
-    private _auth: AuthService
+    private _auth: AuthService,
+    private _cartService:CartService
+
   ) // private _cartService: CartService
   {
     this.localstorge = localStorage.getItem("lang")!;
   }
-
+countCart!:number
   ngOnInit(): void {
     // this.CategoriesService.GetAllCategories().subscribe((_categories) => {
     //   this.Categories = _categories;
@@ -47,6 +49,11 @@ export class HomeHeaderComponent implements OnInit {
     this.token = localStorage.getItem("currentUser");
     //get user name from token
     this.userName = JSON.parse(this.token)["firstName"];
+
+    if (localStorage.getItem("currentUser")) {
+      this._cartService.getCartItems().subscribe((prod) => (
+        this.countCart=prod.length));
+    } 
   }
 
   loclaztion(st: string) {
