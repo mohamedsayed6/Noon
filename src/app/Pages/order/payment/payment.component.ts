@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentMethod } from 'src/app/Core/Enums/payment-method';
 import { OrderService } from 'src/app/Core/Services/order.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-payment',
@@ -38,9 +39,14 @@ export class PaymentComponent implements OnInit {
           this.route.navigateByUrl('user/order');
         },
         (err: HttpErrorResponse) => {
-          alert(
-            'Error happened while proccessing your order, please try again'
-          );
+          Swal.fire(
+            'Order is not placed',
+            'Kindly call customer service for more info.',
+            'error'
+          ).then(() => {
+            this.route.navigateByUrl('/egypt-en/cart');
+            this.ngOnInit(); // i love you
+          });
         }
       );
   }
@@ -56,17 +62,26 @@ export class PaymentComponent implements OnInit {
           this.route.navigateByUrl('user/order');
         },
         (err: HttpErrorResponse) => {
-          alert(
-            'Error happened while proccessing your order, please check your balance and try again '
-          );
+          Swal.fire(
+            'Order is not placed',
+            'Kindly check your balance and try again later.',
+            'error'
+          ).then(() => {
+            this.route.navigateByUrl('/egypt-en/cart');
+            this.ngOnInit(); // i love you
+          });
         }
       );
   }
 
-  PayPal() {
+
+
+
+  PayPal(){
     this.isspener = true;
     document.getElementById('pop')!.style.display = 'block';
 
-    this.route.navigateByUrl('/PayPal');
+    this.route.navigateByUrl("/PayPal/"+this.addressId!)
+
   }
 }

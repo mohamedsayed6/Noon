@@ -22,7 +22,7 @@ const routes: Routes = [
   },
   { path: "egypt-en/p/:pid", component: ProductDetailsComponent },
   // { path: "SignIn", component: SignInComponent },
-  { path: "PayPal", component: PayPalComponent },
+  { path: "PayPal/:aid", component: PayPalComponent },
   { path: "egypt-en/cart/order", component: OrderComponent },
   { path: "egypt-en/cart/order/payment", component: PaymentComponent },
   { path: "egypt-en/cart", component: CartComponent },
