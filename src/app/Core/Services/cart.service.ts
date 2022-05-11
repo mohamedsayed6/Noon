@@ -31,4 +31,11 @@ export class CartService {
   removeFromCart(proId: number) {
     return this._api.delete(`${environment.APIBaseURL}` + `/api/Cart/Remove?proId=${proId}`);
   }
+
+
+  GetTotalPrice():Observable<number>{
+
+    return this._api.get<number>(`${environment.APIBaseURL}/api/Cart/GetCartPrice`)
+  }
+
 }

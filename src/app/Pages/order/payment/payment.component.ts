@@ -74,10 +74,14 @@ export class PaymentComponent implements OnInit {
       );
   }
 
-  PayPal() {
+
+
+
+  PayPal(){
     this.isspener = true;
     document.getElementById('pop')!.style.display = 'block';
 
-    this.route.navigateByUrl('/PayPal');
+    this.route.navigateByUrl("/PayPal/"+this.addressId!)
+
   }
 }
