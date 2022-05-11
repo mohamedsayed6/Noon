@@ -9,11 +9,9 @@
     <app-tree-categories class="col-3 bg-secondary h-100"></app-tree-categories>
     <div class="container col-9">
       <div class="row justify-content-around">
-        <a
-          class="product-card colms-4"
+        <a class="product-card colms-4"
           *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-          [routerLink]="['/egypt-en','p',prd?.id]"
-        >
+          [routerLink]="['/egypt-en','p',prd?.id]">
           <div>
             <div class="product-tumb">
               <img src="{{prd?.imageThumb}}" />
@@ -21,7 +19,7 @@
 
             <div class="product-details">
               <!-- <h5>{{localstorge=="en"?prd?.name:prd?.nameAr}}</h5> -->
-              <h5>{{(localstorge=="en"? prd.name:prd.nameAr)|stringLength}}</h5>
+              <h5>{{(localstorge=="en"? prd.name:prd.nameArabic)|stringLength}}</h5>
 
               <!-- <p>{{localstorge=="en"?prd?.description:prd?.descriptionAr}}</p> -->
 
@@ -59,11 +57,8 @@
       </div>
     </div>
     <div class="col-12 page d-flex flex-row justify-content-center align-content-center px-1 mx-0">
-      <pagination-controls
-        previousLabel="{{'Pagination.Previous'|translate}}"
-        nextLabel="{{'Pagination.Next'|translate}}"
-        (pageChange)="onDataChange($event)"
-      >
+      <pagination-controls previousLabel="{{'Pagination.Previous'|translate}}"
+        nextLabel="{{'Pagination.Next'|translate}}" (pageChange)="onDataChange($event)">
       </pagination-controls>
     </div>
   </div>
