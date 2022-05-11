@@ -104,13 +104,15 @@
                   </ng-container>
                   <!-- Note -->
                   <div class="mt-3">
-                    <span class="text-muted fs-6 me-2"><img class="icon me-2"
-                        src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg" alt="" />Monthly
-                      payment plans from EGP 244</span><a class="noonLink" href="">view details</a>
+                    <span id="monthlyPayment" style="background-color: #FCFBF5;" class="text-muted fs-6 me-2"><img
+                        class="icon me-2" src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg" alt="" />Monthly
+                      payment plans from EGP 244 <a href="">view more details</a></span>
+                    <img *ngIf="selectedProduct.isFreeDelivered" class="img-fluid ms-5"
+                      src="https://z.nooncdn.com/s/app/com/noon/images/fulfilment_express_v2-en.svg" alt="">
                   </div>
                   <!-- Gif -->
                   <div>
-                    <img class="img-fluid"
+                    <img class="img-fluid mt-2"
                       src="https://k.nooncdn.com/cms/pages/20211108/cdd08046977b5339dcbb41ad94c0577b/en_free-delivery-pdp.gif"
                       alt="" />
                   </div>
@@ -133,8 +135,8 @@
                       </div>
                       <!-- Add to Favourite -->
                       <div class="col-2">
-                        <button class="love fs-2 ps-2 btn btn-defualt" (click)="AddToWishList()">
-                          <i class="like fa-solid fa-heart" [ngClass]="{'inwishlist':isInwishlist }" value="0"></i>
+                        <button class="love fs-2 ps-2 btn btn-defualt ms-2" (click)="AddToWishList()">
+                          <i class="like fa-solid fa-heart fs-1" [ngClass]="{'inwishlist':isInwishlist }" value="0"></i>
                         </button>
                       </div>
                     </div>
