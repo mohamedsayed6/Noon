@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentMethod } from 'src/app/Core/Enums/payment-method';
@@ -32,14 +33,33 @@ export class PaymentComponent implements OnInit {
   PayCash(){
     console.log(this.addressId);
 
-     this._orderService.PlaceOrder(PaymentMethod.Cash,this.addressId!).subscribe();
-     this.route.navigateByUrl("user/order");
+     this._orderService.PlaceOrder(PaymentMethod.Cash,this.addressId!).subscribe(
+     res=>{this.route.navigateByUrl("user/order");},
+      (err:HttpErrorResponse)=>{
+        alert("Error happened while proccessing your order, please try again")
+      }
+     );
+
+
+
+  }
+
+
+  NoonBalance()
+  {
+    this._orderService.PlaceOrder(PaymentMethod.NoonBalance,this.addressId!).subscribe( res=>{this.route.navigateByUrl("user/order");},
+    (err:HttpErrorResponse)=>{
+      alert("Error happened while proccessing your order, please check your balance and try again ")
+    });
 
 
   }
 
 
   PayPal(){
+
+    this.route.navigateByUrl("/PayPal")
+
 
   }
 

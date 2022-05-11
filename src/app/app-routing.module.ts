@@ -7,6 +7,7 @@ import { CartComponent } from "./Pages/cart/cart.component";
 import { OrderComponent } from "./Pages/order/order/order.component";
 import { PaymentComponent } from "./Pages/order/payment/payment.component";
 import { CategoryProductsComponent } from "./Pages/home/category-products/category-products.component";
+import { OrderDetailsComponent } from "./Pages/user/order/order-details/order-details.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/egypt-en", pathMatch: "full" },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path: "egypt-en/cart/order/payment", component: PaymentComponent },
   { path: "egypt-en/cart", component: CartComponent },
   { path: "egypt-en/:cCode", component: CategoryProductsComponent },
+  {path:  "egypt-en/OrderDetails/:pid",component:OrderDetailsComponent},
+  { path: "ErrorPage", component: NotFoundComponent },
   { path: "**", component: NotFoundComponent },
 ];
 

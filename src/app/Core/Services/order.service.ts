@@ -5,6 +5,7 @@ import { Iorder } from "../../Core/Models/iorder";
 import { environment } from "src/environments/environment";
 import { PaymentMethod } from "../Enums/payment-method";
 import { OrderVM } from "../Models/view models/OrderVM/order-vm";
+import { OrderDetails } from "../Models/view models/OrderVM/order-details";
 
 
 @Injectable({
@@ -48,6 +49,11 @@ export class OrderService {
   GetAll():Observable<OrderVM[]>
   {
     return this.httpclient.get<OrderVM[]>(`${environment.APIBaseURL}/api/Order/GetAll`);
+  }
+
+  OrderDetails(id:string):Observable<OrderDetails>
+  {
+    return this.httpclient.get<OrderDetails>(`${environment.APIBaseURL}/api/Order/OrderDetails/?id=${id}`);
   }
 
 

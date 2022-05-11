@@ -14,6 +14,7 @@ import { UserHearderComponent } from './user-hearder/user-hearder.component';
 import { UserFooterComponent } from './user-footer/user-footer.component';
 import { PaymentComponent } from './payment/payment.component';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { OrderDetailsComponent } from './order/order-details/order-details.component';
 
 export function userHttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
@@ -24,7 +25,8 @@ export function userHttpLoaderFactory(http: HttpClient) {
   declarations: [
   
   
-    PaymentComponent
+    PaymentComponent,
+            OrderDetailsComponent
   ],
   imports: [
     CommonModule,

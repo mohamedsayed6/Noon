@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { DeliveryStatus } from "src/app/Core/Enums/delivery-status";
 import { Iorder } from "src/app/Core/Models/iorder";
+import { OrderDetails } from "src/app/Core/Models/view models/OrderVM/order-details";
 import { OrderVM } from "src/app/Core/Models/view models/OrderVM/order-vm";
 import { OrderService } from "src/app/Core/Services/order.service";
 
@@ -13,6 +14,7 @@ import { OrderService } from "src/app/Core/Services/order.service";
 export class OrderComponent implements OnInit {
   // orderList: Iorder[] = [];
   OLs:Array<OrderVM>=[]
+  OrderDetails!:OrderDetails
   lang!:string
   isspener:boolean=true
 
@@ -51,6 +53,7 @@ export class OrderComponent implements OnInit {
 
 
   }
+
 
 
 

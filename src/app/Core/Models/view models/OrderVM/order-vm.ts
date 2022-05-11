@@ -3,7 +3,7 @@ import { DeliveryStatus } from "src/app/Core/Enums/delivery-status";
 export interface OrderVM {
 
 
-  orderId:number,
+  id:number,
   deliveryStatus:DeliveryStatus,
   totalPrice:number
 
