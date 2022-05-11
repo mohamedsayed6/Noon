@@ -8,6 +8,7 @@ import { OrderComponent } from "./Pages/order/order/order.component";
 import { PaymentComponent } from "./Pages/order/payment/payment.component";
 import { CategoryProductsComponent } from "./Pages/home/category-products/category-products.component";
 import { OrderDetailsComponent } from "./Pages/user/order/order-details/order-details.component";
+import { AuthGuard } from "./Core/Guards/auth.guard";
 
 const routes: Routes = [
   { path: "", redirectTo: "/egypt-en", pathMatch: "full" },
@@ -22,12 +23,12 @@ const routes: Routes = [
   },
   { path: "egypt-en/p/:pid", component: ProductDetailsComponent },
   // { path: "SignIn", component: SignInComponent },
-  { path: "PayPal/:aid", component: PayPalComponent },
-  { path: "egypt-en/cart/order", component: OrderComponent },
-  { path: "egypt-en/cart/order/payment", component: PaymentComponent },
+  { path: "PayPal/:aid", component: PayPalComponent, canActivate: [AuthGuard] },
+  { path: "egypt-en/cart/order", component: OrderComponent, canActivate: [AuthGuard] },
+  { path: "egypt-en/cart/order/payment", component: PaymentComponent, canActivate: [AuthGuard] },
   { path: "egypt-en/cart", component: CartComponent },
-  { path: "egypt-en/:cCode", component: CategoryProductsComponent },
-  {path:  "egypt-en/OrderDetails/:pid",component:OrderDetailsComponent},
+  { path: "egypt-en/:cCode", component: CategoryProductsComponent, canActivate: [AuthGuard] },
+  { path: "egypt-en/OrderDetails/:pid", component: OrderDetailsComponent, canActivate: [AuthGuard] },
   { path: "ErrorPage", component: NotFoundComponent },
   { path: "**", component: NotFoundComponent },
 ];
