@@ -83,7 +83,11 @@
             <a class="headerLink" [routerLink]="['/egypt-en/cart']">
             
               {{'Header.Cart'|translate}} <i class="fa-solid fa-cart-shopping">
-                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" *ngIf="countCart>0">
+                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" *ngIf="countCart>0 && localstorge == 'en'">
+                  {{countCart}}
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+                <span class="position-absolute top-0 end-70 translate-middle badge rounded-pill bg-danger" *ngIf="countCart>0 && localstorge == 'ar'">
                   {{countCart}}
                   <span class="visually-hidden">unread messages</span>
                 </span>
