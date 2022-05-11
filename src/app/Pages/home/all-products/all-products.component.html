@@ -1,60 +1,65 @@
 <!-- <app-home-header></app-home-header> -->
 <div class="pop" id="pop">
-  <mat-spinner *ngIf="isspener"  ></mat-spinner>
+  <mat-spinner *ngIf="isspener"></mat-spinner>
 </div>
 <app-home-header (SearchTextCganged)="onSearchTextEnterd($event)"></app-home-header>
 <div class="container-fluid">
   <div class="container-fluid overflow-hidden" id="ProductList">
     <div class="row">
-      <a class="product-card ms-3"
-        *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
-        [routerLink]="['/egypt-en','p',prd?.id]">
-        <div>
-          <div class="product-tumb">
-            <img src="{{prd?.imageThumb}}" />
-          </div>
+      <div class="container col-12">
+        <div class="row justify-content-around">
+          <a
+            class="product-card col-lg-2 col-ms-3 col-sm-1"
+            *ngFor="let prd of Products |paginate:{itemsPerPage:productSize,currentPage:page,totalItems:count}; let i=index"
+            [routerLink]="['/egypt-en','p',prd?.id]"
+          >
+            <div>
+              <div class="product-tumb">
+                <img src="{{prd?.imageThumb}}" />
+              </div>
 
-          <div class="product-details">
-            <!-- <h5>{{localstorge=="en"?prd?.name:prd?.nameAr}}</h5> -->
-            <h5>{{(localstorge=="en"? prd.name:prd.nameAr)|stringLength}}</h5>
+              <div class="product-details">
+                <!-- <h5>{{localstorge=="en"?prd?.name:prd?.nameAr}}</h5> -->
+                <h5>{{(localstorge=="en"? prd.name:prd.nameAr)|stringLength}}</h5>
 
-            <!-- <p>{{localstorge=="en"?prd?.description:prd?.descriptionAr}}</p> -->
+                <!-- <p>{{localstorge=="en"?prd?.description:prd?.descriptionAr}}</p> -->
 
-            <div class="">
-              <div class="product-bottom-details">
-                <ng-container *ngIf="prd.discount==0;  else NoDicount">
-                  <span class="mb-5 fw-bold">
-                    {{prd.price | currency: "EGP ":"symbol"}}
-                  </span>
-                </ng-container>
+                <div class="">
+                  <div class="product-bottom-details">
+                    <ng-container *ngIf="prd.discount==0;  else NoDicount">
+                      <span class="mb-5 fw-bold">
+                        {{prd.price | currency: "EGP ":"symbol"}}
+                      </span>
+                    </ng-container>
 
-                <ng-template #NoDicount>
-                  <span class="fw-bold">
-                    {{prd.price | afterDiscountPrice:prd.discount |currency: "EGP ":"symbol"}}
-                  </span>
+                    <ng-template #NoDicount>
+                      <span class="fw-bold">
+                        {{prd.price | afterDiscountPrice:prd.discount |currency: "EGP ":"symbol"}}
+                      </span>
 
+                      <br />
+                      <span class="text-decoration-line-through fw-light" style="color: #7e859b;">
+                        {{prd.price|currency:"EGP":"symbol"}}</span
+                      >
+                      <span style="color: #5dbd32; font-weight: bold;"> {{prd.discount*100}}% OFF </span>
+                    </ng-template>
 
-                  <br />
-                  <span class="text-decoration-line-through fw-light" style="color: #7E859B;">
-                    {{prd.price|currency:"EGP":"symbol"}}</span>
-                  <span style="color: #5DBD32; font-weight: bold;"> {{prd.discount*100}}% OFF
-                  </span>
-                </ng-template>
-
-
-
-                <!-- <app-home-footer></app-home-footer> -->
+                    <!-- <app-home-footer></app-home-footer> -->
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          </a>
         </div>
-      </a>
-    </div>
-
-    <div class="page d-flex flex-row justify-content-center align-content-center">
-      <pagination-controls previousLabel="{{'Pagination.Previous'|translate}}"
-        nextLabel="{{'Pagination.Next'|translate}}" (pageChange)="onDataChange($event)">
-      </pagination-controls>
+      </div>
+      <div class="col-12 page d-flex flex-row justify-content-center align-content-center px-1 mx-0">
+        <pagination-controls
+          previousLabel="{{'Pagination.Previous'|translate}}"
+          nextLabel="{{'Pagination.Next'|translate}}"
+          (pageChange)="onDataChange($event)"
+        >
+        </pagination-controls>
+      </div>
     </div>
   </div>
 </div>
