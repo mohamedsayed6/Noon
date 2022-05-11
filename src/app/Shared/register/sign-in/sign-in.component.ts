@@ -51,17 +51,28 @@ export class SignInComponent implements OnInit {
       return;
     }
     let vmSignIn: ISignIn = { email: this.email?.value, password: this.password?.value };
-    this._auth.login(vmSignIn).subscribe((x) => {
+    this._auth.login(vmSignIn).subscribe(
+   ( next)=>{},
+   ( error)=>{
+    Swal.fire(
+      'login is invalid confiram from email and password',
+      'try again .',
+      'error'
+    )
+   },
+    ()=>{
       Swal.fire(
-        'Creating Accounting Successfully',
-        'Kindly call customer service for more info.',
+        'login  Successfully',
+        'compelet Shopping  ',
         'success'
       ).then(()=>{
         this._router.navigate(["/"]);
         window.location.reload();
       })
+    }
      
-    });
+     
+    );
   }
   goSignUp() {
     this.emmiterSignUp.emit();
