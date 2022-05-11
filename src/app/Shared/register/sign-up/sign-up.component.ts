@@ -4,6 +4,7 @@ import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { Router } from "@angular/router";
 import { ISignUp } from "src/app/Core/Models/view models/vm with request/ISign-up.vm";
 import { AuthService } from "src/app/Core/Services/auth.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-sign-up",
@@ -64,11 +65,23 @@ export class SignUpComponent implements OnInit {
     // console.log(this.vmSignUpUser);
     this._auth.register(this.vmSignUpUser).subscribe(
       (data) => {
-        location.reload();
-        this._router.navigate(["/"]);
+        Swal.fire(
+          'Creating Accounting Successfully',
+          'ok to start Shopping.',
+          'success'
+        ).then(()=>{
+          location.reload();
+        this._router.navigate(["/"])
+        })
+        ;
       },
       (err) => {
-        console.log(err);
+        Swal.fire(
+          'some error check your information and try again',
+          'close buuton to again.',
+          'error'
+        )
+        
       },
       () => {
         console.log("completed");

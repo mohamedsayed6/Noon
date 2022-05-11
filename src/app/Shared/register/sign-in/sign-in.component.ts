@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { ISignIn } from "src/app/Core/Models/view models/vm with request/ISign-in.vm";
 import { AuthService } from "src/app/Core/Services/auth.service";
+import Swal from "sweetalert2";
 
 @Component({
   selector: "app-sign-in",
@@ -51,8 +52,15 @@ export class SignInComponent implements OnInit {
     }
     let vmSignIn: ISignIn = { email: this.email?.value, password: this.password?.value };
     this._auth.login(vmSignIn).subscribe((x) => {
-      this._router.navigate(["/"]);
-      window.location.reload();
+      Swal.fire(
+        'Creating Accounting Successfully',
+        'Kindly call customer service for more info.',
+        'success'
+      ).then(()=>{
+        this._router.navigate(["/"]);
+        window.location.reload();
+      })
+     
     });
   }
   goSignUp() {
