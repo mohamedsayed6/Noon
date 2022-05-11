@@ -14,14 +14,14 @@
             <img src="{{prd?.imageThumb}}" />
           </div>
 
-          <div class="product-details text-start">
+          <div class="product-details text-start d-flex flex-column justify-content-start">
             <!-- <h5>{{localstorge=="en"?prd?.name:prd?.nameAr}}</h5> -->
             <h5 class="text-start">{{(localstorge=="en"? prd.name:prd.nameAr)|stringLength}}</h5>
 
             <!-- <p>{{localstorge=="en"?prd?.description:prd?.descriptionAr}}</p> -->
 
-            <div class="">
-              <div class="product-bottom-details">
+            <div class="text-start d-flex flex-column justify-content-start">
+              <div class="product-bottom-details text-start">
                 <ng-container *ngIf="prd.discount==0;  else NoDicount">
                   <span class="mb-5 fw-bold">
                     {{prd.price | currency: "EGP ":"symbol"}}
@@ -29,7 +29,7 @@
                 </ng-container>
 
                 <ng-template #NoDicount>
-                  <span class="fw-bold">
+                  <span class="fw-bold fs-5 text-start" style="text-align:start">
                     {{prd.price | afterDiscountPrice:prd.discount |currency: "EGP ":"symbol"}}
                   </span>
 
@@ -37,8 +37,12 @@
                   <br />
                   <span class="text-decoration-line-through fw-light" style="color: #7E859B;">
                     {{prd.price|currency:"EGP":"symbol"}}</span>
-                  <span style="color: #5DBD32; font-weight: bold;"> {{prd.discount*100}}% OFF
+                  <span style="color: #5DBD32; font-weight: bold;"> {{prd.discount*100 | number : '1.0-2'}}% OFF
                   </span>
+                  <div *ngIf="prd.isFreeDelivered">
+                    <img class="img-fluid w-25 mt-2"
+                      src="https://z.nooncdn.com/s/app/com/noon/images/fulfilment_express_v2-en.svg" alt="">
+                  </div>
                 </ng-template>
 
 

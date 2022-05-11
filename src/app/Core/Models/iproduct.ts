@@ -1,8 +1,8 @@
-import { Ispec } from "./ispec";
-import { Ihighlights } from "./ihighlights";
-import { IImage } from "./IImage";
-import { Ireview } from "./ireview";
-import { ICategory } from "./icategory";
+import { Ispec } from './ispec';
+import { Ihighlights } from './ihighlights';
+import { IImage } from './IImage';
+import { Ireview } from './ireview';
+import { ICategory } from './icategory';
 export interface IProduct {
   id: number;
   // skuId: string;
@@ -29,6 +29,7 @@ export interface IProduct {
   sellerId: string;
   sellerName: string;
   maxQuantityPerOrder: number;
+  isFreeDelivered: boolean;
   parentsCategories: ICategory[]; //will be initialized in service
   //   availableCount: number;
   //   availableColor: string;
