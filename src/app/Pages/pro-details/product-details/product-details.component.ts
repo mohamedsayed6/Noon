@@ -89,6 +89,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
       }
       this._productService.GetProductById(this.selectedProductID).subscribe((data) => {
         this.selectedProduct = data;
+
+        this._productService.GetAllProductReviews(this.selectedProduct.id).subscribe((data) => {
+          this.selectedProduct.reviews = data;
+          console.log(this.selectedProduct.reviews);
+        });
+
         this.productId = data.id;
         //set main product image
         this.mainProImg = this.selectedProduct.imageThumb;
@@ -119,6 +125,7 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
         this.productCategories.pop();
         // last Catetory
         this.lastCat = this.selectedProduct.parentsCategories[this.selectedProduct.parentsCategories.length - 1];
+
         //==============================================================
         //Mohamed Changes
         //product img
