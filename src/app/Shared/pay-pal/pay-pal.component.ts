@@ -38,12 +38,15 @@ export class PayPalComponent implements OnInit {
   this.cartservice.GetTotalPrice().subscribe(
 
     res=>{
-      this.totalPrice=res;
+      this.totalPrice=(res/20);
       console.log(this.totalPrice);
+
       render({
         id: "#myPayPAlButton",
         currency: "USD",
-        value: `${res/20}`,
+        value: `${
+          Math.round(this.totalPrice* 100) / 100
+          }`,
         onApprove: (details) => {
             this.orderservice.PlaceOrder(PaymentMethod.Paypal,this.addressID!).subscribe();
 
@@ -56,6 +59,7 @@ export class PayPalComponent implements OnInit {
 
             })
         }
+
       });
     }
   )
