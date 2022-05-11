@@ -64,7 +64,7 @@ export class SignUpComponent implements OnInit {
     // console.log(this.vmSignUpUser);
     this._auth.register(this.vmSignUpUser).subscribe(
       (data) => {
-        this._router.navigate(["/login"]);
+        this._router.navigate(["/"]);
       },
       (err) => {
         console.log(err);
