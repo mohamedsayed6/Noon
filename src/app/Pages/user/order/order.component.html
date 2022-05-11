@@ -1,29 +1,61 @@
 <div class="container">
 
-  <div *ngFor="let item of OLs">
+  <h1 style="margin-bottom: -3px; font-weight: bold;">Orders</h1>
+  <h3>View your order history and check the delivery status for items</h3>
 
-    <a [routerLink]="['/egypt-en/OrderDetails',item.id]"  class="mb-2" >
-      <div id="order">
-        <p>Order Id: {{item.id}} </p>
-        <p>Order Status:
+  <div id="orderList" *ngFor="let item of OLs | paginate:{itemsPerPage:3,currentPage:page,totalItems:count}">
 
-          <ng-container [ngSwitch]="item.deliveryStatus">
+    <div>
+      <a [routerLink]="['/egypt-en/OrderDetails',item.id]" class="mb-2">
 
-            <span *ngSwitchCase="0">Processing</span>
-            <span *ngSwitchCase="1">Shipped</span>
-            <span *ngSwitchCase="2">Delivered</span>
-            <span *ngSwitchCase="3">Cancelled</span>
-            <span *ngSwitchCase="4">Returned</span>
+        <div id="order" class="d-flex">
+          <div>
+            <p>NEGDEMADNAEIM-{{item.id}} </p>
 
-          </ng-container>
+            <p id="placedOn">Placed on {{item.orderDate | date: 'dd MMM yyyy'}} </p>
 
-        </p>
-        <p>Total Price: {{item.totalPrice}}</p>
-      </div>
-      <hr>
-    </a>
+
+            <p> Order Status
+              <ng-container [ngSwitch]="item.deliveryStatus">
+                <span *ngSwitchCase="0"
+                  style="background-color: #FEEE00; color: black; padding: 3px; font-size: small; border-radius: 2px;">Processing</span>
+                <span *ngSwitchCase="1"
+                  style="background-color: #3866DF; color: white; padding: 3px; font-size: small; border-radius: 2px;">Shipped</span>
+                <span *ngSwitchCase="2"
+                  style="background-color: #38AE04; color: white; padding: 3px; font-size: small; border-radius: 2px;">Delivered</span>
+                <span *ngSwitchCase="3"
+                  style="background-color: #2D2A2E; color: white; padding: 3px; font-size: small; border-radius: 2px;">Cancelled</span>
+                <span *ngSwitchCase="4"
+                  style="background-color: #FA0000; color: white; padding: 3px; font-size: small; border-radius: 2px;">Returned</span>
+              </ng-container>
+            </p>
+
+          </div>
+          <div class="ms-auto d-flex flex-column">
+            <p class="mt-3">
+              Total price: <span class="bg-primary text-light p-2" style="border-radius: 2px;">{{item.totalPrice}}
+                EGP</span>
+            </p>
+            <p class="mt-3 d-block ms-auto text-success" style="font-size: medium; font-weight: normal;">
+              Click for more info >
+            </p>
+
+          </div>
+
+        </div>
+        <hr>
+      </a>
+    </div>
+
+
 
   </div>
+</div>
+
+<div class="page d-flex flex-row justify-content-center align-content-center mt-5">
+  <pagination-controls previousLabel="{{'Pagination.Previous'|translate}}" nextLabel="{{'Pagination.Next'|translate}}"
+    (pageChange)="onDataChange($event)">
+  </pagination-controls>
 </div>
 
 
