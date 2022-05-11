@@ -36,7 +36,18 @@ export class PaymentComponent implements OnInit {
       .PlaceOrder(PaymentMethod.Cash, this.addressId!)
       .subscribe(
         (res) => {
-          this.route.navigateByUrl('user/order');
+
+
+
+
+          Swal.fire(
+            'Order is  placed',
+            'Your order is placed and being proccessed!.',
+            'success'
+          ).then(() => {
+            this.route.navigateByUrl('user/order');
+
+          });
         },
         (err: HttpErrorResponse) => {
           Swal.fire(
@@ -45,7 +56,7 @@ export class PaymentComponent implements OnInit {
             'error'
           ).then(() => {
             this.route.navigateByUrl('/egypt-en/cart');
-            this.ngOnInit(); // i love you
+            this.ngOnInit();
           });
         }
       );
