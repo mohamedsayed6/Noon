@@ -1,21 +1,29 @@
-import { ActivatedRoute, Router } from "@angular/router";
-import { ProductsService } from "src/app/Core/Services/products.service";
-import { IProduct } from "src/app/Core/Models/iproduct";
-import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges, ViewChild } from "@angular/core";
-import { Subscription } from "rxjs";
-import { ICategory } from "src/app/Core/Models/icategory";
-import { ICartProduct } from "src/app/Core/Models/icart-product";
-import { IwishList } from "src/app/Core/Models/iwish-list-";
-import { WishListService } from "src/app/Core/Services/wish-list.service";
-import { isNull } from "@angular/compiler/src/output/output_ast";
-import { CartService } from "src/app/Core/Services/cart.service";
-import { Iuser } from "src/app/Core/Models/iuser";
-import Swal from "sweetalert2";
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProductsService } from 'src/app/Core/Services/products.service';
+import { IProduct } from 'src/app/Core/Models/iproduct';
+import {
+  Component,
+  EventEmitter,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ICategory } from 'src/app/Core/Models/icategory';
+import { ICartProduct } from 'src/app/Core/Models/icart-product';
+import { IwishList } from 'src/app/Core/Models/iwish-list-';
+import { WishListService } from 'src/app/Core/Services/wish-list.service';
+import { isNull } from '@angular/compiler/src/output/output_ast';
+import { CartService } from 'src/app/Core/Services/cart.service';
+import { Iuser } from 'src/app/Core/Models/iuser';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: "app-product-details",
-  templateUrl: "./product-details.component.html",
-  styleUrls: ["./product-details.component.scss"],
+  selector: 'app-product-details',
+  templateUrl: './product-details.component.html',
+  styleUrls: ['./product-details.component.scss'],
 })
 export class ProductDetailsComponent implements OnInit, OnChanges {
   //=============================================================Properties =================================================
@@ -83,66 +91,75 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((params) => {
       //fetch product id from url
-      let proId = params.get("pid");
+      let proId = params.get('pid');
       if (proId != null) {
         this.selectedProductID = +proId;
       }
-      this._productService.GetProductById(this.selectedProductID).subscribe((data) => {
-        this.selectedProduct = data;
-        this.productId = data.id;
-        //set main product image
-        this.mainProImg = this.selectedProduct.imageThumb;
-        //push imageThum + all imageName of product image gallery to this.proImgs
-        this.proImgs.push(this.selectedProduct.imageThumb);
-        this.selectedProduct.imagesGallery.forEach((item) => {
-          this.proImgs.push(item.imageName);
-        });
-        // maxCountArr == maxQuantityPerOrder
-        for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
-          this.maxCountArr.push(i);
-        }
-        //get product categories
-        this.productCategories = [...this.selectedProduct.parentsCategories]; //clone array
-        // remove last element from array
-        this.productCategories.pop();
-        // last Catetory
-        this.lastCat = this.selectedProduct.parentsCategories[this.selectedProduct.parentsCategories.length - 1];
-        //==============================================================
-        //Mohamed Changes
-        //product img
-        this.proImg = this.selectedProduct.imageThumb;
-      });
-    });
+      this._productService
+        .GetProductById(this.selectedProductID)
+        .subscribe((data) => {
+          this.selectedProduct = data;
+          this.productId = data.id;
+          //set main product image
+          this.mainProImg = this.selectedProduct.imageThumb;
+          //push imageThum + all imageName of product image gallery to this.proImgs
+          this.proImgs.push(this.selectedProduct.imageThumb);
+          this.selectedProduct.imagesGallery.forEach((item) => {
+            this.proImgs.push(item.imageName);
+          });
+          // maxCountArr == maxQuantityPerOrder
+          for (let i = 1; i <= this.selectedProduct.maxQuantityPerOrder; i++) {
+            this.maxCountArr.push(i);
+          }
 
-    if (localStorage.getItem("currentUser")) {
-      this.wishService.getWishListItems().subscribe((Wishlistproducts) => {
-       if(Wishlistproducts.find(w=>w.product.id==this.productId)){
-         this.isInwishlist=true
-       }
-       
-      });
-    }
+          if (localStorage.getItem('currentUser')) {
+            this.wishService
+              .getWishListItems()
+              .subscribe((Wishlistproducts) => {
+                if (
+                  Wishlistproducts.find((w) => w.product.id == this.productId)
+                ) {
+                  this.isInwishlist = true;
+                }
+              });
+          }
+
+          //get product categories
+          this.productCategories = [...this.selectedProduct.parentsCategories]; //clone array
+          // remove last element from array
+          this.productCategories.pop();
+          // last Catetory
+          this.lastCat =
+            this.selectedProduct.parentsCategories[
+              this.selectedProduct.parentsCategories.length - 1
+            ];
+          //==============================================================
+          //Mohamed Changes
+          //product img
+          this.proImg = this.selectedProduct.imageThumb;
+        });
+    });
   }
   isInwishlist!: boolean;
   //#endregion
   //=============================================================Methods=====================================================
   //#region Methods
   goCatProducts(id: number) {
-    this._router.navigate(["/egypt-en/Category", id]);
+    this._router.navigate(['/egypt-en/Category', id]);
   }
 
   showProInfo(ele: any) {
-    if (ele.id === "overview") {
+    if (ele.id === 'overview') {
       this.isOverview = true;
       this.isSpec = false;
       this.isReview = false;
     }
-    if (ele.id === "spec") {
+    if (ele.id === 'spec') {
       this.isOverview = false;
       this.isSpec = true;
       this.isReview = false;
     }
-    if (ele.id === "review") {
+    if (ele.id === 'review') {
       this.isOverview = false;
       this.isSpec = false;
       this.isReview = true;
@@ -162,51 +179,68 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
   //=============================================================Mohamed Changes=====================================================
   //Add Product To LocalStorage/Database
   AddToCart() {
-      if (localStorage.getItem("currentUser")) {
-        this._cartService.addToCart(this.selectedProduct.id, this.ProductQuantity).subscribe(
-
-        (next) => {},
-        (err) => {
-          console.log(err);
-        },
-        () => {
-          Swal.fire(
-            'Product added to your cart',
-            'Click the button to see you cart',
-            'success'
-          ).then(()=>{
-            this._router.navigateByUrl("/egypt-en/cart");
-            this.ngOnInit(); // i love you
-          })}
-
-
-        );}
-
-
-      else {
+    if (localStorage.getItem('currentUser')) {
+      this._cartService
+        .addToCart(this.selectedProduct.id, this.ProductQuantity)
+        .subscribe(
+          (next) => {},
+          (err) => {
+            console.log(err);
+          },
+          () => {
+            Swal.fire(
+              'Product added to your cart',
+              'Click the button to see you cart',
+              'success'
+            ).then(() => {
+              this._router.navigateByUrl('/egypt-en/cart');
+              this.ngOnInit(); // i love you
+            });
+          }
+        );
+    } else {
       this.CartProduct.product = this.selectedProduct;
       this.CartProduct.quantity = this.ProductQuantity;
 
-      if (localStorage.getItem("LocalStorageProducts")) {
-        this.LocalStorageProducts = JSON.parse(localStorage.getItem("LocalStorageProducts")!);
+      if (localStorage.getItem('LocalStorageProducts')) {
+        this.LocalStorageProducts = JSON.parse(
+          localStorage.getItem('LocalStorageProducts')!
+        );
 
-        if (this.LocalStorageProducts.find((p) => p.product.id == this.CartProduct.product.id)) return;
+        if (
+          this.LocalStorageProducts.find(
+            (p) => p.product.id == this.CartProduct.product.id
+          )
+        )
+          return;
 
         this.LocalStorageProducts.push(this.CartProduct);
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
       } else {
         this.LocalStorageProducts.push(this.CartProduct);
 
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
-        localStorage.setItem("LocalStorageProducts", JSON.stringify(this.LocalStorageProducts));
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
+        localStorage.setItem(
+          'LocalStorageProducts',
+          JSON.stringify(this.LocalStorageProducts)
+        );
       }
-      }
+    }
   }
 
   AddToWishList() {
-    console.log("add to wishlist");
-    if (localStorage.getItem("currentUser")) {
+    console.log('add to wishlist');
+    if (localStorage.getItem('currentUser')) {
       this.wishService.addToWishList(this.selectedProduct.id).subscribe(
         (next) => {},
         (err) => {
@@ -217,12 +251,12 @@ export class ProductDetailsComponent implements OnInit, OnChanges {
             'Product added to your Wish List',
             'Click the button to see you cart',
             'success'
-          ).then(()=>{
-            this._router.navigateByUrl("/egypt-en/cart");
+          ).then(() => {
+            this._router.navigateByUrl('/egypt-en/cart');
             this.ngOnInit(); // i love you
-          })}
+          });
+        }
       );
-     
     }
   }
   //#endregion
