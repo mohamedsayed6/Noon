@@ -58,7 +58,7 @@ export class PaymentComponent implements OnInit {
 
   PayPal(){
 
-    this.route.navigateByUrl("/PayPal")
+    this.route.navigateByUrl("/PayPal/"+this.addressId!)
 
 
   }
