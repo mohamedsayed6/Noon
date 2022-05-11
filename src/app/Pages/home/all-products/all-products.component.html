@@ -33,9 +33,8 @@
                     {{prd.price | afterDiscountPrice:prd.discount |currency: "EGP ":"symbol"}}
                   </span>
 
-                  <!-- <p>{{localstorge=="en"?prd?.description:prd?.descriptionAr}}</p> -->
 
-                  <<<<<<< HEAD <br />
+                  <br />
                   <span class="text-decoration-line-through fw-light" style="color: #7E859B;">
                     {{prd.price|currency:"EGP":"symbol"}}</span>
                   <span style="color: #5DBD32; font-weight: bold;"> {{prd.discount*100 | number : '1.0-2'}}% OFF
@@ -45,40 +44,21 @@
                       src="https://z.nooncdn.com/s/app/com/noon/images/fulfilment_express_v2-en.svg" alt="">
                   </div>
                 </ng-template>
-                =======
-                <div class="">
-                  <div class="product-bottom-details">
-                    <ng-container *ngIf="prd.discount==0;  else NoDicount">
-                      <span class="mb-5 fw-bold">
-                        {{prd.price | currency: "EGP ":"symbol"}}
-                      </span>
-                    </ng-container>
-                    >>>>>>> 7c6d3ce9cc0c6ab4b88ad7356353bcd4a0908e0e
 
-                    <ng-template #NoDicount>
-                      <span class="fw-bold">
-                        {{prd.price | afterDiscountPrice:prd.discount |currency: "EGP ":"symbol"}}
-                      </span>
 
-                      <br />
-                      <span class="text-decoration-line-through fw-light" style="color: #7e859b;">
-                        {{prd.price|currency:"EGP":"symbol"}}</span>
-                      <span style="color: #5dbd32; font-weight: bold;"> {{prd.discount*100}}% OFF </span>
-                    </ng-template>
 
-                    <!-- <app-home-footer></app-home-footer> -->
-                  </div>
-                </div>
+                <!-- <app-home-footer></app-home-footer> -->
               </div>
             </div>
+          </div>
+        </div>
       </a>
     </div>
+
+    <div class="page d-flex flex-row justify-content-center align-content-center">
+      <pagination-controls previousLabel="{{'Pagination.Previous'|translate}}"
+        nextLabel="{{'Pagination.Next'|translate}}" (pageChange)="onDataChange($event)">
+      </pagination-controls>
+    </div>
   </div>
-  <div class="col-12 page d-flex flex-row justify-content-center align-content-center px-1 mx-0">
-    <pagination-controls previousLabel="{{'Pagination.Previous'|translate}}" nextLabel="{{'Pagination.Next'|translate}}"
-      (pageChange)="onDataChange($event)">
-    </pagination-controls>
-  </div>
-</div>
-</div>
 </div>
