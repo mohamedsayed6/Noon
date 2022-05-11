@@ -1,3 +1,4 @@
+import { Ireview } from "./../Models/ireview";
 import { ICategory } from "src/app/Core/Models/icategory";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
@@ -36,6 +37,10 @@ export class ProductsService {
     return this.httpclient.get<ICategory[]>(
       `${environment.APIBaseURL}` + `/api/Products/GetCategoryPath?parentCatId=${catId}`
     );
+  }
+  //get all review for a product
+  GetAllProductReviews(proId: number): Observable<Ireview[]> {
+    return this.httpclient.get<Ireview[]>(`${environment.APIBaseURL}` + `/api/Products/GetAllProductReviews/${proId}`);
   }
   //#endregion
   //
