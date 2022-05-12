@@ -21,8 +21,8 @@
                   <div class="col-7">
                     <p>{{lang=="en"?product.product.name:product.product.nameArabic}}</p>
                     <p>{{lang=="en"?product.product.description:product.product.descriptionAr}}</p>
-                    <p>Quantity: {{product.quantity}}</p>
-                    <p>Price: {{product.product.price-(product.product.price*product.product.discount)}}</p>
+                    <p>{{'orderSummery.quantity'|translate}}: {{product.quantity}}</p>
+                    <p>{{'orderSummery.price'|translate}}: {{product.product.price-(product.product.price*product.product.discount)}}</p>
 
                   </div>
                   <div class="col-lg-3 text-center">
@@ -48,38 +48,38 @@
       </div>
       <div class="col-lg-4 col-md-4 mt-4">
         <div class="rightside p-4">
-          <h5>Order Summary</h5>
+          <h5>{{'orderSummery.OrderSummary'|translate}}</h5>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="code cepon or Gift card"
+            <input type="text" class="form-control" placeholder="{{'orderSummery.copon'|translate}}"
               aria-label="Recipient's username" aria-describedby="basic-addon2" />
             <div class="input-group-append">
-              <button class="btn btn-primary" type="button">Apply</button>
+              <button class="btn btn-primary" type="button">{{'orderSummery.applay'|translate}}</button>
             </div>
           </div>
           <div class="row">
             <div class="col-8">
-              <p class="mt-4">subtotal({{LocalStorageProducts.length}})</p>
-              <p class="mt-4">Shipping <a href="#">Detials</a></p>
+              <p class="mt-4">{{'orderSummery.subtotatl'|translate}}({{LocalStorageProducts.length}})</p>
+              <p class="mt-4">{{'orderSummery.shipping'|translate}}</p>
             </div>
             <div class="col-4">
               <p class="mt-4">Egy {{totalPrice}}</p>
-              <p class="mt-4">Free</p>
+              <p class="mt-4">{{'orderSummery.free'|translate}}</p>
             </div>
           </div>
           <hr />
 
           <div class="row">
             <div class="col-8">
-              <p class="mt-4">Total(inclusive of Vat)</p>
+              <p class="mt-4">{{'orderSummery.Total'|translate}}</p>
             </div>
             <div class="col-4">
               <p class="mt-4">Egy {{totalPrice}}</p>
             </div>
             <div class="col-12 text-center">
               <img src="https://z.nooncdn.com/s/app/com/noon/icons/emi.svg" />
-              <p class="d-inline">Monthly payment plans from EGP 500</p>
+              <p class="d-inline">{{'orderSummery.descripe'|translate}}</p>
               <button class="w-75 btn btn-primary" [disabled]="LocalStorageProducts.length==0" (click)="CheckOut()">
-                Check OUT
+                {{'orderSummery.chackOut'|translate}}
               </button>
             </div>
           </div>
