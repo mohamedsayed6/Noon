@@ -27,10 +27,10 @@ isspener:boolean=false
     });
   }
   showdivAdd() {
-   
-    
-    
-    
+
+
+
+
     let div = document.getElementById("addAddress");
     div?.classList.remove("d-none");
     document.getElementById("pop")?.classList.add("pop");
@@ -47,7 +47,7 @@ isspener:boolean=false
     document.getElementById("pop")?.classList.add("pop");
   }
   divhideAdd() {
-   
+
     let div = document.getElementById("addAddress");
     div?.classList.add("d-none");
     document.getElementById("pop")?.classList.remove("pop");
@@ -80,7 +80,7 @@ isspener:boolean=false
         this.route.navigateByUrl("/user/Address");
         this.ngOnInit(); // i love you
         })
-        
+
       },
     });
   }
@@ -104,7 +104,7 @@ isspener:boolean=false
           this.route.navigateByUrl("/user/Address");
           this.ngOnInit(); // i love you
         })
-      
+
       }
     );
   }
@@ -124,15 +124,16 @@ isspener:boolean=false
           this.route.navigateByUrl("/user/Address");
           this.ngOnInit(); // i love you
         })
-     
+
       }
     );
   }
 
-  updateAddrsess(id: any, _city: string, _street: string, postal: string) {
+  updateAddrsess(id: any, _city: string, _street: string, postal: any) {
     this.address = this.Addresses.find((a) => a.id == id)!;
     this.address.city = _city;
     this.address.street = _street;
+
     this.userservice.UpdateAddress(this.address).subscribe(
       (next) => {},
       (err) => {
@@ -148,7 +149,7 @@ isspener:boolean=false
           this.route.navigateByUrl("/user/Address");
           this.ngOnInit(); // i love you
         })
-       
+
       }
     );
   }

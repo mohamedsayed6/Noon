@@ -76,9 +76,14 @@
     "OrderSummary": "Order Summary",
     "free": "Free",
     "subtotatl": "subtotal",
-    "Total": "Total",
+    "Total": "Total (inclusive of Vat)",
     "descripe": "Monthly payment plans from EGP 500",
     "detailes": "Shipping Detials",
-    "chackOut": "Check Out"
+    "chackOut": "Check Out",
+    "applay":"Applay",
+    "copon":"code copon or Gift card",
+    "shipping":"Shipping Detials",
+    "quantity":"Quantity",
+    "price":"Price"
   }
 }
