@@ -245,7 +245,7 @@
               >Specifications</span
             >
           </ng-container>
-          <ng-container *ngIf="productReviews">
+          <ng-container *ngIf="productReviews && productReviews.length >0">
             <span #review id="review" class="btn fs-4" [ngClass]="{'infoLink':isReview}" (click)="showProInfo(review)"
               >Review</span
             >
