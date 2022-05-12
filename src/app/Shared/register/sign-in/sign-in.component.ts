@@ -1,14 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { ISignIn } from "src/app/Core/Models/view models/vm with request/ISign-in.vm";
-import { AuthService } from "src/app/Core/Services/auth.service";
-import Swal from "sweetalert2";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ISignIn } from 'src/app/Core/Models/view models/vm with request/ISign-in.vm';
+import { AuthService } from 'src/app/Core/Services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: "app-sign-in",
-  templateUrl: "./sign-in.component.html",
-  styleUrls: ["./sign-in.component.scss"],
+  selector: 'app-sign-in',
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
   //=========================================================Properties====================================
@@ -18,10 +18,14 @@ export class SignInComponent implements OnInit {
   //#endregion
   //========================================================Lifecycle Hooks==================================
   //#region Lifecycle Hooks
-  constructor(private _fb: FormBuilder, private _router: Router, private _auth: AuthService) {
+  constructor(
+    private _fb: FormBuilder,
+    private _router: Router,
+    private _auth: AuthService
+  ) {
     // redirect to home if already logged in
     if (this._auth.currentUser.isAuthenticated) {
-      this._router.navigate(["/"]);
+      this._router.navigate(['/']);
     }
   }
   ngOnDestroy(): void {
@@ -30,8 +34,8 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this._fb.group({
-      email: ["", Validators.required],
-      password: ["", Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
   //#endregion
@@ -39,10 +43,10 @@ export class SignInComponent implements OnInit {
   //#region Methods
   // convenience getter for easy access to form fields
   get email() {
-    return this.loginForm.get("email");
+    return this.loginForm.get('email');
   }
   get password() {
-    return this.loginForm.get("password");
+    return this.loginForm.get('password');
   }
 
   onSubmit() {
@@ -50,28 +54,27 @@ export class SignInComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-    let vmSignIn: ISignIn = { email: this.email?.value, password: this.password?.value };
+    let vmSignIn: ISignIn = {
+      email: this.email?.value,
+      password: this.password?.value,
+    };
     this._auth.login(vmSignIn).subscribe(
-   ( next)=>{},
-   ( error)=>{
-    Swal.fire(
-      'login is invalid confiram from email and password',
-      'try again .',
-      'error'
-    )
-   },
-    ()=>{
-      Swal.fire(
-        'login  Successfully',
-        'compelet Shopping  ',
-        'success'
-      ).then(()=>{
-        this._router.navigate(["/"]);
-        window.location.reload();
-      })
-    }
-     
-     
+      (next) => {},
+      (error) => {
+        Swal.fire(
+          'login is invalid due to wrong credentials or your account is not activated yet',
+          'try again later.',
+          'error'
+        );
+      },
+      () => {
+        Swal.fire('login  Successfully', 'compelet Shopping  ', 'success').then(
+          () => {
+            this._router.navigate(['/']);
+            window.location.reload();
+          }
+        );
+      }
     );
   }
   goSignUp() {
